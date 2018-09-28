@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkoutHelper", "WorkoutHelper\WorkoutHelper.csproj", "{71560EC4-D2AC-4806-9EBB-BB603E494FFE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkoutHelper.Tests", "WorkoutHelper.Tests\WorkoutHelper.Tests.csproj", "{D8636937-6E19-451C-8B36-ADBC1C1CEAA3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{71560EC4-D2AC-4806-9EBB-BB603E494FFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71560EC4-D2AC-4806-9EBB-BB603E494FFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71560EC4-D2AC-4806-9EBB-BB603E494FFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8636937-6E19-451C-8B36-ADBC1C1CEAA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8636937-6E19-451C-8B36-ADBC1C1CEAA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8636937-6E19-451C-8B36-ADBC1C1CEAA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8636937-6E19-451C-8B36-ADBC1C1CEAA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

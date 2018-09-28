@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Prism.Commands;
 using Prism.Mvvm;
 using WorkoutHelper.Interfaces;
 using WorkoutHelper.Models;
+
+//This is the Viewmodel for the main shell page. It acts as the binding layer between most models, services, and the view.
+// Review MVVM and WPF to read more about how it functions, but it's fairly straight forward.
 
 namespace WorkoutHelper.ViewModels
 {
@@ -14,6 +13,9 @@ namespace WorkoutHelper.ViewModels
     {
         #region Properties
 
+        /// <summary>
+        /// Visible counter for Shell Page
+        /// </summary>
         public int Counter
         {
             get => _counter;
@@ -29,6 +31,9 @@ namespace WorkoutHelper.ViewModels
 
         private int _counter;
 
+        /// <summary>
+        /// The Example Data Model from our Dataset
+        /// </summary>
         public ExampleDataModel ExampleDataModel
         {
             get => _exampleDataModel;
@@ -44,6 +49,9 @@ namespace WorkoutHelper.ViewModels
 
         private ExampleDataModel _exampleDataModel;
 
+        /// <summary>
+        /// Does the Saved Data from the Dataset Exist?
+        /// </summary>
         public bool SavedDataExists
         {
             get => _savedDataExists;
@@ -63,6 +71,9 @@ namespace WorkoutHelper.ViewModels
 
         #region IncrementCommand
 
+        /// <summary>
+        /// Command for incrementing the counter.
+        /// </summary>
         public DelegateCommand IncrementCommand { get; set; }
 
         private void IncrementCommandOnExecute()
@@ -74,6 +85,9 @@ namespace WorkoutHelper.ViewModels
 
         #region LoadCommand
 
+        /// <summary>
+        /// Loads the data from our dataset.
+        /// </summary>
         public DelegateCommand LoadCommand { get; set; }
 
         private void LoadCommandOnExecute()
@@ -91,6 +105,9 @@ namespace WorkoutHelper.ViewModels
 
         #region SaveCommand
 
+        /// <summary>
+        /// Saves the data to our dataset.
+        /// </summary>
         public DelegateCommand SaveCommand { get; set; }
 
         private void SaveCommandOnExecute()
@@ -106,10 +123,16 @@ namespace WorkoutHelper.ViewModels
 
         private readonly IExampleDataService _exampleDataService;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="exampleDataService">Data service for connecting to our data set.</param>
         public ShellViewModel(IExampleDataService exampleDataService)
         {
             _exampleDataService = exampleDataService;
 
+            // Checkout WPF and PRISM DelegateCommands and Command patterns for this. It's basically
+            // a set of functions you can bind to with buttons on the view.
             IncrementCommand = new DelegateCommand(IncrementCommandOnExecute);
             LoadCommand = new DelegateCommand(LoadCommandOnExecute);
             SaveCommand = new DelegateCommand(SaveCommandOnExecute);

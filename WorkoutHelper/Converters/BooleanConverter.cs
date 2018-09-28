@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Data;
 
+//This is a WPF converter. We will probably be writing a few of these. They act as helper classes during WPF binding.
+
+//For example, this converter is a base converter to be used to change a Boolean value to something more useful.
+
+//See BooleanToVisibilityConverter.
+
+//The reason for this is WPF will do NO IMPLICIT CONVERSION for you. This is safer, and makes you write what you mean.
+
 namespace WorkoutHelper.Converters
 {
     public class BooleanConverter<T> : IValueConverter

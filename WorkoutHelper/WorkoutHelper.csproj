@@ -117,6 +117,7 @@
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="DesignViewModels\ShellDesignViewModel.cs" />
     <Compile Include="Interfaces\IExampleDataService.cs" />
+    <Compile Include="Models\AnotherExampleDatamodel.cs" />
     <Compile Include="Models\ExampleDataModel.cs" />
     <Compile Include="Services\ExampleDataService.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
