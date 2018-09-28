@@ -4,6 +4,7 @@ using Prism.Unity;
 using WorkoutHelper.Interfaces;
 using WorkoutHelper.Services;
 using WorkoutHelper.ViewModels;
+using WorkoutHelper.Views;
 
 //This is our bootstrapper. It allows us to intercept the normal startup of the program, with a couple of small changes in App.xaml
 // and App.xaml.cs, and change how we control visuals. For a number of reasons we do not want visuals (views) to control how our app functions.

@@ -14,8 +14,8 @@ namespace WorkoutHelper.Tests.Unit.Models
         // Each testable class is to have at LEAST a set of unit tests testing the public functions. What actually defines
         // a testable class is a bit nebulous. Usually every class you make should be considered testable until proven otherwise.
         // A class becomes un-testable, from a unit test perspective, when it gets too close to IO sources in the code (aka user input, graphical rendering
-        // network, file reading). This is why we always include an extrememly thin layer (usually as a service) which acts as a tiny bit of untestable code
-        // between you and the IO sections of the code. Honestly, testing is an artform and it will take a bit to really get what you're doing. However, it's
+        // network, file reading). This is why we always include an extremely thin layer (usually as a service) which acts as a tiny bit of untestable code
+        // between you and the IO sections of the code. Honestly, testing is an art form and it will take a bit to really get what you're doing. However, it's
         // by far one of the most important skills to get, as it's the skill which real world devs wish student knew coming out of college.
 
         //This class in particular is a unit test. That term is fluid and means many things to many people. For our case I'm using the strictest definition of
