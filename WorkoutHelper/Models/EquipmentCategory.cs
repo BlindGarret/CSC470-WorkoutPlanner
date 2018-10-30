@@ -11,6 +11,5 @@ namespace WorkoutHelper.Models
         public string Name { get; set; }
 
         public bool Selected { get; set; }
-        public bool Selected { get; set; }
     }
 }

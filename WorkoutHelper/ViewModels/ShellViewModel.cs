@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Microsoft.Practices.Unity;
 using Prism.Commands;
 using Prism.Mvvm;
 using WorkoutHelper.Interfaces;
-using WorkoutHelper.Models;
 
 namespace WorkoutHelper.ViewModels
 {
@@ -11,7 +10,7 @@ namespace WorkoutHelper.ViewModels
     {
         #region Properties
 
-        public BindableBase SelectedView
+        public ITabViewComponent SelectedView
         {
             get => _selectedView;
             set
@@ -24,82 +23,54 @@ namespace WorkoutHelper.ViewModels
             }
         }
 
-        private BindableBase _selectedView;
+        private ITabViewComponent _selectedView;
 
-
-        public IReadOnlyList<BindableBase> Views { get; set; }
-
-        private bool _savedDataExists;
-
-        #endregion
-
-        #region IncrementCommand
-
-        /// <summary>
-        /// Command for incrementing the counter.
-        /// </summary>
-        public DelegateCommand IncrementCommand { get; set; }
-
-        private void IncrementCommandOnExecute()
+        public IReadOnlyList<ITabViewComponent> Views
         {
-            Counter++;
-        }
-
-        #endregion
-
-        #region LoadCommand
-
-        /// <summary>
-        /// Loads the data from our dataset.
-        /// </summary>
-        public DelegateCommand LoadCommand { get; set; }
-
-        private void LoadCommandOnExecute()
-        {
-            var data = _exampleDataService.Load();
-            ExampleDataModel = data;
-            SavedDataExists = data != null;
-            if (data != null)
+            get => _views;
+            set
             {
-                Counter = data.Value;
+                if (!Equals(_views, value))
+                {
+                    _views = value;
+                    RaisePropertyChanged(nameof(Views));
+                }
             }
         }
 
+        private IReadOnlyList<ITabViewComponent> _views;
+
         #endregion
 
-        #region SaveCommand
+        #region SelectViewCommand
 
-        /// <summary>
-        /// Saves the data to our dataset.
-        /// </summary>
-        public DelegateCommand SaveCommand { get; set; }
+        public DelegateCommand<ITabViewComponent> SelectViewCommand { get; set; }
 
-        private void SaveCommandOnExecute()
+        private void SelectViewCommandOnExecute(ITabViewComponent component)
         {
-            _exampleDataService.Save(new ExampleDataModel
-            {
-                DateTime = DateTimeOffset.Now.ToString(),
-                Value = Counter
-            });
+            SelectedView = component;
         }
 
         #endregion
-
-        private readonly IExampleDataService _exampleDataService;
-
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="exampleDataService">Data service for connecting to our data set.</param>
-        public ShellViewModel(IExampleDataService exampleDataService)
+        
+        public ShellViewModel(IUnityContainer container)
         {
-            _exampleDataService = exampleDataService;
+            SelectViewCommand = new DelegateCommand<ITabViewComponent>(SelectViewCommandOnExecute);
+            LoadViews(container);
+        }
 
-            // Checkout WPF and PRISM DelegateCommands and Command patterns for this. It's basically
-            // a set of functions you can bind to with buttons on the view.
-            IncrementCommand = new DelegateCommand(IncrementCommandOnExecute);
-            LoadCommand = new DelegateCommand(LoadCommandOnExecute);
-            SaveCommand = new DelegateCommand(SaveCommandOnExecute);
+        private void LoadViews(IUnityContainer container)
+        {
+            SelectedView = container.Resolve<DashboardViewModel>();
+            Views = new List<ITabViewComponent>
+            {
+                SelectedView,
+                container.Resolve<WorkoutViewModel>(),
+                container.Resolve<ExercisesViewModel>(),
+                container.Resolve<PlanningViewModel>(),
+                container.Resolve<WeighInViewModel>(),
+                container.Resolve<SettingsViewModel>(),
+            };
         }
     }
 }

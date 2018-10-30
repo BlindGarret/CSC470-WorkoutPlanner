@@ -8,6 +8,8 @@ namespace WorkoutHelper.DesignViewModels
     {
         #region Properties
 
+        public string PageName { get; set; }
+
         public ObservableCollection<WorkoutDay> WorkoutDays { get; set; }
 
         public ObservableCollection<WeighIn> WeighIns { get; set; }

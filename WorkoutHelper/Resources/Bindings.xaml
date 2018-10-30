@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:viewModels="clr-namespace:WorkoutHelper.ViewModels"
+                    xmlns:views="clr-namespace:WorkoutHelper.Views">
+    <DataTemplate DataType="{x:Type viewModels:DashboardViewModel}">
+        <views:DashboardView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:WorkoutViewModel}">
+        <views:WorkoutView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:ExercisesViewModel}">
+        <views:ExercisesView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:PlanningViewModel}">
+        <views:PlanningView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:WeighInViewModel}">
+        <views:WeighInView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:SettingsViewModel}">
+        <views:SettingsView/>
+    </DataTemplate>
+</ResourceDictionary>

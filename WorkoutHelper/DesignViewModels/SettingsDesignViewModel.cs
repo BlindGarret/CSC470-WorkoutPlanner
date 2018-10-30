@@ -5,11 +5,13 @@ using WorkoutHelper.Models;
 
 namespace WorkoutHelper.DesignViewModels
 {
-    public class SettingsDesignViewmodel : BindableBase
+    public class SettingsDesignViewModel : BindableBase
     {
 
         #region Properties
-        
+
+        public string PageName { get; set; }
+
         public User User { get; set; }
 
         public WeighIn WeighIn { get; set; }

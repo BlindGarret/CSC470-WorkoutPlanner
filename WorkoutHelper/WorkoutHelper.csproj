@@ -104,6 +104,46 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\ExercisesViewModel.cs" />
+    <Compile Include="ViewModels\PlanningViewModel.cs" />
+    <Compile Include="ViewModels\SettingsViewModel.cs" />
+    <Compile Include="ViewModels\WeighInViewModel.cs" />
+    <Compile Include="ViewModels\WorkoutViewModel.cs" />
+    <Compile Include="Views\ExercisesView.xaml.cs">
+      <DependentUpon>ExercisesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PlanningView.xaml.cs">
+      <DependentUpon>PlanningView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WeighInView.xaml.cs">
+      <DependentUpon>WeighInView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WorkoutView.xaml.cs">
+      <DependentUpon>WorkoutView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Resources\Bindings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DashboardView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ExercisesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PlanningView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ShellView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -117,12 +157,14 @@
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="DesignViewModels\DashboardDesignViewModel.cs" />
     <Compile Include="DesignViewModels\ExercisesDesignViewModel.cs" />
-    <Compile Include="DesignViewModels\PlanningDesignViewmodel.cs" />
+    <Compile Include="DesignViewModels\PlanningDesignViewModel.cs" />
     <Compile Include="DesignViewModels\SelectUserDesignViewModel.cs" />
     <Compile Include="DesignViewModels\SettingsDesignViewModel.cs" />
     <Compile Include="DesignViewModels\ShellDesignViewModel.cs" />
+    <Compile Include="DesignViewModels\WeighInDesignViewModel.cs" />
     <Compile Include="DesignViewModels\WorkoutDesignViewModel.cs" />
     <Compile Include="Interfaces\IExampleDataService.cs" />
+    <Compile Include="Interfaces\ITabViewComponent.cs" />
     <Compile Include="Models\AnotherExampleDatamodel.cs" />
     <Compile Include="Models\CompletionData.cs" />
     <Compile Include="Models\EquipmentCategory.cs" />
@@ -137,11 +179,23 @@
     <Compile Include="Models\WorkoutDay.cs" />
     <Compile Include="Models\WorkoutGroup.cs" />
     <Compile Include="Services\ExampleDataService.cs" />
+    <Compile Include="ViewModels\DashboardViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="Views\DashboardView.xaml.cs">
+      <DependentUpon>DashboardView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\WeighInView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WorkoutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
