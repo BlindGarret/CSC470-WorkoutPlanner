@@ -16,7 +16,7 @@ namespace WorkoutHelper.DesignViewModels
     {
         #region Properties
 
-        public double Weight { get; set; } = 200.0; //Somehow prepopulate with previous weight?
+        public double Weight { get; set; } = 200.0;
 
         #endregion
 
