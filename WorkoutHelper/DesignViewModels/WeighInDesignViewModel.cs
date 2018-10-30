@@ -16,17 +16,11 @@ namespace WorkoutHelper.DesignViewModels
     {
         #region Properties
 
-        public int Weight { get; set; } = 200; //Somehow prepopulate with previous weight?
-
-        public bool SavedDataExists { get; set; } = true;
+        public double Weight { get; set; } = 200.0; //Somehow prepopulate with previous weight?
 
         #endregion
 
         #region Commands
-
-        public DelegateCommand SlideCommand { get; set; }
-
-        public DelegateCommand LoadCommand { get; set; } //Load automatically populates weight with previous weight?
 
         public DelegateCommand SaveCommand { get; set; }
 
