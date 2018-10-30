@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Prism.Mvvm;
+using WorkoutHelper.Interfaces;
 
 namespace WorkoutHelper.ViewModels
 {
-    public class DashboardViewModel
+    public class DashboardViewModel: BindableBase, ITabViewComponent
     {
-        public string Name { get; set; } = "Dashboard";
+        public string PageName { get; set; } = "Dashboard";
     }
 }

@@ -10,6 +10,8 @@ namespace WorkoutHelper.DesignViewModels
 
         #region Properties
 
+        public string PageName { get; set; }
+
         public ObservableCollection<User> Users { get; set; }
 
         #endregion

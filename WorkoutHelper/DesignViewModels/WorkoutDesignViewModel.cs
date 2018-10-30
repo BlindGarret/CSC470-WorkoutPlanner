@@ -8,6 +8,8 @@ namespace WorkoutHelper.DesignViewModels
     {
         #region Properties
 
+        public string PageName { get; set; }
+
         public WorkoutDay WorkoutDay { get; set; }
 
         public CompletionData CurrentCompletion { get; set; }

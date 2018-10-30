@@ -5,9 +5,11 @@ using WorkoutHelper.Models;
 
 namespace WorkoutHelper.DesignViewModels
 {
-    public class ShellDesignViewModel : BindableBase
+    public class WeighInDesignViewModel : BindableBase
     {
         #region Properties
+
+        public string PageName { get; set; }
 
         public double Weight { get; set; } = 200.0; //Somehow prepopulate with previous weight?
 

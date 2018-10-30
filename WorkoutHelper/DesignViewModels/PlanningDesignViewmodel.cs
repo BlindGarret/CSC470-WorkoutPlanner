@@ -5,10 +5,12 @@ using WorkoutHelper.Models;
 
 namespace WorkoutHelper.DesignViewModels
 {
-    public class PlanningDesignViewmodel : BindableBase
+    public class PlanningDesignViewModel : BindableBase
     {
 
         #region Properties
+
+        public string PageName { get; set; }
 
         public ObservableCollection<Plan> Plans { get; set; }
 

@@ -9,6 +9,8 @@ namespace WorkoutHelper.DesignViewModels
     {
         #region Properties
 
+        public string PageName { get; set; }
+
         public ObservableCollection<Exercise> Exercises { get; set; }
 
         #endregion
