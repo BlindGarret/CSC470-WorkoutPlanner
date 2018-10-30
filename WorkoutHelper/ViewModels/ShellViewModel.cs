@@ -1,11 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using Prism.Commands;
 using Prism.Mvvm;
 using WorkoutHelper.Interfaces;
 using WorkoutHelper.Models;
-
-//This is the Viewmodel for the main shell page. It acts as the binding layer between most models, services, and the view.
-// Review MVVM and WPF to read more about how it functions, but it's fairly straight forward.
 
 namespace WorkoutHelper.ViewModels
 {
@@ -13,57 +11,23 @@ namespace WorkoutHelper.ViewModels
     {
         #region Properties
 
-        /// <summary>
-        /// Visible counter for Shell Page
-        /// </summary>
-        public int Counter
+        public BindableBase SelectedView
         {
-            get => _counter;
+            get => _selectedView;
             set
             {
-                if (_counter != value)
+                if (_selectedView != value)
                 {
-                    _counter = value;
-                    RaisePropertyChanged(nameof(Counter));
+                    _selectedView = value;
+                    RaisePropertyChanged(nameof(SelectedView));
                 }
             }
         }
 
-        private int _counter;
+        private BindableBase _selectedView;
 
-        /// <summary>
-        /// The Example Data Model from our Dataset
-        /// </summary>
-        public ExampleDataModel ExampleDataModel
-        {
-            get => _exampleDataModel;
-            set
-            {
-                if (_exampleDataModel != value)
-                {
-                    _exampleDataModel = value;
-                    RaisePropertyChanged(nameof(ExampleDataModel));
-                }
-            }
-        }
 
-        private ExampleDataModel _exampleDataModel;
-
-        /// <summary>
-        /// Does the Saved Data from the Dataset Exist?
-        /// </summary>
-        public bool SavedDataExists
-        {
-            get => _savedDataExists;
-            set
-            {
-                if (_savedDataExists != value)
-                {
-                    _savedDataExists = value;
-                    RaisePropertyChanged(nameof(SavedDataExists));
-                }
-            }
-        }
+        public IReadOnlyList<BindableBase> Views { get; set; }
 
         private bool _savedDataExists;
 
