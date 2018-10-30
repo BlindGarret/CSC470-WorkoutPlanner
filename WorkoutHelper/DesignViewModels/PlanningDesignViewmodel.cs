@@ -22,6 +22,8 @@ namespace WorkoutHelper.DesignViewModels
 
         public DelegateCommand AddGroup { get; set; }
 
+        public DelegateCommand SaveCommand { get; set; }
+
         #endregion
     }
 }
