@@ -5,7 +5,7 @@ using WorkoutHelper.Models;
 
 namespace WorkoutHelper.DesignViewModels
 {
-    public class SelectUserViewModel : BindableBase
+    public class SelectUserDesignViewModel : BindableBase
     {
 
         #region Properties
