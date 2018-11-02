@@ -9,19 +9,19 @@
              d:DataContext="{d:DesignInstance designViewModels:ExercisesDesignViewModel, IsDesignTimeCreatable=True}"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Margin="15">
-        <StackPanel>
-            <Label FontSize="24pt" HorizontalAlignment="Center" Content="{Binding PageName}"/>
-            <ItemsControl x:Name="ExercisesList" ItemsSource="{Binding Exercises}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock HorizontalAlignment="Left" Text="{Binding Path=Name}"/>
-                            <CheckBox HorizontalAlignment="Right" IsChecked="True"/>
-                            <TextBlock HorizontalAlignment="Right">Enabled</TextBlock>
-                        </StackPanel>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </StackPanel>
+        <Label Grid.Row="0" FontSize="24pt" Content="{Binding PageName}"/>
+        <ItemsControl x:Name="ExercisesList" Grid.Row="1" ItemsSource="{Binding Exercises}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Expander Grid.Column="0" Header="{Binding Name}">
+                            <TextBlock>Test</TextBlock>
+                        </Expander>
+                        <CheckBox Grid.Column="1" IsChecked="True"/>
+                        <TextBlock Grid.Column="2">Enabled</TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </Grid>
 </UserControl>
