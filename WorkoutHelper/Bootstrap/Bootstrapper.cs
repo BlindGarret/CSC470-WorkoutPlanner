@@ -47,9 +47,9 @@ namespace WorkoutHelper.Bootstrap
         {
             // Here we configure our unity container with our services.
             base.ConfigureContainer();
-
-            //This is a registration of a type, the lifetime manager makes it a singleton type so any call to resolve will return the same class.
-            Container.RegisterType<IExampleDataService, ExampleDataService>(new ContainerControlledLifetimeManager());
+            
+            Container.RegisterType<IConfigurationDataService, ConfigurationDataService>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<IDataService, DataService>(new ContainerControlledLifetimeManager());
         }
     }
 }

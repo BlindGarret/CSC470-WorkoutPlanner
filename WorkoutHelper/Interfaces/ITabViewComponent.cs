@@ -3,5 +3,7 @@
     public interface ITabViewComponent
     {
         string PageName { get; }
+
+        void TabLoaded();
     }
 }

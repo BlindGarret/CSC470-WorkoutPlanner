@@ -33,6 +33,9 @@ namespace WorkoutHelper.DesignViewModels
         private class MockViewComponent : ITabViewComponent
         {
             public string PageName { get; }
+            public void TabLoaded()
+            {
+            }
 
             public MockViewComponent(string name)
             {

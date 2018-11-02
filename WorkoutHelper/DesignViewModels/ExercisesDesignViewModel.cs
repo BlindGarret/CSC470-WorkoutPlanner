@@ -17,9 +17,9 @@ namespace WorkoutHelper.DesignViewModels
 
         #region Commands
 
-        public DelegateCommand EnableExerciseCommand { get; set; }
+        public DelegateCommand<Exercise> EnableExerciseCommand { get; set; }
 
-        public DelegateCommand DisableExerciseCommand { get; set; }
+        public DelegateCommand<Exercise> DisableExerciseCommand { get; set; }
 
         #endregion
     }
