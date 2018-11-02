@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using Prism.Commands;
 using Prism.Mvvm;
+using WorkoutHelper.Interfaces;
 using WorkoutHelper.Models;
 
 //This is not a class which really ships with the product. This is basically a stub for building UIs.
@@ -16,23 +18,26 @@ namespace WorkoutHelper.DesignViewModels
     {
         #region Properties
 
-        public int Counter { get; set; } = 0;
+        public ITabViewComponent SelectedView { get; set; } = new MockViewComponent("Dashboard");
 
-        public ExampleDataModel ExampleDataModel { get; set; } = new ExampleDataModel(){DateTime = DateTimeOffset.Now.ToString(), Value = 3};
-
-        public bool SavedDataExists { get; set; } = true;
+        public IReadOnlyList<ITabViewComponent> Views { get; set; } = new List<ITabViewComponent>() { new MockViewComponent("Dashboard"), new MockViewComponent("Another"), new MockViewComponent("And Another"), };
 
         #endregion
 
         #region Commands
 
-        public DelegateCommand IncrementCommand { get; set; }
-
-        public DelegateCommand LoadCommand { get; set; }
-
-        public DelegateCommand SaveCommand { get; set; }
+        public DelegateCommand<ITabViewComponent> SelectViewCommand { get; set; }
 
         #endregion
 
+        private class MockViewComponent : ITabViewComponent
+        {
+            public string PageName { get; }
+
+            public MockViewComponent(string name)
+            {
+                PageName = name;
+            }
+        }
     }
 }
