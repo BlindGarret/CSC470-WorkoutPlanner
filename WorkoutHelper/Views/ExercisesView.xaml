@@ -8,8 +8,20 @@
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance designViewModels:ExercisesDesignViewModel, IsDesignTimeCreatable=True}"
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Label Content="{Binding PageName}"></Label>
-            
+    <Grid Margin="15">
+        <StackPanel>
+            <Label FontSize="24pt" HorizontalAlignment="Center" Content="{Binding PageName}"/>
+            <ItemsControl x:Name="ExercisesList" ItemsSource="{Binding Exercises}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock HorizontalAlignment="Left" Text="{Binding Path=Name}"/>
+                            <CheckBox HorizontalAlignment="Right" IsChecked="True"/>
+                            <TextBlock HorizontalAlignment="Right">Enabled</TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
     </Grid>
 </UserControl>
