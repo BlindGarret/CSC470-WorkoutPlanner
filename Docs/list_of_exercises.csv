@@ -1,0 +1,96 @@
+Name,Description,ImagePath,BaseRepititions,MuscleGroup,NeedsFreeWeights,NeedsMachine
+Leg Raise Machine,,,10,Quads,0,1
+Leg Press Machine,,,10,Quads,0,1
+Squat,,,10,Quads,0,0
+Lunges,,,10,Quads,0,0
+Step Macine ,,,10,Quads,0,1
+Deadlift,,,10,Quads,1,0
+High Knees,,,10,Quads,0,0
+Biceps Curl,,,10,Biceps,1,0
+Cable Biceps Curl,,,10,Biceps,0,1
+Machine Curl Up,,,10,Biceps,0,1
+Crunches,,,10,Abs,0,0
+Weighted Sit Up ,,,10,Abs,1,0
+Plank,,,10,Abs,0,0
+Lying Touch Toe,,,10,Abs,0,0
+Lying Scissors Kick,,,10,Abs,0,0
+Mountain Climbers,,,10,Abs,0,0
+Lying Leg Raise,,,10,Abs,0,0
+Ab Machine,,,10,Abs,0,1
+Hanging Leg Raise,,,10,Abs,1,0
+Rollout,,,10,Abs,0,1
+Pull Ins ,,,10,Abs,0,0
+Cable Abduction,,,10,Abductors,0,1
+Abduction Machine,,,10,Abductors,0,1
+Standing Abduction ,,,10,Abductors,0,0
+Shrugs,,,10,Traps,1,0
+High Pull,,,10,Traps,1,0
+Snatch,,,10,Traps,1,0
+Deadlit To Shrug,,,10,Traps,1,0
+Pushdown,,,10,Triceps,0,1
+Extensions,,,10,Triceps,0,0
+Kickbacks,,,10,Triceps,0,0
+"Bench, Narrow ",,,10,Triceps,1,0
+Dips,,,10,Triceps,0,0
+Dip Machine,,,10,Triceps,0,1
+Pushup Narrow,,,10,Triceps,0,0
+Reverse Cable Fly,,,10,Triceps,0,1
+Hamstrings Machine,,,10,Hamstrings,0,1
+Pullbacks,,,10,Hamstrings,0,1
+Cable Leg Curl,,,10,Hamstrings,0,1
+Squats,,,10,Hamstrings,0,0
+Clean And Jerk,,,10,Hamstrings,1,0
+Kettelbell Handed Swing,,,10,Hamstrings,1,0
+Leg Raise,,,10,Calves,0,0
+Machine Calf Press,,,10,Calves,0,1
+Seated Calf Raise,,,10,Calves,1,0
+Burpee,,,10,Calves,0,0
+Running(Uphill),,,10,Calves,0,0
+Pull Ups,,,10,Lats,0,0
+Cable Pull Downs,,,10,Lats,0,1
+Machine Row,,,10,Lats,0,1
+Dumbbell Row,,,10,Lats,1,0
+Dumbbell Pullover,,,10,Lats,1,0
+Reverse Fly,,,10,Lats,1,0
+Hyperextension,,,10,Lower Back,0,1
+Superman,,,10,Lower Back,0,0
+Cable Pull Down,,,10,Lower Back,0,1
+Row Machine,,,10,Lower Back,0,1
+Russian Swing,,,10,Lower Back,1,0
+Deadlit,,,10,Glutes,1,0
+Flutter Kicks,,,10,Glutes,0,0
+Kick Backs,,,10,Glutes,0,0
+Hip Extension,,,10,Glutes,0,0
+Barbell Thrust,,,10,Glutes,1,0
+Running,,,10,Cardio,0,0
+Step Machine,,,10,Cardio,0,1
+Bicycle Machine,,,10,Cardio,0,1
+Elliptical Machine,,,10,Cardio,0,1
+Shoulder Press,,,10,Shoulders,1,0
+Lateral Raise,,,10,Shoulders,1,0
+Front Raise,,,10,Shoulders,1,0
+Shoulder High Pull,,,10,Shoulders,0,1
+Scarecrow,,,10,Shoulders,1,0
+Cable Rotation,,,10,Shoulders,0,1
+Barbell Snatch,,,10,Shoulders,1,0
+Clean & Jerk,,,10,Shoulders,1,0
+Cable Pull High & Low,,,10,Shoulders,0,1
+Bench Press,,,10,Chest,1,0
+Incline Bench Press,,,10,Chest,1,0
+Decline Bench Press,,,10,Chest,1,0
+Dumbbell Fly,,,10,Chest,1,0
+Fly Machine,,,10,Chest,0,1
+Cable Crossover,,,10,Chest,0,1
+Push Ups,,,10,Chest,0,0
+Cable Pullover,,,10,Chest,0,1
+Cable Lats Chest Twist,,,10,Chest,0,1
+Dumbbell Wrist Curl,,,10,Forearms,1,0
+Cable Wrist Curl ,,,10,Forearms,0,1
+Side Bend ,,,10,Obliques,1,0
+Torso Twist Machine,,,10,Obliques,0,1
+Weighted Side Bend,,,10,Obliques,1,0
+Side Bridge,,,10,Obliques,0,0
+Oblique Leg Raise ,,,10,Obliques,0,0
+Russian Twist,,,10,Obliques,1,0
+Side Plank,,,10,Obliques,0,0
+Cross Body Crunch,,,10,Obliques,0,0
