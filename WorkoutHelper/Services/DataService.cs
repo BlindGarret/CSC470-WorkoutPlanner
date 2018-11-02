@@ -30,7 +30,7 @@ namespace WorkoutHelper.Services
                 var lookupSet = new HashSet<int>(disabledExercises.Select(x => x.ExerciseId));
                 foreach (var exercise in exercises)
                 {
-                    exercise.Enabled = lookupSet.Contains(exercise.Id);
+                    exercise.Enabled = !lookupSet.Contains(exercise.Id);
                 }
 
                 //Now we have a fully filled exercise set for returning.
