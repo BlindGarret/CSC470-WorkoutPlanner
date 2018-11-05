@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WorkoutHelper.Views"
              xmlns:designViewModels="clr-namespace:WorkoutHelper.DesignViewModels"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance designViewModels:ExercisesDesignViewModel, IsDesignTimeCreatable=True}"
              d:DesignHeight="450" d:DesignWidth="800">
@@ -15,8 +16,8 @@
         </Grid.RowDefinitions>
         <Label Grid.Row="0" FontSize="24pt" Background="Aqua" Content="{Binding PageName}"/>
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
-        <ItemsControl Margin="5" x:Name="ExercisesList" ItemsSource="{Binding Exercises}">
-            <ItemsControl.ItemTemplate>
+            <ItemsControl Margin="5" x:Name="ExercisesList" ItemsSource="{Binding Exercises}">
+                <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -60,12 +61,22 @@
                                     </GroupBox>
                                 </Grid>
                             </Expander>
-                            <CheckBox Grid.Column="1" IsChecked="True"/>
+                            <CheckBox Grid.Column="1" IsChecked="{Binding Enabled}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Checked">
+                                        <i:InvokeCommandAction Command="{Binding ElementName=ExercisesList, Path=DataContext.EnableExerciseCommand}" CommandParameter="{Binding}"/>
+                                    </i:EventTrigger>
+
+                                    <i:EventTrigger EventName="Unchecked">
+                                        <i:InvokeCommandAction Command="{Binding ElementName=ExercisesList, Path=DataContext.DisableExerciseCommand}" CommandParameter="{Binding}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </CheckBox>
                             <TextBlock Grid.Column="2">Enabled</TextBlock>
                         </Grid>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
-        </ItemsControl>
+            </ItemsControl>
         </ScrollViewer>
     </Grid>
 </UserControl>
