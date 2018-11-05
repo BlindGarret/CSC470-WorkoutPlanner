@@ -27,7 +27,7 @@ namespace WorkoutHelper.ViewModels
 
         private ObservableCollection<Exercise> _exercises;
         #endregion
-
+        
         #region EnableExerciseCommand
 
         public DelegateCommand<Exercise> EnableExerciseCommand { get; set; }
