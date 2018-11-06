@@ -15,27 +15,27 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" FontSize="24pt" Background="Aqua" Content="{Binding PageName}"/>
-        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+        <ScrollViewer Grid.Row="1" Margin="5" VerticalScrollBarVisibility="Auto">
             <ItemsControl Margin="5" x:Name="ExercisesList" ItemsSource="{Binding Exercises}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="10*"></ColumnDefinition>
+                                <ColumnDefinition Width="7*"></ColumnDefinition>
                                 <ColumnDefinition Width="0.4*"></ColumnDefinition>
                                 <ColumnDefinition Width="*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <Expander Grid.Column="0" Grid.ColumnSpan="3" Header="{Binding Name}">
+                            <Expander Grid.Column="0" Grid.ColumnSpan="3" Header="{Binding Name}" FontSize="18">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="0.75*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
                                         <ColumnDefinition Width="*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="*"></RowDefinition>
                                         <RowDefinition Height="*"></RowDefinition>
                                     </Grid.RowDefinitions>
-                                    <GroupBox Grid.Column="0" Grid.Row="0" Header="Info">
+                                    <GroupBox Grid.Column="0" Grid.Row="0" FontSize="16" Header="Info">
                                         <Grid>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition></RowDefinition>
@@ -43,25 +43,26 @@
                                                 <RowDefinition></RowDefinition>
                                             </Grid.RowDefinitions>
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="2*"></ColumnDefinition>
+                                                <ColumnDefinition Width="2.5*"></ColumnDefinition>
                                                 <ColumnDefinition Width="*"></ColumnDefinition>
                                             </Grid.ColumnDefinitions>
-                                            <TextBlock Grid.Column="0" Grid.Row="0" Text="Muscle Group:"></TextBlock>
-                                            <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding MuscleGroup}"/>
-                                            <TextBlock Grid.Column="0" Grid.Row="1">Free Weights Required:</TextBlock>
-                                            <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding NeedsFreeWeights}"/>
-                                            <TextBlock Grid.Column="0" Grid.Row="2">Machine Required:</TextBlock>
-                                            <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding NeedsMachine}"/>
+                                            <TextBlock FontSize="15" Grid.Column="0" Grid.Row="0" Text="Muscle Group:"></TextBlock>
+                                            <TextBlock FontSize="15" Grid.Column="1" Grid.Row="0" Text="{Binding MuscleGroup}"/>
+                                            <TextBlock FontSize="15" Grid.Column="0" Grid.Row="1">Free Weights Required:</TextBlock>
+                                            <TextBlock FontSize="15" Grid.Column="1" Grid.Row="1" Text="{Binding NeedsFreeWeights}"/>
+                                            <TextBlock FontSize="15" Grid.Column="0" Grid.Row="2">Machine Required:</TextBlock>
+                                            <TextBlock FontSize="15" Grid.Column="1" Grid.Row="2" Text="{Binding NeedsMachine}"/>
                                         </Grid>
                                     </GroupBox>
-                                    <GroupBox Grid.Column="0" Grid.Row="1" Header="Description" Content="{Binding Description}">
+                                    <GroupBox Grid.Column="0" Grid.Row="1" FontSize="16" Header="Description">
+                                        <TextBlock FontSize="15" TextWrapping="WrapWithOverflow" Text="{Binding Description}"/>
                                     </GroupBox>
-                                    <GroupBox Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Header="Proper Form">
+                                    <GroupBox Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" FontSize="16" Header="Proper Form">
                                         <MediaElement Source="{Binding ImagePath}"></MediaElement>
                                     </GroupBox>
                                 </Grid>
                             </Expander>
-                            <CheckBox Grid.Column="1" IsChecked="{Binding Enabled}">
+                            <CheckBox Grid.Column="1" Margin="0,6,0,0" IsChecked="{Binding Enabled}">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="Checked">
                                         <i:InvokeCommandAction Command="{Binding ElementName=ExercisesList, Path=DataContext.EnableExerciseCommand}" CommandParameter="{Binding}"/>
@@ -72,7 +73,7 @@
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </CheckBox>
-                            <TextBlock Grid.Column="2">Enabled</TextBlock>
+                            <TextBlock FontSize="18" Grid.Column="2">Enabled</TextBlock>
                         </Grid>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
