@@ -14,67 +14,72 @@
             <RowDefinition Height="120px"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" FontSize="24pt" Background="Aqua" Content="{Binding PageName}"/>
+        <Rectangle Grid.Row="0" Fill="DimGray"/>
+        <Label Grid.Row="0" FontFamily="Dead Kansas" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24pt" Foreground="White" Content="{Binding PageName}"/>
         <ScrollViewer Grid.Row="1" Margin="5" VerticalScrollBarVisibility="Auto">
             <ItemsControl Margin="5" x:Name="ExercisesList" ItemsSource="{Binding Exercises}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="7*"></ColumnDefinition>
-                                <ColumnDefinition Width="0.4*"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <Expander Grid.Column="0" Grid.ColumnSpan="3" Header="{Binding Name}" FontSize="18">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"></ColumnDefinition>
-                                        <ColumnDefinition Width="*"></ColumnDefinition>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*"></RowDefinition>
-                                        <RowDefinition Height="*"></RowDefinition>
-                                    </Grid.RowDefinitions>
-                                    <GroupBox Grid.Column="0" Grid.Row="0" FontSize="16" Header="Info">
-                                        <Grid>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition></RowDefinition>
-                                                <RowDefinition></RowDefinition>
-                                                <RowDefinition></RowDefinition>
-                                            </Grid.RowDefinitions>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="2.5*"></ColumnDefinition>
-                                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                            </Grid.ColumnDefinitions>
-                                            <TextBlock FontSize="15" Grid.Column="0" Grid.Row="0" Text="Muscle Group:"></TextBlock>
-                                            <TextBlock FontSize="15" Grid.Column="1" Grid.Row="0" Text="{Binding MuscleGroup}"/>
-                                            <TextBlock FontSize="15" Grid.Column="0" Grid.Row="1">Free Weights Required:</TextBlock>
-                                            <TextBlock FontSize="15" Grid.Column="1" Grid.Row="1" Text="{Binding NeedsFreeWeights}"/>
-                                            <TextBlock FontSize="15" Grid.Column="0" Grid.Row="2">Machine Required:</TextBlock>
-                                            <TextBlock FontSize="15" Grid.Column="1" Grid.Row="2" Text="{Binding NeedsMachine}"/>
-                                        </Grid>
-                                    </GroupBox>
-                                    <GroupBox Grid.Column="0" Grid.Row="1" FontSize="16" Header="Description">
-                                        <TextBlock FontSize="15" TextWrapping="WrapWithOverflow" Text="{Binding Description}"/>
-                                    </GroupBox>
-                                    <GroupBox Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" FontSize="16" Header="Proper Form">
-                                        <MediaElement Source="{Binding ImagePath}"></MediaElement>
-                                    </GroupBox>
-                                </Grid>
-                            </Expander>
-                            <CheckBox Grid.Column="1" Margin="0,6,0,0" IsChecked="{Binding Enabled}">
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="Checked">
-                                        <i:InvokeCommandAction Command="{Binding ElementName=ExercisesList, Path=DataContext.EnableExerciseCommand}" CommandParameter="{Binding}"/>
-                                    </i:EventTrigger>
+                        <Border BorderBrush="Black" BorderThickness="0,0,0,1">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="7*"></ColumnDefinition>
+                                    <ColumnDefinition Width="0.4*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Expander Grid.Column="0" Grid.ColumnSpan="3" FontFamily="Constantia" Header="{Binding Name}" FontSize="18">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <GroupBox Grid.Column="0" Grid.Row="0" Margin="0,0,7,0" FontSize="16" FontFamily="Constantia" Header="Info">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="2.5*"></ColumnDefinition>
+                                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock FontFamily="Constantia" FontSize="15" Grid.Column="0" Grid.Row="0" Text="Muscle Group:"></TextBlock>
+                                                <TextBlock FontFamily="Constantia" FontSize="15" Grid.Column="1" Grid.Row="0" Text="{Binding MuscleGroup}"/>
+                                                <TextBlock FontFamily="Constantia" FontSize="15" Grid.Column="0" Grid.Row="1">Free Weights Required:</TextBlock>
+                                                <TextBlock FontFamily="Constantia" FontSize="15" Grid.Column="1" Grid.Row="1" Text="{Binding NeedsFreeWeights}"/>
+                                                <TextBlock FontFamily="Constantia" FontSize="15" Grid.Column="0" Grid.Row="2">Machine Required:</TextBlock>
+                                                <TextBlock FontFamily="Constantia" FontSize="15" Grid.Column="1" Grid.Row="2" Text="{Binding NeedsMachine}"/>
+                                            </Grid>
+                                        </GroupBox>
+                                        <GroupBox Grid.Column="0" Grid.Row="1" Height="155px" FontSize="16" Margin="0,0,7,7" FontFamily="Constantia" Header="Description">
+                                            <ScrollViewer VerticalScrollBarVisibility="Visible">
+                                                <TextBlock FontFamily="Constantia" FontSize="15" TextWrapping="Wrap" Text="{Binding Description}"/>
+                                            </ScrollViewer>
+                                        </GroupBox>
+                                        <GroupBox Margin="0,0,0,5" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" FontSize="16" Header="Proper Form">
+                                            <MediaElement Margin="3,3,3,3" Source="{Binding ImagePath}"></MediaElement>
+                                        </GroupBox>
+                                    </Grid>
+                                </Expander>
+                                <CheckBox Grid.Column="1" Margin="0,4,0,0" IsChecked="{Binding Enabled}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Checked">
+                                            <i:InvokeCommandAction Command="{Binding ElementName=ExercisesList, Path=DataContext.EnableExerciseCommand}" CommandParameter="{Binding}"/>
+                                        </i:EventTrigger>
 
-                                    <i:EventTrigger EventName="Unchecked">
-                                        <i:InvokeCommandAction Command="{Binding ElementName=ExercisesList, Path=DataContext.DisableExerciseCommand}" CommandParameter="{Binding}"/>
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                            </CheckBox>
-                            <TextBlock FontSize="18" Grid.Column="2">Enabled</TextBlock>
-                        </Grid>
+                                        <i:EventTrigger EventName="Unchecked">
+                                            <i:InvokeCommandAction Command="{Binding ElementName=ExercisesList, Path=DataContext.DisableExerciseCommand}" CommandParameter="{Binding}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </CheckBox>
+                                <TextBlock FontFamily="Constantia" FontSize="18" Grid.Column="2">Enabled</TextBlock>
+                            </Grid>
+                        </Border>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
