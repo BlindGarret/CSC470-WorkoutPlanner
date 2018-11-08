@@ -6,5 +6,8 @@ namespace WorkoutHelper.ViewModels
     public class WorkoutViewModel : BindableBase, ITabViewComponent
     {
         public string PageName { get; set; } = "Workout";
+        public void TabLoaded()
+        {
+        }
     }
 }

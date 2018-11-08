@@ -104,6 +104,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Interfaces\IConfigurationDataService.cs" />
+    <Compile Include="Interfaces\IDataService.cs" />
+    <Compile Include="Models\DisabledExercise.cs" />
+    <Compile Include="Services\ConfigurationDataService.cs" />
+    <Compile Include="Services\DataService.cs" />
     <Compile Include="ViewModels\ExercisesViewModel.cs" />
     <Compile Include="ViewModels\PlanningViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />

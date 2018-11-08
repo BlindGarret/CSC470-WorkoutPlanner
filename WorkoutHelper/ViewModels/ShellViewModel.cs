@@ -48,6 +48,7 @@ namespace WorkoutHelper.ViewModels
 
         private void SelectViewCommandOnExecute(ITabViewComponent component)
         {
+            component.TabLoaded();
             SelectedView = component;
         }
 
