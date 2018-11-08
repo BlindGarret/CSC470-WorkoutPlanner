@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
 using System.Security.Claims;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -60,15 +61,12 @@ namespace WorkoutHelper.ViewModels
 
             EnableExerciseCommand = new DelegateCommand<Exercise>(EnableExerciseCommandOnExecute);
             DisableExerciseCommand = new DelegateCommand<Exercise>(DisableExerciseCommandOnExecute);
-
-            //todo: get actual user id
-            Exercises = new ObservableCollection<Exercise>(_dataService.GetExercises(1));
         }
         
         public void TabLoaded()
         {
             //todo: get actual user id
-            Exercises = new ObservableCollection<Exercise>(_dataService.GetExercises(1));
+            Exercises = new ObservableCollection<Exercise>(_dataService.GetExercises(1).OrderBy(x => x.Name));
         }
     }
 }

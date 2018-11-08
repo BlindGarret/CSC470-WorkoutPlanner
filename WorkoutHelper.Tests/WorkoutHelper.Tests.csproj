@@ -78,6 +78,7 @@
     <Compile Include="Integration\Models\AnotherExampleDataModelTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Unit\Models\AnotherExampleDataModelTests.cs" />
+    <Compile Include="Unit\ViewModels\ExercisesViewModelTests.cs" />
     <Compile Include="Unit\ViewModels\ShellViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup />
