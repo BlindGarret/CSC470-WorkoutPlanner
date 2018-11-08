@@ -15,8 +15,6 @@ namespace WorkoutHelper.DesignViewModels
 
         public ObservableUser User { get; set; }
 
-        public ObservableWeighIn WeighIn { get; set; }
-
         #endregion
 
         #region Commands
