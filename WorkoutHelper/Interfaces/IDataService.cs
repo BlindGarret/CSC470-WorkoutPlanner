@@ -15,6 +15,15 @@ namespace WorkoutHelper.Interfaces
         /// <returns>Collection of <see cref="Exercise"/></returns>
         IEnumerable<Exercise> GetExercises(int userId);
 
+
+        /// <summary>
+        /// Get user's settings.
+        /// </summary>
+        /// <param name="userId">ID of the user requesting their settings</param>
+        /// <returns>User object containing settings</returns>
+        User GetSettings(int userId);
+
+
         /// <summary>
         /// Disables a given exercise for a given user.
         /// </summary>
