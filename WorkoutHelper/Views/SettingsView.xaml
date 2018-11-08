@@ -7,7 +7,7 @@
              xmlns:designViewModels="clr-namespace:WorkoutHelper.DesignViewModels"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance designViewModels:SettingsDesignViewModel, IsDesignTimeCreatable=True}"
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="411" d:DesignWidth="588">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="120px"></RowDefinition>
@@ -15,5 +15,34 @@
         </Grid.RowDefinitions>
         <Rectangle Grid.Row="0" Fill="DimGray"/>
         <Label Grid.Row="0" FontFamily="Dead Kansas" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24pt" Foreground="White" Content="{Binding PageName}"/>
-    </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="40px"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <GroupBox Grid.Column="0" Grid.Row="0" Margin="10" Header="General">
+                <StackPanel Margin="10,0" VerticalAlignment="Center">
+                    <Label Content="First Name" />
+                    <TextBox Text="{Binding User.FirstName}"/>
+                    <Label Content="Last Name" />
+                    <TextBox Text="{Binding User.LastName}" />
+                    <Label Content="Height (in)" />
+                    <TextBox Text="{Binding User.Height}"/>
+                    <Label Content="Weight (lbs)" />
+                    <TextBox IsEnabled="False" Text="{Binding User.Weight}"/>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Grid.Column="1" Grid.Row="0" Margin="10" Header="Avatar">
+                <StackPanel>
+                    <Image Height="170" Width="200" Stretch="UniformToFill"></Image>
+                    <TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="5,0">Drag and Drop image file onto picture to update Avatar</TextBlock>
+                </StackPanel>
+            </GroupBox>
+            <Button Grid.Row="1" Grid.Column="2" Height="25" Width="70" HorizontalAlignment="Right" Margin="10,0,10,0">Save</Button>
+        </Grid>
+</Grid>
 </UserControl>
