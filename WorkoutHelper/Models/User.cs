@@ -6,7 +6,7 @@
 
         public string LastName { get; set; }
 
-        public double Height { get; set; }
+        public int Height { get; set; }
 
         public double Weight { get; set; }
 
