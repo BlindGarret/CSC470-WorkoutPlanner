@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using WorkoutHelper.Models;
+using WorkoutHelper.ViewModels;
 
 namespace WorkoutHelper.Interfaces
 {
@@ -21,7 +22,7 @@ namespace WorkoutHelper.Interfaces
         /// </summary>
         /// <param name="userId">ID of the user requesting their settings</param>
         /// <returns>User object containing settings</returns>
-        User GetSettings(int userId);
+        ObservableUser GetSettings(int userId);
 
 
         /// <summary>

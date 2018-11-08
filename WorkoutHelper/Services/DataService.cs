@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using SQLite;
 using WorkoutHelper.Interfaces;
 using WorkoutHelper.Models;
+using WorkoutHelper.ViewModels;
 
 namespace WorkoutHelper.Services
 {
@@ -13,6 +14,22 @@ namespace WorkoutHelper.Services
         public DataService(IConfigurationDataService config)
         {
             _config = config;
+        }
+
+
+        /// <inheritdoc/>
+        public ObservableUser GetSettings(int userId)
+        {
+            using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
+            {
+                ObservableUser currentUser;
+                currentUser.FirstName = connection.
+                currentUser.LastName = connection.
+                currentUser.Height = connection.
+                currentUser.Weight = connection.
+                currentUser.Avatar = connecton.
+                return currentUser;
+            }
         }
 
         /// <inheritdoc />

@@ -13,19 +13,19 @@ namespace WorkoutHelper.ViewModels
         #region Properties
 
         public string PageName { get; set; } = "Settings";
-        public User Settings
+        public ObservableUser User
         {
-            get => _settings;
+            get => _user;
             set
             {
-                if (_settings != value)
+                if (_user != value)
                 {
-                    _settings = value;
-                    RaisePropertyChanged(nameof(Settings));
+                    _user = value;
+                    RaisePropertyChanged(nameof(User));
                 }
             }
         }
-        private User _settings;
+        private ObservableUser _user;
         #endregion
 
         private readonly IDataService _dataService;
@@ -36,7 +36,7 @@ namespace WorkoutHelper.ViewModels
         public void TabLoaded()
         {
             //todo: get actual user id
-            Settings = _dataService.GetSettings(1);
+            User = _dataService.GetSettings(1);
         }
     }
 }
