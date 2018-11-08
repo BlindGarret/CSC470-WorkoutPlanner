@@ -18,17 +18,12 @@ namespace WorkoutHelper.Services
 
 
         /// <inheritdoc/>
-        public ObservableUser GetSettings(int userId)
+        public User GetSettings(int userId)
         {
             using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
             {
-                ObservableUser currentUser;
-                currentUser.FirstName = connection.
-                currentUser.LastName = connection.
-                currentUser.Height = connection.
-                currentUser.Weight = connection.
-                currentUser.Avatar = connecton.
-                return currentUser;
+                User user = connection.Table<User>().Where(x => x.UserId == userId).FirstOrDefault();
+                return user;
             }
         }
 

@@ -22,7 +22,7 @@ namespace WorkoutHelper.Interfaces
         /// </summary>
         /// <param name="userId">ID of the user requesting their settings</param>
         /// <returns>User object containing settings</returns>
-        ObservableUser GetSettings(int userId);
+        User GetSettings(int userId);
 
 
         /// <summary>

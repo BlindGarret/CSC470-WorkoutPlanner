@@ -8,6 +8,20 @@ namespace WorkoutHelper.ViewModels
     {
         #region Properties
 
+        public int UserId
+        {
+            get => _userId;
+            set
+            {
+                if(_userId != value)
+                {
+                    _userId = value;
+                    RaisePropertyChanged(nameof(UserId));
+                }
+            }
+        }
+        private int _userId;
+
         public string FirstName
         {
             get => _firstName;
@@ -87,6 +101,7 @@ namespace WorkoutHelper.ViewModels
 
         public ObservableUser(User user)
         {
+            UserId = user.UserId;
             FirstName = user.FirstName;
             LastName = user.LastName;
             Height = user.Height;

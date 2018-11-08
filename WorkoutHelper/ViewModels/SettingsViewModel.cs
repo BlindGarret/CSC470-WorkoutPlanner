@@ -77,7 +77,7 @@ namespace WorkoutHelper.ViewModels
         public void TabLoaded()
         {
             //todo: get actual user id
-            User = _dataService.GetSettings(1);
+            User = new ObservableUser(_dataService.GetSettings(1));
         }
     }
 }
