@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows;
 using Prism.Commands;
 using Prism.Mvvm;
 using WorkoutHelper.Models;
@@ -20,6 +21,8 @@ namespace WorkoutHelper.DesignViewModels
         #region Commands
 
         public DelegateCommand SaveCommand { get; set; }
+
+        public DelegateCommand<DragEventArgs> SaveImageCommand { get; set; }
 
         #endregion
     }

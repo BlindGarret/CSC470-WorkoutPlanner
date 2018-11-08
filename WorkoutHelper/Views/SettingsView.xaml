@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WorkoutHelper.Views"
              xmlns:designViewModels="clr-namespace:WorkoutHelper.DesignViewModels"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:behaviors="clr-namespace:WorkoutHelper.Behaviors"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance designViewModels:SettingsDesignViewModel, IsDesignTimeCreatable=True}"
              d:DesignHeight="411" d:DesignWidth="588">
@@ -41,7 +43,16 @@
             </GroupBox>
             <GroupBox Grid.Column="1" Grid.Row="0" Margin="10" Header="Avatar">
                 <StackPanel>
-                    <Image Height="170" Width="200" Stretch="UniformToFill" Source="{Binding User.Avatar, FallbackValue={StaticResource DefaultUserImage}}"/> 
+                    <Image 
+                        Height="170" 
+                        Width="200" 
+                        Stretch="UniformToFill" 
+                        Source="{Binding User.Avatar, FallbackValue={StaticResource DefaultUserImage}}"
+                        AllowDrop="True">
+                        <i:Interaction.Behaviors>
+                            <behaviors:EventToCommandBehavior Command="{Binding SaveImageCommand}" Event="Drop" PassArguments="True"/>
+                        </i:Interaction.Behaviors>
+                    </Image>
                     <TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="5,0">Drag and Drop image file onto picture to update Avatar</TextBlock>
                 </StackPanel>
             </GroupBox>
