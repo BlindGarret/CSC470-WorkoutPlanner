@@ -8,6 +8,9 @@
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance designViewModels:SettingsDesignViewModel, IsDesignTimeCreatable=True}"
              d:DesignHeight="411" d:DesignWidth="588">
+    <UserControl.Resources>
+        <BitmapImage x:Key="DefaultUserImage" UriSource="/WorkoutHelper;component/Resources/imgs/defaultavatar.png"></BitmapImage>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="120px"></RowDefinition>
@@ -38,11 +41,11 @@
             </GroupBox>
             <GroupBox Grid.Column="1" Grid.Row="0" Margin="10" Header="Avatar">
                 <StackPanel>
-                    <Image Height="170" Width="200" Stretch="UniformToFill"></Image>
+                    <Image Height="170" Width="200" Stretch="UniformToFill" Source="{Binding User.Avatar, FallbackValue={StaticResource DefaultUserImage}}"/> 
                     <TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="5,0">Drag and Drop image file onto picture to update Avatar</TextBlock>
                 </StackPanel>
             </GroupBox>
-            <Button Grid.Row="1" Grid.Column="2" Height="25" Width="70" HorizontalAlignment="Right" Margin="10,0,10,0">Save</Button>
+            <Button Grid.Row="1" Grid.Column="1" Height="25" Width="70" HorizontalAlignment="Right" Margin="10,0,10,0">Save</Button>
         </Grid>
 </Grid>
 </UserControl>

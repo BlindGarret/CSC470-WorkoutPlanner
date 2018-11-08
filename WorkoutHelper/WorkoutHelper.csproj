@@ -107,9 +107,11 @@
     <Compile Include="Interfaces\IConfigurationDataService.cs" />
     <Compile Include="Interfaces\IDataService.cs" />
     <Compile Include="Models\DisabledExercise.cs" />
+    <Compile Include="ViewModels\ObservableUser.cs" />
     <Compile Include="Services\ConfigurationDataService.cs" />
     <Compile Include="Services\DataService.cs" />
     <Compile Include="ViewModels\ExercisesViewModel.cs" />
+    <Compile Include="ViewModels\ObservableWeighIn.cs" />
     <Compile Include="ViewModels\PlanningViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\WeighInViewModel.cs" />
@@ -216,6 +218,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="Resources\imgs\defaultavatar.png" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -11,6 +11,7 @@ namespace WorkoutHelper.ViewModels
     public class SettingsViewModel : BindableBase, ITabViewComponent
     {
         #region Properties
+
         public string PageName { get; set; } = "Settings";
         public User Settings
         {
@@ -26,6 +27,7 @@ namespace WorkoutHelper.ViewModels
         }
         private User _settings;
         #endregion
+
         private readonly IDataService _dataService;
         public SettingsViewModel(IDataService dataService)
         {
