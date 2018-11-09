@@ -7,6 +7,7 @@ using System.Security.Claims;
 using System.Windows;
 using Prism.Commands;
 using Prism.Mvvm;
+using SQLite;
 using WorkoutHelper.Interfaces;
 using WorkoutHelper.Models;
 
@@ -30,6 +31,18 @@ namespace WorkoutHelper.ViewModels
             }
         }
         private ObservableUser _user;
+        #endregion
+
+        #region SaveCommand
+        private readonly IConfigurationDataService _config;
+        public DelegateCommand<User> SaveCommand { get; set; }
+        private void SaveCommandOnExecute(User saveUser)
+        {
+            using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
+            {
+                connection.Update(saveUser);
+            }
+        }
         #endregion
 
         #region SaveImageCommand
@@ -76,6 +89,7 @@ namespace WorkoutHelper.ViewModels
             _dataService = dataService;
             _sessionService = sessionService;
 
+            SaveCommand = new DelegateCommand<User>(SaveCommandOnExecute);
             SaveImageCommand = new DelegateCommand<DragEventArgs>(SaveImageCommandOnExecute);
         }
 

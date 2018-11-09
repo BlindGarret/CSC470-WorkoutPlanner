@@ -16,14 +16,6 @@ namespace WorkoutHelper.Interfaces
         /// <returns>Collection of <see cref="Exercise"/></returns>
         IEnumerable<Exercise> GetExercises(int userId);
 
-
-        /// <summary>
-        /// Get user by ID.
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <returns>User object</returns>
-        User GetUser(int userId);
-
         /// <summary>
         /// Adds a User to the Data Set
         /// </summary>
@@ -31,6 +23,12 @@ namespace WorkoutHelper.Interfaces
         /// <returns>ID of created user</returns>
         int AddUser(User user);
 
+        /// <summary>
+        /// Get user by ID.
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns>User object</returns>
+        User GetUser(int userId);
 
         /// <summary>
         /// Gets a list of users
