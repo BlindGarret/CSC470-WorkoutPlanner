@@ -2,8 +2,10 @@
 using System.Linq;
 using System.Windows;
 using Prism.Commands;
+using Prism.Events;
 using Prism.Mvvm;
 using SQLite;
+using WorkoutHelper.Events;
 using WorkoutHelper.Interfaces;
 using WorkoutHelper.Models;
 
@@ -34,7 +36,8 @@ namespace WorkoutHelper.ViewModels
 
         private void SaveCommandOnExecute(ObservableUser saveUser)
         {
-            _dataService.SaveUser(saveUser);
+            _dataService.SaveUser(saveUser.ToModel());
+            _eventAggregator.GetEvent<SettingsChangedEvent>().Publish();
         }
         #endregion
 
@@ -68,19 +71,21 @@ namespace WorkoutHelper.ViewModels
             }
             File.Copy(file, newPath);
 
-            //todo: SAVE NEW PATH IN USER!
+            User.Avatar = newPath;
         }
 
         #endregion
 
         private readonly IDataService _dataService;
         private readonly ISessionService _sessionService;
+        private readonly IEventAggregator _eventAggregator;
 
 
-        public SettingsViewModel(IDataService dataService, ISessionService sessionService)
+        public SettingsViewModel(IDataService dataService, ISessionService sessionService, IEventAggregator eventAggregator)
         {
             _dataService = dataService;
             _sessionService = sessionService;
+            _eventAggregator = eventAggregator;
 
             SaveCommand = new DelegateCommand<ObservableUser>(SaveCommandOnExecute);
             SaveImageCommand = new DelegateCommand<DragEventArgs>(SaveImageCommandOnExecute);

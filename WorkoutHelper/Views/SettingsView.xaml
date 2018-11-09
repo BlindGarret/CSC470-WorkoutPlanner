@@ -60,7 +60,8 @@
                     Height="25" Width="70" 
                     HorizontalAlignment="Right" 
                     Margin="10,0,10,0"
-                    Command="{Binding SaveCommand}">Save</Button>
+                    Command="{Binding SaveCommand}"
+                    CommandParameter="{Binding User}">Save</Button>
         </Grid>
 </Grid>
 </UserControl>

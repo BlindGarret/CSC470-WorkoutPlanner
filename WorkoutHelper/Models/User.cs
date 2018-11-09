@@ -11,6 +11,7 @@ namespace WorkoutHelper.Models
         /// <summary>
         /// Exercise Id
         /// </summary>
+        [PrimaryKey]
         [Column("Id")]
         public int Id { get; set; }
 
