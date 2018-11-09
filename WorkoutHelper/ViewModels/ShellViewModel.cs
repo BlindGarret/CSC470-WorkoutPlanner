@@ -41,8 +41,7 @@ namespace WorkoutHelper.ViewModels
         {
             _tabbedPage = container.Resolve<TabbedViewModel>();
             _loginPage = container.Resolve<LoginViewModel>();
-            //todo: fix this
-            _addUserPage = container.Resolve<TabbedViewModel>();
+            _addUserPage = container.Resolve<AddUserViewModel>();
             
             RenderPage(_loginPage);
 

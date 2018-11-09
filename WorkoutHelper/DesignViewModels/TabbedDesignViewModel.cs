@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Prism.Commands;
 using WorkoutHelper.Interfaces;
+using WorkoutHelper.ViewModels;
 
 namespace WorkoutHelper.DesignViewModels
 {
@@ -15,6 +16,10 @@ namespace WorkoutHelper.DesignViewModels
         public ITabViewComponent SelectedView { get; set; } = new MockViewComponent("Dashboard");
 
         public IReadOnlyList<ITabViewComponent> Views { get; set; } = new List<ITabViewComponent>() { new MockViewComponent("Dashboard"), new MockViewComponent("Another"), new MockViewComponent("And Another"), };
+
+        public string Avatar { get; set; }
+
+        public string DisplayName { get; set; }
 
         #endregion
 

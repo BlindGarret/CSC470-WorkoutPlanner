@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Moq;
 using NUnit.Framework;
 using WorkoutHelper.Interfaces;
@@ -16,18 +12,21 @@ namespace WorkoutHelper.Tests.Unit.ViewModels
     {
         private ExercisesViewModel _viewModel;
         private Mock<IDataService> _dataServiceMock;
+        private Mock<ISessionService> _sessionServiceMock;
 
         [SetUp]
         public void Setup()
         {
             _dataServiceMock = new Mock<IDataService>();
-            _viewModel = new ExercisesViewModel(_dataServiceMock.Object);
+            _sessionServiceMock = new Mock<ISessionService>();
+            _viewModel = new ExercisesViewModel(_dataServiceMock.Object, _sessionServiceMock.Object);
         }
 
         [TearDown]
         public void TearDown()
         {
             _viewModel = null;
+            _sessionServiceMock = null;
             _dataServiceMock = null;
         }
 

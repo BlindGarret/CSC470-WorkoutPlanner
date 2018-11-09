@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Practices.Unity;
 using Prism.Commands;
+using Prism.Events;
 using Prism.Mvvm;
+using WorkoutHelper.Events;
 using WorkoutHelper.Interfaces;
 
 namespace WorkoutHelper.ViewModels
@@ -40,6 +42,36 @@ namespace WorkoutHelper.ViewModels
 
         private IReadOnlyList<ITabViewComponent> _views;
 
+        public string Avatar
+        {
+            get => _avatar;
+            set
+            {
+                if (_avatar != value)
+                {
+                    _avatar = value;
+                    RaisePropertyChanged(nameof(Avatar));
+                }
+            }
+        }
+
+        private string _avatar;
+
+        public string DisplayName
+        {
+            get => _displayName;
+            set
+            {
+                if (_displayName != value)
+                {
+                    _displayName = value;
+                    RaisePropertyChanged(nameof(DisplayName));
+                }
+            }
+        }
+
+        private string _displayName;
+
         #endregion
 
         #region SelectViewCommand
@@ -54,14 +86,26 @@ namespace WorkoutHelper.ViewModels
 
         #endregion
 
-        public TabbedViewModel(IUnityContainer container)
+        private readonly IDataService _dataService;
+        private readonly ISessionService _sessionService;
+
+        public TabbedViewModel(IUnityContainer container, IDataService dataService, ISessionService sessionService, IEventAggregator eventAggregator)
         {
+            _dataService = dataService;
+            _sessionService = sessionService;
+
             SelectViewCommand = new DelegateCommand<ITabViewComponent>(SelectViewCommandOnExecute);
+
+            eventAggregator.GetEvent<SettingsChangedEvent>().Subscribe(Rendered);
+
             LoadViews(container);
         }
 
         public void Rendered()
         {
+            var user = _dataService.GetUser(_sessionService.UserId);
+            Avatar = user.Avatar;
+            DisplayName = $"{user.FirstName} {user.LastName}";
         }
 
         private void LoadViews(IUnityContainer container)

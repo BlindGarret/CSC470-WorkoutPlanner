@@ -24,7 +24,19 @@ namespace WorkoutHelper.Services
                 return user;
             }
         }
-        
+
+        /// <inheritdoc/>
+        public int AddUser(User user)
+        {
+            using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
+            {
+                var lastId = connection.Table<User>().OrderBy(x => x.Id).LastOrDefault();
+                user.Id = lastId?.Id + 1 ?? 1;
+                connection.Insert(user);
+                return user.Id;
+            }
+        }
+
         /// <inheritdoc />
         public IEnumerable<User> GetUsers()
         {

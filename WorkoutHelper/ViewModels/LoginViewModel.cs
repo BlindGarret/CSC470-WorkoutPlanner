@@ -47,7 +47,7 @@ namespace WorkoutHelper.ViewModels
 
         private void LoginCommandOnExecute(ObservableUser user)
         {
-            _eventAggregator.GetEvent<LoginEvent>().Publish(user.Id);
+            _eventAggregator.GetEvent<LoginRequestEvent>().Publish(user.Id);
         }
 
         #endregion

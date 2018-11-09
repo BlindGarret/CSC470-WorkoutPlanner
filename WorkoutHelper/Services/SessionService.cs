@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Prism.Events;
+﻿using Prism.Events;
 using WorkoutHelper.Events;
 using WorkoutHelper.Interfaces;
 
 namespace WorkoutHelper.Services
 {
-    public class SessionService: ISessionService
+    public class SessionService : ISessionService
     {
         #region Properties
 
@@ -17,9 +12,18 @@ namespace WorkoutHelper.Services
 
         #endregion
 
+        private readonly IEventAggregator _eventAggregator;
+
         public SessionService(IEventAggregator eventAggregator)
         {
-            eventAggregator.GetEvent<LoginEvent>().Subscribe(id => UserId = id);
+            _eventAggregator = eventAggregator;
+            eventAggregator.GetEvent<LoginRequestEvent>().Subscribe(LoginRequested);
+        }
+
+        private void LoginRequested(int id)
+        {
+            UserId = id;
+            _eventAggregator.GetEvent<LoginEvent>().Publish(id);
         }
     }
 }

@@ -8,14 +8,25 @@
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance designViewModels:TabbedDesignViewModel, IsDesignTimeCreatable=True}"
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <BitmapImage x:Key="DefaultUserImage" UriSource="/WorkoutHelper;component/Resources/imgs/defaultavatar.png"></BitmapImage>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="3*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
-            <Label Background="Aqua"
-                   Height="120px">Usernames and Image go here!</Label>
+            <StackPanel Height="120">
+                <Image 
+                    Height="80" 
+                    Width="80"
+                    Margin="0,5"
+                    Stretch="UniformToFill" 
+                    Source="{Binding Avatar, FallbackValue={StaticResource DefaultUserImage}}">
+                </Image>
+                <Label  HorizontalAlignment="Center" Content="{Binding DisplayName}" FontSize="14" Margin="0,5"></Label>
+            </StackPanel>
             <ItemsControl x:Name="PageButtons" ItemsSource="{Binding Views}" Background="Orange">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>

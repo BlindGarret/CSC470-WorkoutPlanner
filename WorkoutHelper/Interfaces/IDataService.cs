@@ -24,6 +24,13 @@ namespace WorkoutHelper.Interfaces
         /// <returns>User object</returns>
         User GetUser(int userId);
 
+        /// <summary>
+        /// Adds a User to the Data Set
+        /// </summary>
+        /// <param name="user">User to Add</param>
+        /// <returns>ID of created user</returns>
+        int AddUser(User user);
+
 
         /// <summary>
         /// Gets a list of users

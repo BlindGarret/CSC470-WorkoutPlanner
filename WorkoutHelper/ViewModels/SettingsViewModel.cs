@@ -53,9 +53,9 @@ namespace WorkoutHelper.ViewModels
             }
 
             var imagesDir = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "imgs");
-            var newPath = Path.Combine(imagesDir, Path.GetFileName(file));
+            var newName = $"{Path.GetFileNameWithoutExtension(file)}-{User.FirstName}-{User.LastName}-{User.Id}{Path.GetExtension(file)}";
+            var newPath = Path.Combine(imagesDir, newName);
             Directory.CreateDirectory(imagesDir);
-            Console.WriteLine(newPath);
             if (File.Exists(newPath))
             {
                 File.Delete(newPath);

@@ -26,4 +26,7 @@
     <DataTemplate DataType="{x:Type viewModels:TabbedViewModel}">
         <views:TabbedView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:AddUserViewModel}">
+        <views:AddUserView/>
+    </DataTemplate>
 </ResourceDictionary>
