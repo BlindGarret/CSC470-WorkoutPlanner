@@ -9,34 +9,5 @@
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance designViewModels:ShellDesignViewModel, IsDesignTimeCreatable=True}"
         Title="ShellView" Height="450" Width="800" ResizeMode="NoResize">
-    <Window.Resources>
-        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
-        <converters:BooleanToVisibilityConverter x:Key="InvertedBooleanToVisibilityConverter"
-                                                 True="Collapsed"
-                                                 False="Visible"/>
-    </Window.Resources>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="3*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0">
-            <Label Background="Aqua"
-                   Height="120px">Username and Image go here!</Label>
-            <ItemsControl x:Name="PageButtons" ItemsSource="{Binding Views}" Background="Orange">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Button Command="{Binding ElementName=PageButtons, Path=DataContext.SelectViewCommand}" CommandParameter="{Binding }">
-                            <Button.Template>
-                                <ControlTemplate>
-                                    <Label Content="{Binding PageName}"></Label>
-                                </ControlTemplate>
-                            </Button.Template>
-                        </Button>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </StackPanel>
-        <ContentPresenter Grid.Column="1" Content="{Binding SelectedView}"></ContentPresenter>
-    </Grid>
+    <ContentPresenter Content="{Binding SelectedView}"></ContentPresenter>
 </Window>

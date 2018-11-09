@@ -35,8 +35,7 @@ namespace WorkoutHelper.ViewModels
 
         private void EnableExerciseCommandOnExecute(Exercise exercise)
         {
-            //todo: get actual user id
-            _dataService.EnableExercise(exercise.Id, 1);
+            _dataService.EnableExercise(exercise.Id, _sessionService.UserId);
         }
 
         #endregion
@@ -47,17 +46,18 @@ namespace WorkoutHelper.ViewModels
 
         private void DisableExerciseCommandOnExecute(Exercise exercise)
         {
-            //todo: get actual user id
-            _dataService.DisableExercise(exercise.Id, 1);
+            _dataService.DisableExercise(exercise.Id, _sessionService.UserId);
         }
 
         #endregion
 
         private readonly IDataService _dataService;
+        private readonly ISessionService _sessionService;
 
-        public ExercisesViewModel(IDataService dataService)
+        public ExercisesViewModel(IDataService dataService, ISessionService sessionService)
         {
             _dataService = dataService;
+            _sessionService = sessionService;
 
             EnableExerciseCommand = new DelegateCommand<Exercise>(EnableExerciseCommandOnExecute);
             DisableExerciseCommand = new DelegateCommand<Exercise>(DisableExerciseCommandOnExecute);
@@ -65,8 +65,7 @@ namespace WorkoutHelper.ViewModels
         
         public void TabLoaded()
         {
-            //todo: get actual user id
-            Exercises = new ObservableCollection<Exercise>(_dataService.GetExercises(1).OrderBy(x => x.Name));
+            Exercises = new ObservableCollection<Exercise>(_dataService.GetExercises(_sessionService.UserId).OrderBy(x => x.Name));
         }
     }
 }

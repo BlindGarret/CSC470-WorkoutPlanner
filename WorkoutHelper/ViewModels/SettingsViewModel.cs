@@ -68,16 +68,20 @@ namespace WorkoutHelper.ViewModels
         #endregion
 
         private readonly IDataService _dataService;
-        public SettingsViewModel(IDataService dataService)
+        private readonly ISessionService _sessionService;
+
+
+        public SettingsViewModel(IDataService dataService, ISessionService sessionService)
         {
             _dataService = dataService;
+            _sessionService = sessionService;
 
             SaveImageCommand = new DelegateCommand<DragEventArgs>(SaveImageCommandOnExecute);
         }
+
         public void TabLoaded()
         {
-            //todo: get actual user id
-            User = new ObservableUser(_dataService.GetSettings(1));
+            User = new ObservableUser(_dataService.GetUser(_sessionService.UserId));
         }
     }
 }

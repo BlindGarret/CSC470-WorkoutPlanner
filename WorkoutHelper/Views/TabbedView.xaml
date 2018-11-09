@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="WorkoutHelper.Views.TabbedView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WorkoutHelper.Views"
+             xmlns:designViewModels="clr-namespace:WorkoutHelper.DesignViewModels"
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance designViewModels:TabbedDesignViewModel, IsDesignTimeCreatable=True}"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <Label Background="Aqua"
+                   Height="120px">Usernames and Image go here!</Label>
+            <ItemsControl x:Name="PageButtons" ItemsSource="{Binding Views}" Background="Orange">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Command="{Binding ElementName=PageButtons, Path=DataContext.SelectViewCommand}" CommandParameter="{Binding }">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Label Content="{Binding PageName}"></Label>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+        <ContentPresenter Grid.Column="1" Content="{Binding SelectedView}"></ContentPresenter>
+    </Grid>
+</UserControl>

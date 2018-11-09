@@ -8,19 +8,19 @@ namespace WorkoutHelper.ViewModels
     {
         #region Properties
 
-        public int UserId
+        public int Id
         {
-            get => _userId;
+            get => _id;
             set
             {
-                if(_userId != value)
+                if(_id != value)
                 {
-                    _userId = value;
-                    RaisePropertyChanged(nameof(UserId));
+                    _id = value;
+                    RaisePropertyChanged(nameof(Id));
                 }
             }
         }
-        private int _userId;
+        private int _id;
 
         public string FirstName
         {
@@ -101,18 +101,19 @@ namespace WorkoutHelper.ViewModels
 
         public ObservableUser(User user)
         {
-            UserId = user.UserId;
+            Id = user.Id;
             FirstName = user.FirstName;
             LastName = user.LastName;
             Height = user.Height;
             Weight = user.Weight;
-            Avatar = user.Avatar;
+            Avatar = string.IsNullOrEmpty(user.Avatar) ? "/WorkoutHelper;component/Resources/imgs/defaultavatar.png" : user.Avatar;
         }
 
         public User ToModel()
         {
             return new User
             {
+                Id = Id,
                 FirstName = FirstName,
                 LastName =  LastName,
                 Height = Height,

@@ -12,7 +12,7 @@ namespace WorkoutHelper.Models
         /// Exercise Id
         /// </summary>
         [Column("Id")]
-        public int UserId { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// User's first name
@@ -41,7 +41,7 @@ namespace WorkoutHelper.Models
         /// <summary>
         /// Path to the user's avatar
         /// </summary>
-        [Column("Avatar")]
+        [Column("AvatarPath")]
         public string Avatar { get; set; }
     }
 }

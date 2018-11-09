@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Practices.Unity;
 using Prism.Commands;
+using Prism.Events;
 using Prism.Mvvm;
+using WorkoutHelper.Events;
 using WorkoutHelper.Interfaces;
 
 namespace WorkoutHelper.ViewModels
@@ -10,7 +12,7 @@ namespace WorkoutHelper.ViewModels
     {
         #region Properties
 
-        public ITabViewComponent SelectedView
+        public IPageViewComponent SelectedView
         {
             get => _selectedView;
             set
@@ -23,55 +25,39 @@ namespace WorkoutHelper.ViewModels
             }
         }
 
-        private ITabViewComponent _selectedView;
-
-        public IReadOnlyList<ITabViewComponent> Views
-        {
-            get => _views;
-            set
-            {
-                if (!Equals(_views, value))
-                {
-                    _views = value;
-                    RaisePropertyChanged(nameof(Views));
-                }
-            }
-        }
-
-        private IReadOnlyList<ITabViewComponent> _views;
+        private IPageViewComponent _selectedView;
 
         #endregion
 
-        #region SelectViewCommand
+        //Due to how Event Aggregators weak referencing works these are required.
+        // ReSharper disable once PrivateFieldCanBeConvertedToLocalVariable
+        private readonly IPageViewComponent _tabbedPage;
+        // ReSharper disable once PrivateFieldCanBeConvertedToLocalVariable
+        private readonly IPageViewComponent _addUserPage;
+        // ReSharper disable once PrivateFieldCanBeConvertedToLocalVariable
+        private readonly IPageViewComponent _loginPage;
 
-        public DelegateCommand<ITabViewComponent> SelectViewCommand { get; set; }
-
-        private void SelectViewCommandOnExecute(ITabViewComponent component)
+        public ShellViewModel(IUnityContainer container, IEventAggregator eventAggregator)
         {
-            component.TabLoaded();
-            SelectedView = component;
-        }
+            _tabbedPage = container.Resolve<TabbedViewModel>();
+            _loginPage = container.Resolve<LoginViewModel>();
+            //todo: fix this
+            _addUserPage = container.Resolve<TabbedViewModel>();
+            
+            RenderPage(_loginPage);
 
-        #endregion
-        
-        public ShellViewModel(IUnityContainer container)
-        {
-            SelectViewCommand = new DelegateCommand<ITabViewComponent>(SelectViewCommandOnExecute);
-            LoadViews(container);
-        }
-
-        private void LoadViews(IUnityContainer container)
-        {
-            SelectedView = container.Resolve<DashboardViewModel>();
-            Views = new List<ITabViewComponent>
+            eventAggregator.GetEvent<LoginEvent>().Subscribe(id =>
             {
-                SelectedView,
-                container.Resolve<WorkoutViewModel>(),
-                container.Resolve<ExercisesViewModel>(),
-                container.Resolve<PlanningViewModel>(),
-                container.Resolve<WeighInViewModel>(),
-                container.Resolve<SettingsViewModel>(),
-            };
+                RenderPage(_tabbedPage);
+            });
+            eventAggregator.GetEvent<AddUserRequestedEvent>().Subscribe(() => RenderPage(_addUserPage));
+            eventAggregator.GetEvent<LogoutEvent>().Subscribe(() => RenderPage(_loginPage));
+        }
+
+        private void RenderPage(IPageViewComponent page)
+        {
+            SelectedView = page;
+            page.Rendered();
         }
     }
 }

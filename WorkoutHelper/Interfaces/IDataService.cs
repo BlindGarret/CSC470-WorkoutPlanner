@@ -18,12 +18,18 @@ namespace WorkoutHelper.Interfaces
 
 
         /// <summary>
-        /// Get user's settings.
+        /// Get user by ID.
         /// </summary>
-        /// <param name="userId">ID of the user requesting their settings</param>
-        /// <returns>User object containing settings</returns>
-        User GetSettings(int userId);
+        /// <param name="userId"></param>
+        /// <returns>User object</returns>
+        User GetUser(int userId);
 
+
+        /// <summary>
+        /// Gets a list of users
+        /// </summary>
+        /// <returns>User object</returns>
+        IEnumerable<User> GetUsers();
 
         /// <summary>
         /// Disables a given exercise for a given user.

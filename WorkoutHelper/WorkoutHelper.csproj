@@ -105,9 +105,18 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Behaviors\EventToCommandBehavior.cs" />
+    <Compile Include="DesignViewModels\LoginDesignViewModel.cs" />
+    <Compile Include="DesignViewModels\TabbedDesignViewModel.cs" />
+    <Compile Include="Events\AddUserRequestedEvent.cs" />
+    <Compile Include="Events\LoginEvent.cs" />
+    <Compile Include="Events\LogoutEvent.cs" />
     <Compile Include="Interfaces\IConfigurationDataService.cs" />
     <Compile Include="Interfaces\IDataService.cs" />
+    <Compile Include="Interfaces\IPageViewComponent.cs" />
+    <Compile Include="Interfaces\ISessionService.cs" />
     <Compile Include="Models\DisabledExercise.cs" />
+    <Compile Include="Services\SessionService.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ObservableUser.cs" />
     <Compile Include="Services\ConfigurationDataService.cs" />
     <Compile Include="Services\DataService.cs" />
@@ -115,16 +124,23 @@
     <Compile Include="ViewModels\ObservableWeighIn.cs" />
     <Compile Include="ViewModels\PlanningViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
+    <Compile Include="ViewModels\TabbedViewModel.cs" />
     <Compile Include="ViewModels\WeighInViewModel.cs" />
     <Compile Include="ViewModels\WorkoutViewModel.cs" />
     <Compile Include="Views\ExercisesView.xaml.cs">
       <DependentUpon>ExercisesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PlanningView.xaml.cs">
       <DependentUpon>PlanningView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TabbedView.xaml.cs">
+      <DependentUpon>TabbedView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WeighInView.xaml.cs">
       <DependentUpon>WeighInView.xaml</DependentUpon>
@@ -141,6 +157,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\ExercisesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -196,6 +216,10 @@
       <DependentUpon>ShellView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\TabbedView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\WeighInView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -219,10 +243,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="Resources\imgs\plussymbol.png" />
     <Resource Include="Resources\imgs\defaultavatar.png" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <Content Include="Databases\ExampleDB.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

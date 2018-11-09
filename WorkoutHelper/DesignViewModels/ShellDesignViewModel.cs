@@ -16,30 +16,16 @@ namespace WorkoutHelper.DesignViewModels
 {
     public class ShellDesignViewModel : BindableBase
     {
-        #region Properties
+        public IPageViewComponent SelectedView { get; set; } = new MockViewComponent();
 
-        public ITabViewComponent SelectedView { get; set; } = new MockViewComponent("Dashboard");
-
-        public IReadOnlyList<ITabViewComponent> Views { get; set; } = new List<ITabViewComponent>() { new MockViewComponent("Dashboard"), new MockViewComponent("Another"), new MockViewComponent("And Another"), };
-
-        #endregion
-
-        #region Commands
-
-        public DelegateCommand<ITabViewComponent> SelectViewCommand { get; set; }
-
-        #endregion
-
-        private class MockViewComponent : ITabViewComponent
+        private class MockViewComponent : IPageViewComponent
         {
-            public string PageName { get; }
-            public void TabLoaded()
+            public void Rendered()
             {
             }
 
-            public MockViewComponent(string name)
-            {
-                PageName = name;
+            public MockViewComponent()
+            {;
             }
         }
     }

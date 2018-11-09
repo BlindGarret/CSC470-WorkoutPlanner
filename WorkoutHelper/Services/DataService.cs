@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using SQLite;
 using WorkoutHelper.Interfaces;
 using WorkoutHelper.Models;
-using WorkoutHelper.ViewModels;
 
 namespace WorkoutHelper.Services
 {
@@ -18,12 +16,21 @@ namespace WorkoutHelper.Services
 
 
         /// <inheritdoc/>
-        public User GetSettings(int userId)
+        public User GetUser(int userId)
         {
             using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
             {
-                User user = connection.Table<User>().Where(x => x.UserId == userId).FirstOrDefault();
+                var user = connection.Table<User>().FirstOrDefault(x => x.Id == userId);
                 return user;
+            }
+        }
+        
+        /// <inheritdoc />
+        public IEnumerable<User> GetUsers()
+        {
+            using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
+            {
+                return connection.Table<User>().ToList();
             }
         }
 

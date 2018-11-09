@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using Microsoft.Practices.Unity;
+using Prism.Events;
 using Prism.Unity;
 using WorkoutHelper.Interfaces;
 using WorkoutHelper.Services;
@@ -47,7 +48,9 @@ namespace WorkoutHelper.Bootstrap
         {
             // Here we configure our unity container with our services.
             base.ConfigureContainer();
-            
+
+            Container.RegisterType<IEventAggregator, EventAggregator>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<ISessionService, SessionService>(new ContainerControlledLifetimeManager());
             Container.RegisterType<IConfigurationDataService, ConfigurationDataService>(new ContainerControlledLifetimeManager());
             Container.RegisterType<IDataService, DataService>(new ContainerControlledLifetimeManager());
         }
