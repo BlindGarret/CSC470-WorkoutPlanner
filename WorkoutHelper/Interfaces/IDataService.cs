@@ -24,7 +24,6 @@ namespace WorkoutHelper.Interfaces
         /// <returns>User object</returns>
         User GetUser(int userId);
 
-
         /// <summary>
         /// Gets a list of users
         /// </summary>
