@@ -2,7 +2,7 @@
 
 namespace WorkoutHelper.Events
 {
-    class SettingsChangedEvent: PubSubEvent
+    public class SettingsChangedEvent: PubSubEvent
     {
     }
 }

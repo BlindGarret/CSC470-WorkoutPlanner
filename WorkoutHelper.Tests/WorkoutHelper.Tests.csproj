@@ -81,6 +81,7 @@
     <Compile Include="Unit\ViewModels\AddUserViewModelTests.cs" />
     <Compile Include="Unit\ViewModels\ExercisesViewModelTests.cs" />
     <Compile Include="Unit\ViewModels\LoginViewModelTests.cs" />
+    <Compile Include="Unit\ViewModels\SettingsViewModelTests.cs" />
     <Compile Include="Unit\ViewModels\ShellViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup />
