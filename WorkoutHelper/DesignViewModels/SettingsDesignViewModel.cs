@@ -20,7 +20,7 @@ namespace WorkoutHelper.DesignViewModels
 
         #region Commands
 
-        public DelegateCommand<User> SaveCommand { get; set; }
+        public DelegateCommand<ObservableUser> SaveCommand { get; set; }
 
         public DelegateCommand<DragEventArgs> SaveImageCommand { get; set; }
 

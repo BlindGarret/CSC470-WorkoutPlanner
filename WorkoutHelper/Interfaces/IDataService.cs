@@ -17,6 +17,12 @@ namespace WorkoutHelper.Interfaces
         IEnumerable<Exercise> GetExercises(int userId);
 
         /// <summary>
+        /// Save the user's settings.
+        /// </summary>
+        /// <param name="saveUser">ObservableUser that will be converted to a User and put into the database</param>
+        void SaveUser(ObservableUser saveUser);
+
+        /// <summary>
         /// Adds a User to the Data Set
         /// </summary>
         /// <param name="user">User to Add</param>

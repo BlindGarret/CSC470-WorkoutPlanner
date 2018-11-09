@@ -3,6 +3,7 @@ using System.Linq;
 using SQLite;
 using WorkoutHelper.Interfaces;
 using WorkoutHelper.Models;
+using WorkoutHelper.ViewModels;
 
 namespace WorkoutHelper.Services
 {
@@ -14,6 +15,15 @@ namespace WorkoutHelper.Services
             _config = config;
         }
 
+
+        /// <inheritdoc/>
+        public void SaveUser(ObservableUser saveUser)
+        {
+            using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
+            {
+                connection.Update(saveUser.ToModel());
+            }
+        }
 
         /// <inheritdoc/>
         public User GetUser(int userId)

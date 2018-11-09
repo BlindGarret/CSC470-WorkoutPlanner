@@ -34,14 +34,11 @@ namespace WorkoutHelper.ViewModels
         #endregion
 
         #region SaveCommand
-        private readonly IConfigurationDataService _config;
-        public DelegateCommand<User> SaveCommand { get; set; }
-        private void SaveCommandOnExecute(User saveUser)
+        public DelegateCommand<ObservableUser> SaveCommand { get; set; }
+
+        private void SaveCommandOnExecute(ObservableUser saveUser)
         {
-            using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
-            {
-                connection.Update(saveUser);
-            }
+            _dataService.SaveUser(saveUser);
         }
         #endregion
 
@@ -89,7 +86,7 @@ namespace WorkoutHelper.ViewModels
             _dataService = dataService;
             _sessionService = sessionService;
 
-            SaveCommand = new DelegateCommand<User>(SaveCommandOnExecute);
+            SaveCommand = new DelegateCommand<ObservableUser>(SaveCommandOnExecute);
             SaveImageCommand = new DelegateCommand<DragEventArgs>(SaveImageCommandOnExecute);
         }
 
