@@ -43,5 +43,21 @@ namespace WorkoutHelper.Tests.Unit.ViewModels
             _eventAggregatorMock.Setup(x => x.GetEvent<SettingsChangedEvent>()).Returns(eventMock.Object);
 
         }
+
+        [Test]
+        public void SaveCommand_Called_CallsDataServiceWithExpectedUser()
+        {
+            var expected = 42;
+            var actual = -1;
+            var eventMock = new Mock<SettingsChangedEvent>();
+            _eventAggregatorMock.Setup(x => x.GetEvent<SettingsChangedEvent>()).Returns(eventMock.Object);
+            _dataServiceMock.Setup(x => x.SaveUser(It.IsAny<User>())).Callback<User>(x => actual = x.Id);
+
+            _viewModel.User = new ObservableUser(new User()) {Id = expected};
+            _viewModel.SaveCommand.Execute(_viewModel.User);
+
+            Assert.AreEqual(expected, actual);
+
+        }
     }
 }
