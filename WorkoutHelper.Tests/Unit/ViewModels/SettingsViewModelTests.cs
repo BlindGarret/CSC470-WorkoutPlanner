@@ -37,11 +37,20 @@ namespace WorkoutHelper.Tests.Unit.ViewModels
         [Test]
         public void SaveCommand_Called_PublishesExpectedEvent()
         {
-            var original = new User { Id = 2, FirstName = "B", LastName = "idner", Height = 65, Weight = 130, Avatar = "TEST"};
-            var expected = new User { Id = 2, FirstName = "Brandon", LastName = "Widner", Height = 65, Weight = 130, Avatar = "TEST" };
+            var expected = 42;
             var eventMock = new Mock<SettingsChangedEvent>();
+            eventMock.Setup(x => x.Publish());
             _eventAggregatorMock.Setup(x => x.GetEvent<SettingsChangedEvent>()).Returns(eventMock.Object);
+            _viewModel.SaveCommand.Execute(new ObservableUser(new User() { Id = expected}));
+            eventMock.Verify(x => x.Publish(), Times.Once);
+        }
 
+        [Test]
+        public void SaveCommand_Called_DataService()
+        {
+            var eventMock = new Mock<SettingsChangedEvent>();
+            _dataServiceMock.Setup(x => x.SaveUser(It.IsAny<User>()));
+            _dataServiceMock.Verify();
         }
 
         [Test]
