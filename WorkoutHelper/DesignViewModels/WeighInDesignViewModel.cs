@@ -1,7 +1,5 @@
-﻿using System;
-using Prism.Commands;
+﻿using Prism.Commands;
 using Prism.Mvvm;
-using WorkoutHelper.Models;
 
 namespace WorkoutHelper.DesignViewModels
 {

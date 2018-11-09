@@ -41,6 +41,18 @@ namespace WorkoutHelper.Tests.Unit.ViewModels
         }
 
         [Test]
+        public void TabLoaded_Called_GetsExercisesFromDataServiceWithCorrectUserId()
+        {
+            const int expected = 42;
+            _sessionServiceMock.SetupGet(x => x.UserId).Returns(expected);
+            _dataServiceMock.Setup(x => x.GetExercises(It.IsAny<int>())).Returns(Enumerable.Empty<Exercise>());
+
+            _viewModel.TabLoaded();
+
+            _dataServiceMock.Verify(x => x.GetExercises(expected), Times.Once);
+        }
+
+        [Test]
         public void TabLoaded_Called_SetsExercisesFromDataInAlphabeticalOrderByName()
         {
             _dataServiceMock.Setup(x => x.GetExercises(It.IsAny<int>())).Returns(new []
@@ -66,6 +78,19 @@ namespace WorkoutHelper.Tests.Unit.ViewModels
 
 
             _dataServiceMock.Verify(x => x.EnableExercise(expected, It.IsAny<int>()), Times.Once);
+        }
+
+        [Test]
+        public void EnableExerciseCommand_Called_CallsEnableExerciseWithExpectedUserId()
+        {
+            const int expected = 42;
+            _sessionServiceMock.SetupGet(x => x.UserId).Returns(expected);
+            _dataServiceMock.Setup(x => x.EnableExercise(It.IsAny<int>(), expected));
+
+            _viewModel.EnableExerciseCommand.Execute(new Exercise());
+
+
+            _dataServiceMock.Verify(x => x.EnableExercise(It.IsAny<int>(), expected), Times.Once);
         }
 
         [Test]

@@ -1,6 +1,5 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
-using System.Security.Claims;
 using Prism.Commands;
 using Prism.Mvvm;
 using WorkoutHelper.Interfaces;
