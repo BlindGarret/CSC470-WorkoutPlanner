@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using WorkoutHelper.Models;
-using WorkoutHelper.ViewModels;
 
 namespace WorkoutHelper.Interfaces
 {

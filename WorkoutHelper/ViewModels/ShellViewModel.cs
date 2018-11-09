@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Microsoft.Practices.Unity;
-using Prism.Commands;
+﻿using Microsoft.Practices.Unity;
 using Prism.Events;
 using Prism.Mvvm;
 using WorkoutHelper.Events;

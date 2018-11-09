@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Prism.Commands;
 using WorkoutHelper.Interfaces;
-using WorkoutHelper.ViewModels;
 
 namespace WorkoutHelper.DesignViewModels
 {

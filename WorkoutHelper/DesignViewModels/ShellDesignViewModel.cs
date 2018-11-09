@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using Prism.Commands;
-using Prism.Mvvm;
+﻿using Prism.Mvvm;
 using WorkoutHelper.Interfaces;
-using WorkoutHelper.Models;
 
 //This is not a class which really ships with the product. This is basically a stub for building UIs.
 
@@ -22,10 +18,6 @@ namespace WorkoutHelper.DesignViewModels
         {
             public void Rendered()
             {
-            }
-
-            public MockViewComponent()
-            {;
             }
         }
     }
