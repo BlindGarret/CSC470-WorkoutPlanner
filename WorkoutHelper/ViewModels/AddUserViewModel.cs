@@ -86,14 +86,14 @@ namespace WorkoutHelper.ViewModels
         {
             _dataService = dataService;
             _eventAggregator = eventAggregator;
+
+            SaveImageCommand = new DelegateCommand<DragEventArgs>(SaveImageCommandOnExecute);
+            AddUserCommand = new DelegateCommand(AddUserCommandOnExecute);
         }
 
         public void Rendered()
         {
             User = new ObservableUser(new User());
-
-            SaveImageCommand = new DelegateCommand<DragEventArgs>(SaveImageCommandOnExecute);
-            AddUserCommand = new DelegateCommand(AddUserCommandOnExecute);
         }
     }
 }
