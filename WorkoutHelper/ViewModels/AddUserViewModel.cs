@@ -53,13 +53,9 @@ namespace WorkoutHelper.ViewModels
             }
 
             var imagesDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "imgs");
-            var newName = $"{Path.GetFileNameWithoutExtension(file)}-{User.FirstName}-{User.LastName}-{User.Id}{Path.GetExtension(file)}";
+            var newName = $"{Guid.NewGuid()}{Path.GetExtension(file)}";
             var newPath = Path.Combine(imagesDir, newName);
             Directory.CreateDirectory(imagesDir);
-            if (File.Exists(newPath))
-            {
-                File.Delete(newPath);
-            }
             File.Copy(file, newPath);
 
             User.Avatar = newPath;

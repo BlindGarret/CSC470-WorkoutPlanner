@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 using System.Windows;
 using Prism.Commands;
@@ -62,13 +63,9 @@ namespace WorkoutHelper.ViewModels
             }
 
             var imagesDir = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "imgs");
-            var newName = $"{Path.GetFileNameWithoutExtension(file)}-{User.FirstName}-{User.LastName}-{User.Id}{Path.GetExtension(file)}";
+            var newName = $"{Guid.NewGuid()}{Path.GetExtension(file)}";
             var newPath = Path.Combine(imagesDir, newName);
             Directory.CreateDirectory(imagesDir);
-            if (File.Exists(newPath))
-            {
-                File.Delete(newPath);
-            }
             File.Copy(file, newPath);
 
             User.Avatar = newPath;
