@@ -6,6 +6,8 @@ namespace WorkoutHelper.Models
     [Table("PlannedGroups")]
     public class PlannedGroup
     {
+        [PrimaryKey]
+        [AutoIncrement]
         [Column("Id")]
         public int Id { get; set; }
         
