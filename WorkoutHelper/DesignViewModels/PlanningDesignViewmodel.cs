@@ -2,6 +2,7 @@
 using Prism.Commands;
 using Prism.Mvvm;
 using WorkoutHelper.Models;
+using WorkoutHelper.ViewModels;
 
 namespace WorkoutHelper.DesignViewModels
 {
@@ -12,9 +13,7 @@ namespace WorkoutHelper.DesignViewModels
 
         public string PageName { get; set; }
 
-        public ObservableCollection<Plan> Plans { get; set; }
-
-        public Plan SelectedPlan { get; set; }
+        public ObservableCollection<ObservablePlannedWeekday> Plans { get; set; }
 
         #endregion
 

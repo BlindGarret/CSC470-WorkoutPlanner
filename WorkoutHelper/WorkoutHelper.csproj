@@ -118,9 +118,13 @@
     <Compile Include="Interfaces\IPageViewComponent.cs" />
     <Compile Include="Interfaces\ISessionService.cs" />
     <Compile Include="Models\DisabledExercise.cs" />
+    <Compile Include="Models\PlannedWeekday.cs" />
     <Compile Include="Services\SessionService.cs" />
     <Compile Include="ViewModels\AddUserViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\ObservablePlannedExercise.cs" />
+    <Compile Include="ViewModels\ObservablePlannedGroup.cs" />
+    <Compile Include="ViewModels\ObservablePlannedWeekday.cs" />
     <Compile Include="ViewModels\ObservableUser.cs" />
     <Compile Include="Services\ConfigurationDataService.cs" />
     <Compile Include="Services\DataService.cs" />
