@@ -19,9 +19,9 @@ namespace WorkoutHelper.DesignViewModels
 
         #region Commands
 
-        public DelegateCommand<WorkoutGroup> AddExercise { get; set; }
+        public DelegateCommand<ObservablePlannedGroup> AddExercise { get; set; }
 
-        public DelegateCommand AddGroup { get; set; }
+        public DelegateCommand<ObservablePlannedWeekday> AddGroup { get; set; }
 
         public DelegateCommand SaveCommand { get; set; }
 
