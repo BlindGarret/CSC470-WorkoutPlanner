@@ -118,6 +118,7 @@
     <Compile Include="Interfaces\IPageViewComponent.cs" />
     <Compile Include="Interfaces\ISessionService.cs" />
     <Compile Include="Models\DisabledExercise.cs" />
+    <Compile Include="Models\DisabledWeekday.cs" />
     <Compile Include="Models\PlannedWeekday.cs" />
     <Compile Include="Services\SessionService.cs" />
     <Compile Include="ViewModels\AddUserViewModel.cs" />
