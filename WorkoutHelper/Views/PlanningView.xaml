@@ -8,7 +8,40 @@
              d:DataContext="{d:DesignInstance designViewModels:PlanningDesignViewModel, IsDesignTimeCreatable=True}"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Label Content="{Binding PageName}"></Label>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120px"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Rectangle Grid.Row="0" Fill="DimGray"/>
+        <Label Grid.Row="0" FontFamily="Dead Kansas" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24pt" Foreground="White" Content="{Binding PageName}"/>
+        <TabControl Margin="10,10,10,10" Grid.Row="1">
+            <ItemsControl ItemsSource="{Binding }"> <!-- Plan groups -->
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TabItem Header="{Binding }"> <!-- Weekday name -->
+                            <ScrollViewer VerticalScrollBarVisibility="Visible">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Label></Label>
+                                    <CheckBox></CheckBox>
+                                    <GroupBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Header="{Binding }">
+
+                                    </GroupBox>
+                                </Grid>
+                            </ScrollViewer>
+                        </TabItem>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </TabControl>
     </Grid>
 </UserControl>
