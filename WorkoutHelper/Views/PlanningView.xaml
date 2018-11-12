@@ -18,7 +18,13 @@
             <ItemsControl x:Name="PlansList" ItemsSource="{Binding Plans}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <ItemsControl x:Name="GroupsList" ItemsSource="{Binding Groups}"></ItemsControl>
+                        <ItemsControl x:Name="GroupsList" ItemsSource="{Binding Groups}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <TabItem Header="{Binding DayOfWeek}"></TabItem>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
