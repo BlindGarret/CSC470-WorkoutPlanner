@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Moq;
 using NUnit.Framework;
 using WorkoutHelper.Interfaces;
@@ -16,18 +12,21 @@ namespace WorkoutHelper.Tests.Unit.ViewModels
     {
         private ExercisesViewModel _viewModel;
         private Mock<IDataService> _dataServiceMock;
+        private Mock<ISessionService> _sessionServiceMock;
 
         [SetUp]
         public void Setup()
         {
             _dataServiceMock = new Mock<IDataService>();
-            _viewModel = new ExercisesViewModel(_dataServiceMock.Object);
+            _sessionServiceMock = new Mock<ISessionService>();
+            _viewModel = new ExercisesViewModel(_dataServiceMock.Object, _sessionServiceMock.Object);
         }
 
         [TearDown]
         public void TearDown()
         {
             _viewModel = null;
+            _sessionServiceMock = null;
             _dataServiceMock = null;
         }
 
@@ -39,6 +38,18 @@ namespace WorkoutHelper.Tests.Unit.ViewModels
             _viewModel.TabLoaded();
 
             _dataServiceMock.Verify(x => x.GetExercises(It.IsAny<int>()), Times.Once);
+        }
+
+        [Test]
+        public void TabLoaded_Called_GetsExercisesFromDataServiceWithCorrectUserId()
+        {
+            const int expected = 42;
+            _sessionServiceMock.SetupGet(x => x.UserId).Returns(expected);
+            _dataServiceMock.Setup(x => x.GetExercises(It.IsAny<int>())).Returns(Enumerable.Empty<Exercise>());
+
+            _viewModel.TabLoaded();
+
+            _dataServiceMock.Verify(x => x.GetExercises(expected), Times.Once);
         }
 
         [Test]
@@ -67,6 +78,19 @@ namespace WorkoutHelper.Tests.Unit.ViewModels
 
 
             _dataServiceMock.Verify(x => x.EnableExercise(expected, It.IsAny<int>()), Times.Once);
+        }
+
+        [Test]
+        public void EnableExerciseCommand_Called_CallsEnableExerciseWithExpectedUserId()
+        {
+            const int expected = 42;
+            _sessionServiceMock.SetupGet(x => x.UserId).Returns(expected);
+            _dataServiceMock.Setup(x => x.EnableExercise(It.IsAny<int>(), expected));
+
+            _viewModel.EnableExerciseCommand.Execute(new Exercise());
+
+
+            _dataServiceMock.Verify(x => x.EnableExercise(It.IsAny<int>(), expected), Times.Once);
         }
 
         [Test]

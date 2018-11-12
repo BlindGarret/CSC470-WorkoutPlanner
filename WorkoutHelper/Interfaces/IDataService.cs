@@ -16,6 +16,32 @@ namespace WorkoutHelper.Interfaces
         IEnumerable<Exercise> GetExercises(int userId);
 
         /// <summary>
+        /// Save a user.
+        /// </summary>
+        /// <param name="user">User to store in data set</param>
+        void SaveUser(User user);
+
+        /// <summary>
+        /// Adds a User to the Data Set
+        /// </summary>
+        /// <param name="user">User to Add</param>
+        /// <returns>ID of created user</returns>
+        int AddUser(User user);
+
+        /// <summary>
+        /// Get user by ID.
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns>User object</returns>
+        User GetUser(int userId);
+
+        /// <summary>
+        /// Gets a list of users
+        /// </summary>
+        /// <returns>User object</returns>
+        IEnumerable<User> GetUsers();
+
+        /// <summary>
         /// Disables a given exercise for a given user.
         /// </summary>
         /// <param name="exerciseId">The ID of the exercise</param>

@@ -20,4 +20,13 @@
     <DataTemplate DataType="{x:Type viewModels:SettingsViewModel}">
         <views:SettingsView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:LoginViewModel}">
+        <views:LoginView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:TabbedViewModel}">
+        <views:TabbedView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:AddUserViewModel}">
+        <views:AddUserView/>
+    </DataTemplate>
 </ResourceDictionary>

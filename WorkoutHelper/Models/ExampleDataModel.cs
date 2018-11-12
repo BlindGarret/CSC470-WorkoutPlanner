@@ -1,7 +1,7 @@
 ﻿using SQLite;
 
 // A serializable Data model. Anything we intend to put into the database should be setup like this.
-// note the Table and column name attributes applied to the properties.
+// note the Table and column names attributes applied to the properties.
 
 namespace WorkoutHelper.Models
 {

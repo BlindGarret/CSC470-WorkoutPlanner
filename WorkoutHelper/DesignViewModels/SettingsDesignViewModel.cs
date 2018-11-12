@@ -1,7 +1,8 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Windows;
 using Prism.Commands;
 using Prism.Mvvm;
 using WorkoutHelper.Models;
+using WorkoutHelper.ViewModels;
 
 namespace WorkoutHelper.DesignViewModels
 {
@@ -10,17 +11,17 @@ namespace WorkoutHelper.DesignViewModels
 
         #region Properties
 
-        public string PageName { get; set; }
+        public string PageName { get; set; } = "Settings";
 
-        public User User { get; set; }
-
-        public WeighIn WeighIn { get; set; }
+        public ObservableUser User { get; set; }
 
         #endregion
 
         #region Commands
 
-        public DelegateCommand SaveCommand { get; set; }
+        public DelegateCommand<ObservableUser> SaveCommand { get; set; }
+
+        public DelegateCommand<DragEventArgs> SaveImageCommand { get; set; }
 
         #endregion
     }

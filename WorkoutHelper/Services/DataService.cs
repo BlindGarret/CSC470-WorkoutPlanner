@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using SQLite;
 using WorkoutHelper.Interfaces;
 using WorkoutHelper.Models;
@@ -13,6 +12,47 @@ namespace WorkoutHelper.Services
         public DataService(IConfigurationDataService config)
         {
             _config = config;
+        }
+
+
+        /// <inheritdoc/>
+        public void SaveUser(User user)
+        {
+            using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
+            {
+                connection.Update(user);
+            }
+        }
+
+        /// <inheritdoc/>
+        public User GetUser(int userId)
+        {
+            using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
+            {
+                var user = connection.Table<User>().FirstOrDefault(x => x.Id == userId);
+                return user;
+            }
+        }
+
+        /// <inheritdoc/>
+        public int AddUser(User user)
+        {
+            using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
+            {
+                var lastId = connection.Table<User>().OrderBy(x => x.Id).LastOrDefault();
+                user.Id = lastId?.Id + 1 ?? 1;
+                connection.Insert(user);
+                return user.Id;
+            }
+        }
+
+        /// <inheritdoc />
+        public IEnumerable<User> GetUsers()
+        {
+            using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
+            {
+                return connection.Table<User>().ToList();
+            }
         }
 
         /// <inheritdoc />
