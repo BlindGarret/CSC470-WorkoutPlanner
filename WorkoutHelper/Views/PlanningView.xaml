@@ -14,20 +14,74 @@
         </Grid.RowDefinitions>
         <Rectangle Grid.Row="0" Fill="DimGray"/>
         <Label Grid.Row="0" FontFamily="Dead Kansas" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24pt" Foreground="White" Content="{Binding PageName}"/>
-        <TabControl Grid.Row="1">
-            <ItemsControl x:Name="PlansList" ItemsSource="{Binding Plans}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <ItemsControl x:Name="GroupsList" ItemsSource="{Binding Groups}">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <TabItem Header="{Binding DayOfWeek}"></TabItem>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+        <TabControl ItemsSource="{Binding Plans}" Margin="10,10,10,10" Grid.Row="1">
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Name}" FontSize="15" FontFamily="Constantia"></Label>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            <TabControl.ContentTemplate>
+                <DataTemplate>
+                    <ScrollViewer VerticalScrollBarVisibility="Visible">
+                        <Grid Margin="5,5,5,5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="8*"></ColumnDefinition>
+                                <ColumnDefinition Width="8*"></ColumnDefinition>
+                                <ColumnDefinition Width="8*"></ColumnDefinition>
+                                <ColumnDefinition Width="7.5*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="3" FontSize="15" FontFamily="Constantia">Workout Enabled</Label>
+                            <CheckBox Grid.Row="0" Grid.Column="4" Margin="0,7,0,0">
+                                <!-- Todo: add checked/unchecked triggers -->
+                            </CheckBox>
+                            <GroupBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" Header="{Binding}" FontSize="15" FontFamily="Constantia"> <!-- Binding jumps back to plans? -->
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Button Grid.Row="1" Command="{Binding AddExerciseCommand}">
+                                        <Button.Template>
+                                            <ControlTemplate>
+                                                <Grid Width="50" Height="50">
+                                                    <Ellipse Fill="LightGray" Margin="5"/>
+
+                                                    <Ellipse Margin="15">
+                                                        <Ellipse.Fill>
+                                                            <ImageBrush ImageSource="/WorkoutHelper;component/Resources/imgs/plussymbol.png"/>
+                                                        </Ellipse.Fill>
+                                                    </Ellipse>
+                                                </Grid>
+                                            </ControlTemplate>
+                                        </Button.Template>
+                                    </Button>
+                                </Grid>
+                            </GroupBox>
+                            <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Center" Command="{Binding AddGroupCommand}">
+                                <Button.Template>
+                                    <ControlTemplate>
+                                        <Grid Width="50" Height="50">
+                                            <Ellipse Fill="LightGray" Margin="5"/>
+
+                                            <Ellipse Margin="15">
+                                                <Ellipse.Fill>
+                                                    <ImageBrush ImageSource="/WorkoutHelper;component/Resources/imgs/plussymbol.png"/>
+                                                </Ellipse.Fill>
+                                            </Ellipse>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                        </Grid>
+                    </ScrollViewer>
+                </DataTemplate>
+            </TabControl.ContentTemplate>
         </TabControl>
     </Grid>
 </UserControl>
