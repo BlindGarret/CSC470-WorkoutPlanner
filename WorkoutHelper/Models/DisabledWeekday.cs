@@ -2,9 +2,14 @@
 
 namespace WorkoutHelper.Models
 {
-    [Table("DisableWeekday")]
+    [Table("DisabledWeekdays")]
     public class DisabledWeekday
     {
+        [Column("Id")]
+        [PrimaryKey]
+        [AutoIncrement]
+        public int Id { get; set; }
+
         [Column("UserId")]
         public int UserId { get; set; }
 
