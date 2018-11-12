@@ -8,8 +8,6 @@ namespace WorkoutHelper.Models
 {
     public class PlannedWeekday
     {
-        public int Order { get; set; }
-
         public string Name { get; set; }
 
         public List<PlannedGroup> Groups { get; set; }

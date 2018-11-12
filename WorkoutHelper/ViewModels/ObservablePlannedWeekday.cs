@@ -13,22 +13,7 @@ namespace WorkoutHelper.ViewModels
     public class ObservablePlannedWeekday : BindableBase
     {
         #region Properties
-
-        public int Order
-        {
-            get => _order;
-            set
-            {
-                if (_order != value)
-                {
-                    _order = value;
-                    RaisePropertyChanged(nameof(Order));
-                }
-            }
-        }
-
-        private int _order;
-
+        
         public string Name
         {
             get => _name;
@@ -78,7 +63,6 @@ namespace WorkoutHelper.ViewModels
 
         public ObservablePlannedWeekday(PlannedWeekday weekday)
         {
-            Order = weekday.Order;
             Name = weekday.Name;
             Groups = new ObservableCollection<ObservablePlannedGroup>(weekday.Groups.Select(x => new ObservablePlannedGroup(x)));
             Enabled = weekday.Enabled;
@@ -88,7 +72,6 @@ namespace WorkoutHelper.ViewModels
         {
             return new PlannedWeekday
             {
-                Order = Order,
                 Name = Name,
                 Groups = Groups.Select(x => x.ToModel()).ToList(),
                 Enabled = Enabled

@@ -96,5 +96,89 @@ namespace WorkoutHelper.Services
                     .Delete();
             }
         }
+
+        public IEnumerable<PlannedWeekday> GetPlans(int userId)
+        {
+            using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
+            {
+                var weekdays = new []
+                {
+                    new PlannedWeekday() { Name = "Sunday"},
+                    new PlannedWeekday() { Name = "Monday"},
+                    new PlannedWeekday() { Name = "Tuesday"},
+                    new PlannedWeekday() { Name = "Wednesday"},
+                    new PlannedWeekday() { Name = "Thursday"},
+                    new PlannedWeekday() { Name = "Friday"},
+                    new PlannedWeekday() { Name = "Saturday"},
+                };
+                var groups = connection.Table<PlannedGroup>().Where(x => x.UserId == userId);
+                var exercises = connection.Table<PlannedExercise>().Where(x => x.UserId == userId);
+                var disabledDays = connection.Table<DisabledWeekday>().Where(x => x.UserId == userId);
+
+                foreach (var plannedGroup in groups)
+                {
+                    plannedGroup.Exercises = new List<PlannedExercise>(exercises.Where(x => x.GroupId == plannedGroup.Id));
+                }
+
+                foreach (var plannedWeekday in weekdays)
+                {
+                    plannedWeekday.Groups =
+                        new List<PlannedGroup>(groups.Where(x => x.DayOfWeek == plannedWeekday.Name)
+                            .OrderBy(x => x.Order));
+                    plannedWeekday.Enabled = disabledDays.All(x => x.Day != plannedWeekday.Name);
+                }
+
+                return weekdays;
+            }
+        }
+
+        public void SavePlans(IEnumerable<PlannedWeekday> weekdays, int userId)
+        {
+            using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
+            {
+                //clear previous disabled flags as we're not tracking for updates:
+                connection.Table<DisabledExercise>().Where(x => x.UserId == userId).Delete();
+
+                foreach (var plannedWeekday in weekdays)
+                {
+                    foreach (var plannedWeekdayGroup in plannedWeekday.Groups)
+                    {
+                        foreach (var plannedExercise in plannedWeekdayGroup.Exercises)
+                        {
+                            plannedExercise.GroupId = plannedWeekdayGroup.Id;
+                            plannedExercise.UserId = userId;
+                            if (plannedExercise.Id < 1)
+                            {
+                                //0 is our tell for new objects
+                                connection.Insert(plannedExercise);
+                                continue;
+                            }
+
+                            connection.Update(plannedExercise);
+                        }
+
+                        plannedWeekdayGroup.DayOfWeek = plannedWeekday.Name;
+                        plannedWeekdayGroup.UserId = userId;
+                        if (plannedWeekdayGroup.Id < 1)
+                        {
+                            //0 is our tell for new objects
+                            connection.Insert(plannedWeekdayGroup);
+                            continue;
+                        }
+
+                        connection.Update(plannedWeekdayGroup);
+                    }
+
+                    if (!plannedWeekday.Enabled)
+                    {
+                        connection.Insert(new DisabledWeekday
+                        {
+                            Day = plannedWeekday.Name,
+                            UserId = userId
+                        });
+                    }
+                }
+            }
+        }
     }
 }
