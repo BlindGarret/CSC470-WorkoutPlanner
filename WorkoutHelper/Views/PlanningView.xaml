@@ -51,14 +51,144 @@
                     <ScrollViewer VerticalScrollBarVisibility="Visible">
                         <Grid Margin="5">
                             <Grid.RowDefinitions>
-                                <!-- Groupboxes containing groups -->
+                                <!-- Groupboxes containing groups and their checkboxes -->
                                 <RowDefinition></RowDefinition>
                                 <!-- Button to add another group -->
                                 <RowDefinition Height="Auto"></RowDefinition>
                             </Grid.RowDefinitions>
 
 
-                            <!-- THIRD LEVEL: Groupboxes containing groups -->
+                            <!-- THIRD LEVEL: Groupboxes of groups and their checkboxes -->
+                            <ItemsControl Grid.Row="0" ItemsSource="{Binding Groups}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <!-- Checkbox indicating if the group is enabled -->
+                                                <RowDefinition Height="Auto"></RowDefinition>
+                                                <!-- Groupboxes containing groups -->
+                                                <RowDefinition></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+
+                                            <!-- FOURTH LEVEL: checkbox indicating if the group is enabled -->
+                                            <Grid Grid.Row="0" Grid.Column="1">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <Label FontSize="15" FontFamily="Constantia" Grid.Row="0" Grid.Column="0">Enabled</Label>
+                                                <!-- Todo add checkbox functionality -->
+                                                <CheckBox Grid.Row="0" Grid.Column="1" Margin="0,7,0,0"></CheckBox>
+                                            </Grid>
+
+
+
+
+
+
+                                            <!-- FOURTH LEVEL: Groupbox containing group -->
+                                            <GroupBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                                                <GroupBox.Header>
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                        </Grid.ColumnDefinitions>
+                                                        <Label Grid.Row="0" Grid.Column="0" FontSize="15" FontFamily="Constantia">Group </Label>
+                                                        <Label Grid.Row="0" Grid.Column="1" FontSize="15" FontFamily="Constantia" Content="{Binding Id}"></Label>
+                                                    </Grid>
+                                                </GroupBox.Header>
+                                                <GroupBox.Content>
+                                                    <Grid>
+                                                        <Grid.RowDefinitions>
+                                                            <!-- Groupboxes containing exercises -->
+                                                            <RowDefinition></RowDefinition>
+                                                            <!-- Button to add another exercise to the group -->
+                                                            <RowDefinition Height="Auto"></RowDefinition>
+                                                        </Grid.RowDefinitions>
+                                                        <!-- FIFTH LEVEL: Groupboxes containing exercises -->
+                                                        <ItemsControl Grid.Row="0" ItemsSource="{Binding Exercises}">
+                                                            <ItemsControl.ItemTemplate>
+                                                                <DataTemplate>
+                                                                    <GroupBox>
+                                                                        <GroupBox.Header>
+                                                                            <Grid>
+                                                                                <Grid.ColumnDefinitions>
+                                                                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                                                </Grid.ColumnDefinitions>
+                                                                            </Grid>
+                                                                            <Label Grid.Column="0" FontSize="15" FontFamily="Constantia">Exercise </Label>
+                                                                            <Label Grid.Column="1" FontSize="15" FontFamily="Constantia" Content="{Binding Id}"></Label>
+                                                                        </GroupBox.Header>
+                                                                        <GroupBox.Content>
+                                                                            <Grid>
+                                                                                <Grid.RowDefinitions>
+                                                                                    <RowDefinition></RowDefinition>
+                                                                                    <RowDefinition></RowDefinition>
+                                                                                    <RowDefinition></RowDefinition>
+                                                                                    <RowDefinition></RowDefinition>
+                                                                                </Grid.RowDefinitions>
+                                                                                <Grid.ColumnDefinitions>
+                                                                                    <ColumnDefinition></ColumnDefinition>
+                                                                                    <ColumnDefinition></ColumnDefinition>
+                                                                                </Grid.ColumnDefinitions>
+                                                                                <Label Grid.Row="0" Grid.Column="0" FontSize="15" FontFamily="Constantia">Muscle Group</Label>
+                                                                                <Label Grid.Row="0" Grid.Column="1" FontSize="15" FontFamily="Constantia">Available Equipment</Label>
+                                                                                <Label Grid.Row="2" Grid.Column="0" FontSize="15" FontFamily="Constantia">Difficulty</Label>
+
+
+                                                                                <!-- Todo add combobox functionality -->
+                                                                                <ComboBox></ComboBox>
+
+
+
+                                                                                <Grid Grid.Column="1" Grid.Row="1">
+                                                                                    <Grid.ColumnDefinitions>
+                                                                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                                                    </Grid.ColumnDefinitions>
+                                                                                    <Label Grid.Column="0" FontSize="15" FontFamily="Constantia">Free Weights</Label>
+                                                                                    <Label Grid.Column="2" FontSize="15" FontFamily="Constantia">Machine</Label>
+                                                                                    <!-- Todo add checkbox functionality -->
+                                                                                    <CheckBox Margin="0,7,0,0" Grid.Column="1"></CheckBox>
+                                                                                    <!-- Todo add checkbox functionality -->
+                                                                                    <CheckBox Margin="0,7,0,0" Grid.Column="3"></CheckBox>
+                                                                                </Grid>
+
+
+                                                                                <!-- Todo add slider functionality -->
+                                                                                <Slider></Slider>
+                                                                            </Grid>
+                                                                        </GroupBox.Content>
+                                                                    </GroupBox>
+                                                                </DataTemplate>
+                                                            </ItemsControl.ItemTemplate>
+                                                        </ItemsControl>
+
+
+
+
+
+
+                                                        <!-- FIFTH LEVEL: Button to add another exercise to the group -->
+                                                        <ItemsControl Grid.Row="1">
+                                                            <Label HorizontalAlignment="Right">TEST</Label>
+                                                        </ItemsControl>
+                                                    </Grid>
+                                                </GroupBox.Content>
+                                            </GroupBox>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
 
 
 
