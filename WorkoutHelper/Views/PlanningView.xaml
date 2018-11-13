@@ -12,14 +12,31 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="120px"></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
+
+
+
+        <!-- TOP LEVEL: Banner -->
         <Rectangle Grid.Row="0" Fill="DimGray"/>
         <Label Grid.Row="0" FontFamily="Dead Kansas" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24pt" Foreground="White" Content="{Binding PageName}"/>
 
 
 
-        <!-- Tabs -->
-        <TabControl ItemsSource="{Binding Plans}" Margin="10,10,10,10" Grid.Row="1" SelectedIndex="0">
+
+
+
+
+
+
+
+
+        <!-- TOP LEVEL: Tabs + content -->
+        <TabControl Grid.Row="1" Margin="10,5,10,5" ItemsSource="{Binding Plans}" SelectedIndex="0">
+
+
+
+            <!-- SECOND LEVEL: Tabs -->
             <TabControl.ItemTemplate>
                 <DataTemplate>
                     <Label Content="{Binding Name}" FontSize="15" FontFamily="Constantia"></Label>
@@ -28,175 +45,50 @@
 
 
 
-
-            <!-- Content of individual tabs -->
+            <!-- SECOND LEVEL: Tab content -->
             <TabControl.ContentTemplate>
                 <DataTemplate DataType="viewModels:ObservablePlannedWeekday">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Visible">
-                            <Grid Margin="5,5,5,5">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition></RowDefinition>
-                                    <RowDefinition Height="Auto"></RowDefinition>
-                                    <RowDefinition Height="Auto"></RowDefinition>
-                                </Grid.RowDefinitions>
+                    <ScrollViewer VerticalScrollBarVisibility="Visible">
+                        <Grid Margin="5">
+                            <Grid.RowDefinitions>
+                                <!-- Groupboxes containing groups -->
+                                <RowDefinition></RowDefinition>
+                                <!-- Button to add another group -->
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+
+                            <!-- THIRD LEVEL: Groupboxes containing groups -->
 
 
 
-
-                                 <!--Listing of group boxes-->
-                                <ItemsControl ItemsSource="{Binding Groups}" Grid.Row="0">
-                                    <ItemsControl.ItemTemplate>
-                                        <DataTemplate>
-                                            <GroupBox>
-                                                <GroupBox.Header>
-                                                    <Grid>
-                                                        <Grid.ColumnDefinitions>
-                                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                                        </Grid.ColumnDefinitions>
-                                                        <TextBlock Grid.Column="0">Group </TextBlock>
-                                                        <TextBlock Grid.Column="1" Text="{Binding Id}"></TextBlock>
-                                                    </Grid>
-                                                </GroupBox.Header>
-                                                <GroupBox.Content>
-                                                    <Grid>
-                                                        <Grid.RowDefinitions>
-                                                            <RowDefinition></RowDefinition>
-                                                            <RowDefinition></RowDefinition>
-                                                        </Grid.RowDefinitions>
-
-
-
-                                                        <!-- List of exercises -->
-                                                        <ItemsControl Grid.Row="0" ItemsSource="{Binding Exercises}">
-                                                            <ItemsControl.ItemTemplate>
-                                                                <DataTemplate>
-                                                                    <GroupBox>
-                                                                        <GroupBox.Header>
-                                                                            <Grid>
-                                                                                <Grid.ColumnDefinitions>
-                                                                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                                                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                                                                </Grid.ColumnDefinitions>
-                                                                                <Label Grid.Column="0">Exercise </Label>
-                                                                                <Label Grid.Column="1" Content="{Binding Id}"></Label>
-                                                                            </Grid>
-                                                                        </GroupBox.Header>
-                                                                        <GroupBox.Content>
-                                                                            <Grid>
-                                                                                <Grid.ColumnDefinitions>
-                                                                                    <ColumnDefinition></ColumnDefinition>
-                                                                                    <ColumnDefinition></ColumnDefinition>
-                                                                                </Grid.ColumnDefinitions>
-                                                                                <Grid.RowDefinitions>
-                                                                                    <RowDefinition></RowDefinition>
-                                                                                    <RowDefinition></RowDefinition>
-                                                                                    <RowDefinition></RowDefinition>
-                                                                                    <RowDefinition></RowDefinition>
-                                                                                </Grid.RowDefinitions>
-                                                                                <Label Grid.Row="0" Grid.Column="0">Muscle Group</Label>
-                                                                                <Label Grid.Row="0" Grid.Column="1">Available Equipment</Label>
-                                                                                <ComboBox Grid.Row="1" Grid.Column="0">
-
-                                                                                </ComboBox>
-                                                                                <Grid Grid.Row="1" Grid.Column="1">
-                                                                                    <Grid.ColumnDefinitions>
-                                                                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                                                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                                                                    </Grid.ColumnDefinitions>
-                                                                                    <Grid.RowDefinitions>
-                                                                                        <RowDefinition></RowDefinition>
-                                                                                        <RowDefinition></RowDefinition>
-                                                                                    </Grid.RowDefinitions>
-                                                                                    <Label Grid.Row="0" Grid.Column="0">Free Weights</Label>
-                                                                                    <Label Grid.Row="1" Grid.Column="0">Machine</Label>
-                                                                                    <CheckBox Grid.Row="0" Grid.Column="1"></CheckBox>
-                                                                                    <CheckBox Grid.Row="1" Grid.Column="1"></CheckBox>
-                                                                                </Grid>
-                                                                                <Label Grid.Row="2" Grid.Column="0">Difficulty</Label>
-                                                                                <Slider Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Maximum="100"></Slider>
-                                                                            </Grid>
-                                                                        </GroupBox.Content>
-                                                                    </GroupBox>
-                                                                </DataTemplate>
-                                                            </ItemsControl.ItemTemplate>
-                                                        </ItemsControl>
-
-
-
-                                                            <!-- Button at bottom of individual group to add another exercise -->
-                                                        <ItemsControl Grid.Row="1">
-                                                            <DataTemplate DataType="viewModels:PlanningViewModel">
-                                                                <Button Command="{Binding AddExerciseCommand}">
-                                                                    <Button.Template>
-                                                                        <ControlTemplate>
-                                                                            <Grid Width="50" Height="50">
-                                                                                <Ellipse Fill="LightGray" Margin="5"/>
-
-                                                                                <Ellipse Margin="15">
-                                                                                    <Ellipse.Fill>
-                                                                                        <ImageBrush ImageSource="/WorkoutHelper;component/Resources/imgs/plussymbol.png"/>
-                                                                                    </Ellipse.Fill>
-                                                                                </Ellipse>
-                                                                            </Grid>
-                                                                        </ControlTemplate>
-                                                                    </Button.Template>
-                                                                </Button>
-                                                            </DataTemplate>
-                                                        </ItemsControl>
-                                                    </Grid>
-                                                </GroupBox.Content>
-                                            </GroupBox>
-                                        </DataTemplate>
-                                    </ItemsControl.ItemTemplate>
-                                </ItemsControl>
-
-
-
-
-                                <!--Button at bottom of list of groups to add another group-->
-                                <ItemsControl Grid.Row="1">
-                                    <DataTemplate DataType="viewModels:PlanningViewModel">
-                                        <Button Command="{Binding AddGroupCommand}">
-                                            <Button.Template>
-                                                <ControlTemplate>
-                                                    <Grid Width="50" Height="50">
-                                                        <Ellipse Fill="LightGray" Margin="5"/>
-
-                                                        <Ellipse Margin="15">
-                                                            <Ellipse.Fill>
-                                                                <ImageBrush ImageSource="/WorkoutHelper;component/Resources/imgs/plussymbol.png"/>
-                                                            </Ellipse.Fill>
-                                                        </Ellipse>
-                                                    </Grid>
-                                                </ControlTemplate>
-                                            </Button.Template>
-                                        </Button>
-                                    </DataTemplate>
-                                </ItemsControl>
-                            </Grid>
-                        </ScrollViewer>
-
-
-
-
-
-                        <!-- Button at very bottom of page that saves changes -->
-                        <ItemsControl Grid.Row="2">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate DataType="viewModels:PlanningViewModel">
-                                    <Button HorizontalAlignment="Right">Save</Button>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
-                    </Grid>
+                            <!-- THIRD LEVEL: Button to add another group -->
+                            <ItemsControl Grid.Row="1">
+                                <Label HorizontalAlignment="Right">TEST</Label>
+                            </ItemsControl>
+                        </Grid>
+                    </ScrollViewer>
                 </DataTemplate>
             </TabControl.ContentTemplate>
         </TabControl>
+
+
+
+
+
+
+
+
+
+
+
+        <!-- TOP LEVEL: Save control -->
+        <Button Command="{Binding SaveCommand}" Grid.Row="2" Width="120px" HorizontalAlignment="Right" Margin="0,0,10,5">
+            <Label FontSize="15" FontFamily="Constantia">Save</Label>
+        </Button>
+
+
+
+
     </Grid>
 </UserControl>
