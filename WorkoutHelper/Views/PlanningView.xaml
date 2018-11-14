@@ -5,36 +5,225 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:designViewModels="clr-namespace:WorkoutHelper.DesignViewModels"
              xmlns:viewModels="clr-namespace:WorkoutHelper.ViewModels"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance designViewModels:PlanningDesignViewModel, IsDesignTimeCreatable=True}"
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <UserControl.Resources>
+
+        <DataTemplate x:Key="ExerciseBox" DataType="viewModels:ObservablePlannedExercise">
+            <GroupBox>
+                <!-- Any way to differentiate this groupbox's header from the other's -->
+                <GroupBox.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" FontSize="15" FontFamily="Constantia">Exercise</Label>
+                        <Label Grid.Column="1" FontSize="15" FontFamily="Constantia" Content="{Binding Id}"></Label>
+                    </Grid>
+                </GroupBox.Header>
+                <GroupBox.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" FontSize="15" FontFamily="Constantia">Muscle Group</Label>
+                        <Label Grid.Row="0" Grid.Column="1" FontSize="15" FontFamily="Constantia">Available Equipment</Label>
+                        <Label Grid.Row="2" Grid.Column="0" FontSize="15" FontFamily="Constantia">Difficulty</Label>
+
+
+                        <!-- Todo test combobox functionality -->
+                        <ComboBox Grid.Row="1" Grid.Column="0" SelectedIndex="0">
+                            <ItemsControl>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <ComboBoxItem>
+                                            <Label FontSize="15" FontFamily="Constantia" Content="{Binding MuscleGroup}"></Label>
+                                        </ComboBoxItem>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ComboBox>
+
+
+
+                        <Grid Grid.Column="1" Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" FontSize="15" FontFamily="Constantia">Free Weights</Label>
+                            <Label Grid.Column="2" FontSize="15" FontFamily="Constantia">Machine</Label>
+                            <!-- Todo add checkbox functionality -->
+                            <CheckBox Margin="0,7,0,0" Grid.Column="1" IsChecked="{Binding AllowFreeWeights}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Checked">
+                                        <i:InvokeCommandAction Command="{Binding ElementName=ExercisesList, Path=DataContext}" CommandParameter="{Binding }"/>
+                                    </i:EventTrigger>
+
+                                    <i:EventTrigger EventName="Unchecked">
+                                        <i:InvokeCommandAction Command="{Binding ElementName=ExercisesList, Path=DataContext}" CommandParameter="{Binding }"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </CheckBox>
+                            <!-- Todo add checkbox functionality -->
+                            <CheckBox Margin="0,7,0,0" Grid.Column="3" IsChecked="{Binding AllowMachines}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Checked">
+                                        <i:InvokeCommandAction Command="{Binding ElementName=ExercisesList, Path=DataContext}" CommandParameter="{Binding}"/>
+                                    </i:EventTrigger>
+
+                                    <i:EventTrigger EventName="Unchecked">
+                                        <i:InvokeCommandAction Command="{Binding ElementName=ExercisesList, Path=DataContext}" CommandParameter="{Binding}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </CheckBox>
+                        </Grid>
+
+
+                        <!-- Todo add slider functionality -->
+                        <Slider Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Maximum="100" Value="{Binding Difficulty}"></Slider>
+                    </Grid>
+                </GroupBox.Content>
+            </GroupBox>
+        </DataTemplate>
+
+        <DataTemplate x:Key="GroupBox" DataType="viewModels:ObservablePlannedGroup">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <!-- Checkbox indicating if the group is enabled -->
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <!-- Groupboxes containing groups -->
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+
+                <!-- FOURTH LEVEL: checkbox indicating if the group is enabled -->
+                <Grid Grid.Row="0" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label FontSize="15" FontFamily="Constantia" Grid.Row="0" Grid.Column="0">Enabled</Label>
+                    <!-- Todo add checkbox functionality -->
+                    <CheckBox Grid.Row="0" Grid.Column="1" Margin="0,7,0,0" IsChecked="{Binding }" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Checked">
+                                <i:InvokeCommandAction Command="{Binding ElementName=GroupsList, Path=DataContext}" CommandParameter="{Binding}"/>
+                            </i:EventTrigger>
+
+                            <i:EventTrigger EventName="Unchecked">
+                                <i:InvokeCommandAction Command="{Binding ElementName=GroupsList, Path=DataContext}" CommandParameter="{Binding}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </CheckBox>
+                </Grid>
+
+                <!-- FOURTH LEVEL: Groupbox containing group -->
+                <GroupBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                    <GroupBox.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" FontSize="15" FontFamily="Constantia">Group</Label>
+                            <Label Grid.Row="0" Grid.Column="1" FontSize="15" FontFamily="Constantia" Content="{Binding Id}"></Label>
+                        </Grid>
+                    </GroupBox.Header>
+                    <GroupBox.Content>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <!-- Groupboxes containing exercises -->
+                                <RowDefinition></RowDefinition>
+                                <!-- Button to add another exercise to the group -->
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <!-- FIFTH LEVEL: Groupboxes containing exercises -->
+                            <ItemsControl Grid.Row="0" x:Name="ExercisesList" ItemsSource="{Binding Exercises}" ItemTemplate="{StaticResource ExerciseBox}"/>
+
+                            <Button Grid.Row="1" Command="{Binding AddExerciseCommand}">
+                                <Button.Template>
+                                    <ControlTemplate>
+                                        <Grid Width="50" Height="50">
+                                            <Ellipse Fill="LightGray" Margin="5"/>
+
+                                            <Ellipse Margin="15">
+                                                <Ellipse.Fill>
+                                                    <ImageBrush ImageSource="/WorkoutHelper;component/Resources/imgs/plussymbol.png"/>
+                                                </Ellipse.Fill>
+                                            </Ellipse>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                        </Grid>
+                    </GroupBox.Content>
+                </GroupBox>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="TabContent" DataType="viewModels:ObservablePlannedWeekday">
+            <ScrollViewer VerticalScrollBarVisibility="Visible">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <!-- Groupboxes containing groups and their checkboxes -->
+                        <RowDefinition></RowDefinition>
+                        <!-- Button to add another group -->
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <!-- THIRD LEVEL: Groupboxes of groups and their checkboxes -->
+                    <ItemsControl Grid.Row="0" x:Name="GroupsList" ItemsSource="{Binding Groups}" ItemTemplate="{StaticResource GroupBox}"/>
+
+                    <Button Command="{Binding AddGroupCommand}" Grid.Row="1">
+                        <Button.Template>
+                            <ControlTemplate>
+                                <Grid Width="50" Height="50">
+                                    <Ellipse Fill="LightGray" Margin="5"/>
+
+                                    <Ellipse Margin="15">
+                                        <Ellipse.Fill>
+                                            <ImageBrush ImageSource="/WorkoutHelper;component/Resources/imgs/plussymbol.png"/>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                </Grid>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </Grid>
+            </ScrollViewer>
+        </DataTemplate>
+
+    </UserControl.Resources>
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="120px"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
 
-
-
         <!-- TOP LEVEL: Banner -->
         <Rectangle Grid.Row="0" Fill="DimGray"/>
         <Label Grid.Row="0" FontFamily="Dead Kansas" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24pt" Foreground="White" Content="{Binding PageName}"/>
 
-
-
-
-
-
-
-
-
-
-
         <!-- TOP LEVEL: Tabs + content -->
-        <TabControl Grid.Row="1" Margin="10,5,10,5" ItemsSource="{Binding Plans}" SelectedIndex="0">
-
-
+        <TabControl Grid.Row="1" Margin="10,5,10,5" ItemsSource="{Binding Plans}" SelectedIndex="0" ContentTemplate="{StaticResource TabContent}">
 
             <!-- SECOND LEVEL: Tabs -->
             <TabControl.ItemTemplate>
@@ -42,241 +231,6 @@
                     <Label Content="{Binding Name}" FontSize="15" FontFamily="Constantia"></Label>
                 </DataTemplate>
             </TabControl.ItemTemplate>
-
-
-
-            <!-- SECOND LEVEL: Tab content -->
-            <TabControl.ContentTemplate>
-                <DataTemplate DataType="viewModels:ObservablePlannedWeekday">
-                    <ScrollViewer VerticalScrollBarVisibility="Visible">
-                        <Grid Margin="5">
-                            <Grid.RowDefinitions>
-                                <!-- Groupboxes containing groups and their checkboxes -->
-                                <RowDefinition></RowDefinition>
-                                <!-- Button to add another group -->
-                                <RowDefinition Height="Auto"></RowDefinition>
-                            </Grid.RowDefinitions>
-
-
-                            <!-- THIRD LEVEL: Groupboxes of groups and their checkboxes -->
-                            <ItemsControl Grid.Row="0" x:Name="GroupsList" ItemsSource="{Binding Groups}">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <Grid>
-                                            <Grid.RowDefinitions>
-                                                <!-- Checkbox indicating if the group is enabled -->
-                                                <RowDefinition Height="Auto"></RowDefinition>
-                                                <!-- Groupboxes containing groups -->
-                                                <RowDefinition></RowDefinition>
-                                            </Grid.RowDefinitions>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition></ColumnDefinition>
-                                                <ColumnDefinition></ColumnDefinition>
-                                            </Grid.ColumnDefinitions>
-
-
-                                            <!-- FOURTH LEVEL: checkbox indicating if the group is enabled -->
-                                            <Grid Grid.Row="0" Grid.Column="1">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                                </Grid.ColumnDefinitions>
-                                                <Label FontSize="15" FontFamily="Constantia" Grid.Row="0" Grid.Column="0">Enabled</Label>
-                                                <!-- Todo add checkbox functionality -->
-                                                <CheckBox Grid.Row="0" Grid.Column="1" Margin="0,7,0,0" IsChecked="{Binding <!-- Enabled? -->}">
-                                                    <i:Interaction.Triggers>
-                                                        <i:EventTrigger EventName="Checked">
-                                                            <i:InvokeCommandAction Command="{Binding ElementName=GroupsList, Path=DataContext.<!-- EnableGroup? -->}" CommandParameter="{Binding}"/>
-                                                        </i:EventTrigger>
-
-                                                        <i:EventTrigger EventName="Unchecked">
-                                                            <i:InvokeCommandAction Command="{Binding ElementName=GroupsList, Path=DataContext.<!-- DisableGroup? -->}" CommandParameter="{Binding}"/>
-                                                        </i:EventTrigger>
-                                                    </i:Interaction.Triggers>
-                                                </CheckBox>
-                                            </Grid>
-
-
-
-
-
-
-                                            <!-- FOURTH LEVEL: Groupbox containing group -->
-                                            <GroupBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
-                                                <GroupBox.Header>
-                                                    <Grid>
-                                                        <Grid.ColumnDefinitions>
-                                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                                        </Grid.ColumnDefinitions>
-                                                        <Label Grid.Row="0" Grid.Column="0" FontSize="15" FontFamily="Constantia">Group </Label>
-                                                        <Label Grid.Row="0" Grid.Column="1" FontSize="15" FontFamily="Constantia" Content="{Binding Id}"></Label>
-                                                    </Grid>
-                                                </GroupBox.Header>
-                                                <GroupBox.Content>
-                                                    <Grid>
-                                                        <Grid.RowDefinitions>
-                                                            <!-- Groupboxes containing exercises -->
-                                                            <RowDefinition></RowDefinition>
-                                                            <!-- Button to add another exercise to the group -->
-                                                            <RowDefinition Height="Auto"></RowDefinition>
-                                                        </Grid.RowDefinitions>
-                                                        <!-- FIFTH LEVEL: Groupboxes containing exercises -->
-                                                        <ItemsControl Grid.Row="0" x:Name="ExercisesList" ItemsSource="{Binding Exercises}">
-                                                            <ItemsControl.ItemTemplate>
-                                                                <DataTemplate>
-                                                                    <GroupBox>
-                                                                        <!-- Any way to differentiate this groupbox's header from the other's -->
-                                                                        <GroupBox.Header>
-                                                                            <Grid>
-                                                                                <Grid.ColumnDefinitions>
-                                                                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                                                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                                                                </Grid.ColumnDefinitions>
-                                                                            </Grid>
-                                                                            <Label Grid.Column="0" FontSize="15" FontFamily="Constantia">Exercise </Label>
-                                                                            <Label Grid.Column="1" FontSize="15" FontFamily="Constantia" Content="{Binding Id}"></Label>
-                                                                        </GroupBox.Header>
-                                                                        <GroupBox.Content>
-                                                                            <Grid>
-                                                                                <Grid.RowDefinitions>
-                                                                                    <RowDefinition></RowDefinition>
-                                                                                    <RowDefinition></RowDefinition>
-                                                                                    <RowDefinition></RowDefinition>
-                                                                                    <RowDefinition></RowDefinition>
-                                                                                </Grid.RowDefinitions>
-                                                                                <Grid.ColumnDefinitions>
-                                                                                    <ColumnDefinition></ColumnDefinition>
-                                                                                    <ColumnDefinition></ColumnDefinition>
-                                                                                </Grid.ColumnDefinitions>
-                                                                                <Label Grid.Row="0" Grid.Column="0" FontSize="15" FontFamily="Constantia">Muscle Group</Label>
-                                                                                <Label Grid.Row="0" Grid.Column="1" FontSize="15" FontFamily="Constantia">Available Equipment</Label>
-                                                                                <Label Grid.Row="2" Grid.Column="0" FontSize="15" FontFamily="Constantia">Difficulty</Label>
-
-
-                                                                                <!-- Todo test combobox functionality -->
-                                                                                <ComboBox Grid.Row="1" Grid.Column="0" SelectedIndex="0">
-                                                                                    <ItemsControl>
-                                                                                        <ItemsControl.ItemTemplate>
-                                                                                            <DataTemplate>
-                                                                                                <ComboBoxItem>
-                                                                                                    <Label FontSize="15" FontFamily="Constantia" Content="{Binding MuscleGroup}"></Label>
-                                                                                                </ComboBoxItem>
-                                                                                            </DataTemplate>
-                                                                                        </ItemsControl.ItemTemplate>
-                                                                                    </ItemsControl>
-                                                                                </ComboBox>
-
-
-
-                                                                                <Grid Grid.Column="1" Grid.Row="1">
-                                                                                    <Grid.ColumnDefinitions>
-                                                                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                                                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                                                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                                                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                                                                    </Grid.ColumnDefinitions>
-                                                                                    <Label Grid.Column="0" FontSize="15" FontFamily="Constantia">Free Weights</Label>
-                                                                                    <Label Grid.Column="2" FontSize="15" FontFamily="Constantia">Machine</Label>
-                                                                                    <!-- Todo add checkbox functionality -->
-                                                                                    <CheckBox Margin="0,7,0,0" Grid.Column="1" IsChecked="{Binding AllowFreeWeights}">
-                                                                                        <i:Interaction.Triggers>
-                                                                                            <i:EventTrigger EventName="Checked">
-                                                                                                <i:InvokeCommandAction Command="{Binding ElementName=ExercisesList, Path=DataContext.<!-- AllowFreeWeightsFunction? -->}" CommandParameter="{Binding}"/>
-                                                                                            </i:EventTrigger>
-
-                                                                                            <i:EventTrigger EventName="Unchecked">
-                                                                                                <i:InvokeCommandAction Command="{Binding ElementName=ExercisesList, Path=DataContext.<!-- DisallowFreeWeightsCommand? -->}" CommandParameter="{Binding}"/>
-                                                                                            </i:EventTrigger>
-                                                                                        </i:Interaction.Triggers>
-                                                                                    </CheckBox>
-                                                                                    <!-- Todo add checkbox functionality -->
-                                                                                    <CheckBox Margin="0,7,0,0" Grid.Column="3" IsChecked="{Binding AllowMachines}">
-                                                                                        <i:Interaction.Triggers>
-                                                                                            <i:EventTrigger EventName="Checked">
-                                                                                                <i:InvokeCommandAction Command="{Binding ElementName=ExercisesList, Path=DataContext.<!-- AllowMachineFunction -->}" CommandParameter="{Binding}"/>
-                                                                                            </i:EventTrigger>
-
-                                                                                            <i:EventTrigger EventName="Unchecked">
-                                                                                                <i:InvokeCommandAction Command="{Binding ElementName=ExercisesList, Path=DataContext.<!-- DisallowMachineFunction -->}" CommandParameter="{Binding}"/>
-                                                                                            </i:EventTrigger>
-                                                                                        </i:Interaction.Triggers>
-                                                                                    </CheckBox>
-                                                                                </Grid>
-
-
-                                                                                <!-- Todo add slider functionality -->
-                                                                                <Slider Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Maximum="100" Value="{Binding Difficulty}" <!-- Binding slider changes to the viewmodel? --></Slider>
-                                                                            </Grid>
-                                                                        </GroupBox.Content>
-                                                                    </GroupBox>
-                                                                </DataTemplate>
-                                                            </ItemsControl.ItemTemplate>
-                                                        </ItemsControl>
-
-
-
-
-
-
-                                                        <!-- FIFTH LEVEL: Todo Button to add another exercise to the group -->
-                                                        <ItemsControl Grid.Row="1">
-                                                            <ItemsControl.ItemTemplate>
-                                                                <DataTemplate DataType="viewModels:PlanningViewModel">
-                                                                    <Button Command="{Binding AddExerciseCommand}">
-                                                                        <Button.Template>
-                                                                            <ControlTemplate>
-                                                                                <Grid Width="50" Height="50">
-                                                                                    <Ellipse Fill="LightGray" Margin="5"/>
-
-                                                                                    <Ellipse Margin="15">
-                                                                                        <Ellipse.Fill>
-                                                                                            <ImageBrush ImageSource="/WorkoutHelper;component/Resources/imgs/plussymbol.png"/>
-                                                                                        </Ellipse.Fill>
-                                                                                    </Ellipse>
-                                                                                </Grid>
-                                                                            </ControlTemplate>
-                                                                        </Button.Template>
-                                                                    </Button>
-                                                                </DataTemplate>
-                                                            </ItemsControl.ItemTemplate>
-                                                        </ItemsControl>
-                                                    </Grid>
-                                                </GroupBox.Content>
-                                            </GroupBox>
-                                        </Grid>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
-
-
-
-                            <!-- THIRD LEVEL: Todo Button to add another group -->
-                            <ItemsControl Grid.Row="1">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate DataType="viewModels:PlanningViewModel">
-                                        <Button Command="{Binding AddGroupCommand}">
-                                            <Button.Template>
-                                                <ControlTemplate>
-                                                    <Grid Width="50" Height="50">
-                                                        <Ellipse Fill="LightGray" Margin="5"/>
-
-                                                        <Ellipse Margin="15">
-                                                            <Ellipse.Fill>
-                                                                <ImageBrush ImageSource="/WorkoutHelper;component/Resources/imgs/plussymbol.png"/>
-                                                            </Ellipse.Fill>
-                                                        </Ellipse>
-                                                    </Grid>
-                                                </ControlTemplate>
-                                            </Button.Template>
-                                        </Button>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
-                        </Grid>
-                    </ScrollViewer>
-                </DataTemplate>
-            </TabControl.ContentTemplate>
         </TabControl>
 
 
