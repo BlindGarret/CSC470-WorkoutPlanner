@@ -121,7 +121,7 @@
                     </Grid.ColumnDefinitions>
                     <Label FontSize="15" FontFamily="Constantia" Grid.Row="0" Grid.Column="0">Enabled</Label>
                     <!-- Todo add checkbox functionality -->
-                    <CheckBox Grid.Row="0" Grid.Column="1" Margin="0,7,0,0" IsChecked="{Binding }" >
+                    <CheckBox Grid.Row="0" Grid.Column="1" Margin="0,7,0,0" IsChecked="{Binding .}" >
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Checked">
                                 <i:InvokeCommandAction Command="{Binding ElementName=GroupsList, Path=DataContext}" CommandParameter="{Binding}"/>
