@@ -34,16 +34,23 @@
 
 
                         <!-- Todo test combobox functionality -->
-                        <ComboBox Grid.Row="1" Grid.Column="0" SelectedIndex="0">
-                            <ItemsControl>
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <ComboBoxItem>
-                                            <Label FontSize="15" FontFamily="Constantia" Content="{Binding MuscleGroup}"></Label>
-                                        </ComboBoxItem>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
+                        <ComboBox Grid.Row="1" Grid.Column="0" SelectedItem="{Binding MuscleGroup}">
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Quads</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Biceps</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Abs</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Abductors</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Traps</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Triceps</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Hamstrings</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Calves</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Lats</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Lower Back</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Glutes</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Cardio</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Shoulders</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Chest</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Forearms</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Obliques</ComboBoxItem>
                         </ComboBox>
 
 
@@ -57,38 +64,11 @@
                             </Grid.ColumnDefinitions>
                             <Label Grid.Column="0" FontSize="15" FontFamily="Constantia">Free Weights</Label>
                             <Label Grid.Column="2" FontSize="15" FontFamily="Constantia">Machine</Label>
-                            <!-- Todo add checkbox functionality -->
-                            <CheckBox Margin="0,7,0,0" Grid.Column="1" IsChecked="{Binding AllowFreeWeights}">
-                                <!-- Save should handle this
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="Checked">
-                                        <i:InvokeCommandAction Command="{Binding ElementName=ExercisesList, Path=DataContext.}" CommandParameter="{Binding}"/>
-                                    </i:EventTrigger>
-
-                                    <i:EventTrigger EventName="Unchecked">
-                                        <i:InvokeCommandAction Command="{Binding ElementName=ExercisesList, Path=DataContext}" CommandParameter="{Binding}"/>
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                                -->
-                            </CheckBox>
-                            <!-- Todo add checkbox functionality -->
-                            <CheckBox Margin="0,7,0,0" Grid.Column="3" IsChecked="{Binding AllowMachines}">
-                                <!-- Save should handle this
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="Checked">
-                                        <i:InvokeCommandAction Command="{Binding ElementName=ExercisesList, Path=DataContext}" CommandParameter="{Binding}"/>
-                                    </i:EventTrigger>
-
-                                    <i:EventTrigger EventName="Unchecked">
-                                        <i:InvokeCommandAction Command="{Binding ElementName=ExercisesList, Path=DataContext}" CommandParameter="{Binding}"/>
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                                -->
-                            </CheckBox>
+                            <CheckBox Margin="0,7,0,0" Grid.Column="1" IsChecked="{Binding AllowFreeWeights}"/>
+                            <CheckBox Margin="0,7,0,0" Grid.Column="3" IsChecked="{Binding AllowMachines}"/>
                         </Grid>
 
 
-                        <!-- Todo add slider functionality -->
                         <Slider Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Maximum="100" Value="{Binding Difficulty}"></Slider>
                     </Grid>
                 </GroupBox.Content>
