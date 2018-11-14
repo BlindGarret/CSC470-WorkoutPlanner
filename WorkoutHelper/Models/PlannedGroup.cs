@@ -21,6 +21,6 @@ namespace WorkoutHelper.Models
         public int Order { get; set; }
 
         [Ignore]
-        public List<PlannedExercise> Exercises { get; set; }
+        public List<PlannedExercise> Exercises { get; set; } = new List<PlannedExercise>();
     }
 }

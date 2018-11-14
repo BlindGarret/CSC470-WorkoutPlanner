@@ -47,7 +47,7 @@ namespace WorkoutHelper.ViewModels
 
         private void AddGroupCommandOnExecute(ObservablePlannedWeekday weekday)
         {
-            weekday.Groups.Add(new ObservablePlannedGroup(new PlannedGroup {Order = weekday.Groups.Max(x => x.Order) + 1}));
+            weekday.Groups.Add(new ObservablePlannedGroup(new PlannedGroup {Order = weekday.Groups.Count > 0 ? weekday.Groups.Max(x => x.Order) + 1 : 1}));
         }
 
         #endregion
@@ -70,6 +70,10 @@ namespace WorkoutHelper.ViewModels
         {
             _dataService = dataService;
             _sessionService = sessionService;
+
+            AddExerciseCommand = new DelegateCommand<ObservablePlannedGroup>(AddExerciseCommandOnExecute);
+            AddGroupCommand = new DelegateCommand<ObservablePlannedWeekday>(AddGroupCommandOnExecute);
+            SaveCommand = new DelegateCommand(SaveCommandOnExecute);
         }
 
         public void TabLoaded()
