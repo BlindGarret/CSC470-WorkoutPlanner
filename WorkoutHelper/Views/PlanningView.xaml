@@ -96,38 +96,8 @@
         </DataTemplate>
 
         <DataTemplate x:Key="GroupBox" DataType="viewModels:ObservablePlannedGroup">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <!-- Checkbox indicating if the group is enabled -->
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <!-- Groupboxes containing groups -->
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-
-
-                <!-- FOURTH LEVEL: checkbox indicating if the group is enabled -->
-                <Grid Grid.Row="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"></ColumnDefinition>
-                        <ColumnDefinition Width="Auto"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Label FontSize="15" FontFamily="Constantia" Grid.Row="0" Grid.Column="0">Enabled</Label>
-                    <!-- Todo add checkbox functionality -->
-                    <CheckBox Grid.Row="0" Grid.Column="1" Margin="0,7,0,0" IsChecked="{Binding .}" >
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="Checked">
-                                <i:InvokeCommandAction Command="{Binding ElementName=GroupsList, Path=DataContext}" CommandParameter="{Binding}"/>
-                            </i:EventTrigger>
-
-                            <i:EventTrigger EventName="Unchecked">
-                                <i:InvokeCommandAction Command="{Binding ElementName=GroupsList, Path=DataContext}" CommandParameter="{Binding}"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </CheckBox>
-                </Grid>
-
-                <!-- FOURTH LEVEL: Groupbox containing group -->
-                <GroupBox Grid.Row="1">
+            <!-- FOURTH LEVEL: Groupbox containing group -->
+                <GroupBox>
                     <GroupBox.Header>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -172,23 +142,42 @@
                         </Grid>
                     </GroupBox.Content>
                 </GroupBox>
-            </Grid>
         </DataTemplate>
 
         <DataTemplate x:Key="TabContent" DataType="viewModels:ObservablePlannedWeekday">
             <ScrollViewer VerticalScrollBarVisibility="Visible">
                 <Grid Margin="5">
                     <Grid.RowDefinitions>
-                        <!-- Groupboxes containing groups and their checkboxes -->
+                        <!-- Checkbox indicating that the day is enabled -->
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <!-- Groupboxes containing groups -->
                         <RowDefinition></RowDefinition>
                         <!-- Button to add another group -->
                         <RowDefinition Height="Auto"></RowDefinition>
                     </Grid.RowDefinitions>
 
-                    <!-- THIRD LEVEL: Groupboxes of groups and their checkboxes -->
-                    <ItemsControl Grid.Row="0" x:Name="GroupsList" ItemsSource="{Binding Groups}" ItemTemplate="{StaticResource GroupBox}"/>
 
-                    <Button Grid.Row="1">
+
+
+
+                    <!--  THIRD LEVEL: Checkbox indicating that the day is enabled -->
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" FontSize="15" FontFamily="Constantia">Day Enabled </Label>
+                        <CheckBox Grid.Column="1" Margin="0,7,0,0" IsChecked="{Binding Enabled}"></CheckBox>
+                    </Grid>
+
+
+
+
+
+                    <!-- THIRD LEVEL: Groupboxes of groups -->
+                    <ItemsControl Grid.Row="1" x:Name="GroupsList" ItemsSource="{Binding Groups}" ItemTemplate="{StaticResource GroupBox}"/>
+
+                    <Button Grid.Row="2">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
                                 <i:InvokeCommandAction Command="{Binding ElementName=PlanningTabControl, Path=DataContext.AddGroupCommand}" CommandParameter="{Binding}"></i:InvokeCommandAction>
