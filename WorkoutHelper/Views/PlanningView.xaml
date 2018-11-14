@@ -69,11 +69,11 @@
                             <CheckBox Margin="0,7,0,0" Grid.Column="1" IsChecked="{Binding AllowFreeWeights}">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="Checked">
-                                        <i:InvokeCommandAction Command="{Binding ElementName=ExercisesList, Path=DataContext}" CommandParameter="{Binding }"/>
+                                        <i:InvokeCommandAction Command="{Binding ElementName=ExercisesList, Path=DataContext.}" CommandParameter="{Binding}"/>
                                     </i:EventTrigger>
 
                                     <i:EventTrigger EventName="Unchecked">
-                                        <i:InvokeCommandAction Command="{Binding ElementName=ExercisesList, Path=DataContext}" CommandParameter="{Binding }"/>
+                                        <i:InvokeCommandAction Command="{Binding ElementName=ExercisesList, Path=DataContext}" CommandParameter="{Binding}"/>
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </CheckBox>
@@ -107,14 +107,10 @@
                     <!-- Groupboxes containing groups -->
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
 
 
                 <!-- FOURTH LEVEL: checkbox indicating if the group is enabled -->
-                <Grid Grid.Row="0" Grid.Column="1">
+                <Grid Grid.Row="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"></ColumnDefinition>
                         <ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -135,7 +131,7 @@
                 </Grid>
 
                 <!-- FOURTH LEVEL: Groupbox containing group -->
-                <GroupBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                <GroupBox Grid.Row="1">
                     <GroupBox.Header>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -189,9 +185,14 @@
                     </Grid.RowDefinitions>
 
                     <!-- THIRD LEVEL: Groupboxes of groups and their checkboxes -->
-                    <ItemsControl Grid.Row="0" x:Name="GroupsList" ItemsSource="{Binding Groups}" ItemTemplate="{StaticResource GroupBox}"/>
+                    <ItemsControl Grid.Row="0" x:Name="GroupsList" ItemsSource="{Binding PlanningTabControl}" ItemTemplate="{StaticResource GroupBox}"/>
 
-                    <Button Command="{Binding AddGroupCommand}" Grid.Row="1">
+                    <Button Grid.Row="1">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <i:InvokeCommandAction Command="{Binding ElementName=GroupsList, Path=DataContext.AddGroupCommand}" CommandParameter="{Binding}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                         <Button.Template>
                             <ControlTemplate>
                                 <Grid Width="50" Height="50">
@@ -223,7 +224,7 @@
         <Label Grid.Row="0" FontFamily="Dead Kansas" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24pt" Foreground="White" Content="{Binding PageName}"/>
 
         <!-- TOP LEVEL: Tabs + content -->
-        <TabControl Grid.Row="1" Margin="10,5,10,5" ItemsSource="{Binding Plans}" SelectedIndex="0" ContentTemplate="{StaticResource TabContent}">
+        <TabControl x:Name="PlanningTabControl" Grid.Row="1" Margin="10,5,10,5" ItemsSource="{Binding Plans}" SelectedIndex="0" ContentTemplate="{StaticResource TabContent}">
 
             <!-- SECOND LEVEL: Tabs -->
             <TabControl.ItemTemplate>
