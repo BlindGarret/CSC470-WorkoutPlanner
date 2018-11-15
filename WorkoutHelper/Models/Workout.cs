@@ -1,8 +1,26 @@
-﻿namespace WorkoutHelper.Models
+﻿using SQLite;
+
+namespace WorkoutHelper.Models
 {
+    [Table("Workouts")]
     public class Workout
     {
-        public int RepititionCount { get; set; }
+        [PrimaryKey]
+        [AutoIncrement]
+        [Column("Id")]
+        public int Id { get; set; }
+
+        [Column("UserId")]
+        public int UserId { get; set; }
+
+        [Column("GroupId")]
+        public int GroupId { get; set; }
+
+        [Column("RepetitionCount")]
+        public int RepetitionCount { get; set; }
+
+        [Column("ExerciseId")]
+        public int ExerciseId { get; set; }
 
         public Exercise Exercise { get; set; }
     }

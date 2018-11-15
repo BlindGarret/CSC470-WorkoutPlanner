@@ -68,5 +68,19 @@ namespace WorkoutHelper.Interfaces
         /// <param name="weekdays">A set of <see cref="PlannedWeekday"/>.</param>
         /// <param name="userId">The Id of the User.</param>
         void SavePlans(IEnumerable<PlannedWeekday> weekdays, int userId);
+
+        /// <summary>
+        /// Gets the planned workouts from the data set.
+        /// </summary>
+        /// <param name="userId">The Id of the user to get workouts for</param>
+        /// <returns>a set of <see cref="WorkoutDay"/></returns>
+        IEnumerable<WorkoutDay> GetWorkouts(int userId);
+
+        /// <summary>
+        /// Saves a set of planned workouts while invalidating previous workouts.
+        /// </summary>
+        /// <param name="days">Days planned</param>
+        /// <param name="userId">Id of user</param>
+        void SaveWorkouts(IEnumerable<WorkoutDay> days, int userId);
     }
 }

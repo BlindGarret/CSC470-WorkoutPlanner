@@ -184,5 +184,63 @@ namespace WorkoutHelper.Services
                 }
             }
         }
+
+        public IEnumerable<WorkoutDay> GetWorkouts(int userId)
+        {
+            using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
+            {
+                var groups = connection.Table<WorkoutGroup>().Where(x => x.UserId == userId).ToList();
+                var workouts = connection.Table<Workout>().Where(x => x.UserId == userId).ToList();
+                var days = connection.Table<WorkoutDay>().Where(x => x.UserId == userId);
+                var exercises = GetExercises(userId).ToDictionary(x => x.Id);
+
+                foreach (var workout in workouts)
+                {
+                    workout.Exercise = exercises[workout.ExerciseId];
+                }
+
+                foreach (var group in groups)
+                {
+                    group.Workouts = workouts.Where(x => x.GroupId == group.Id).ToList();
+                }
+
+                foreach (var day in days)
+                {
+                    day.Groups = groups.Where(x => x.DayId == day.Id).ToList();
+                }
+
+                return days;
+            }
+        }
+
+        public void SaveWorkouts(IEnumerable<WorkoutDay> days, int userId)
+        {
+            using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
+            {
+                //we'll treat these as immutable for simplicity.
+                connection.Table<WorkoutDay>().Where(x => x.UserId == userId).Delete();
+                connection.Table<WorkoutGroup>().Where(x => x.UserId == userId).Delete();
+                connection.Table<Workout>().Where(x => x.UserId == userId).Delete();
+
+                foreach (var workoutDay in days)
+                {
+                    workoutDay.UserId = userId;
+                    connection.Insert(workoutDay);
+                    foreach (var workoutDayGroup in workoutDay.Groups)
+                    {
+                        workoutDayGroup.DayId = workoutDay.Id;
+                        workoutDayGroup.UserId = userId;
+                        connection.Insert(workoutDayGroup);
+                        foreach (var workout in workoutDayGroup.Workouts)
+                        {
+                            workout.ExerciseId = workout.Exercise.Id;
+                            workout.GroupId = workoutDayGroup.Id;
+                            workout.UserId = userId;
+                            connection.Insert(workout);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

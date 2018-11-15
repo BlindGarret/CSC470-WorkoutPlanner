@@ -1,12 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using SQLite;
 
 namespace WorkoutHelper.Models
 {
+    [Table("WorkoutDays")]
     public class WorkoutDay
     {
-        public DateTimeOffset Date { get; set; }
-        
-        public IReadOnlyList<WorkoutGroup> Groups { get; set; }
+        [PrimaryKey]
+        [AutoIncrement]
+        [Column("Id")]
+        public int Id { get; set; }
+
+        [Column("Date")]
+        public DateTime Date { get; set; }
+
+        [Column("UserId")]
+        public int UserId { get; set; }
+
+        public List<WorkoutGroup> Groups { get; set; }
     }
 }
