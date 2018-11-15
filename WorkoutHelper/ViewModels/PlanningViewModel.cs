@@ -76,12 +76,12 @@ namespace WorkoutHelper.ViewModels
         {
             _dataService.SavePlans(Plans.Select(x => x.ToModel()), _sessionService.UserId);
             var today = DateTime.Now;
-            var dates = Enumerable.Range(0, 30)
+            var dates = Enumerable.Range(0, 14)
                 .Select(offset => today.AddDays(offset))
                 .ToList();
             var exercises = _dataService.GetExercises(_sessionService.UserId).Where(x => x.Enabled).ToList();
             var workouts = _workoutGenerator.GenerateWorkouts(dates, exercises,
-                _dataService.GetPlans(_sessionService.UserId).ToList());
+                Plans.Select(x => x.ToModel()).ToList());
             _dataService.SaveWorkouts(workouts, _sessionService.UserId);
             TabLoaded();
         }

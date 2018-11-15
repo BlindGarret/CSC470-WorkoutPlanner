@@ -69,7 +69,7 @@
                         </Grid>
 
 
-                        <Slider Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Maximum="100" Value="{Binding Difficulty}"></Slider>
+                        <Slider Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Maximum="20" Minimum="1" Value="{Binding Difficulty}"></Slider>
                     </Grid>
                 </GroupBox.Content>
             </GroupBox>
