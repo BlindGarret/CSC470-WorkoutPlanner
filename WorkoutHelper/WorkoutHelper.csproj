@@ -113,14 +113,17 @@
     <Compile Include="Events\LoginRequestEvent.cs" />
     <Compile Include="Events\LogoutEvent.cs" />
     <Compile Include="Events\SettingsChangedEvent.cs" />
+    <Compile Include="Extensions\IEnumerableExtensions.cs" />
     <Compile Include="Interfaces\IConfigurationDataService.cs" />
     <Compile Include="Interfaces\IDataService.cs" />
     <Compile Include="Interfaces\IPageViewComponent.cs" />
     <Compile Include="Interfaces\ISessionService.cs" />
+    <Compile Include="Interfaces\IWorkoutGenerator.cs" />
     <Compile Include="Models\DisabledExercise.cs" />
     <Compile Include="Models\DisabledWeekday.cs" />
     <Compile Include="Models\PlannedWeekday.cs" />
     <Compile Include="Services\SessionService.cs" />
+    <Compile Include="Services\WorkoutGeneratorService.cs" />
     <Compile Include="ViewModels\AddUserViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ObservablePlannedExercise.cs" />

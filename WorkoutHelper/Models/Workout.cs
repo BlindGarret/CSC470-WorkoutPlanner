@@ -22,6 +22,7 @@ namespace WorkoutHelper.Models
         [Column("ExerciseId")]
         public int ExerciseId { get; set; }
 
+        [Ignore]
         public Exercise Exercise { get; set; }
     }
 }

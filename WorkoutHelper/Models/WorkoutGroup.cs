@@ -17,6 +17,7 @@ namespace WorkoutHelper.Models
         [Column("UserId")]
         public int UserId { get; set; }
 
+        [Ignore]
         public IReadOnlyList<Workout> Workouts { get; set; }
     }
 }
