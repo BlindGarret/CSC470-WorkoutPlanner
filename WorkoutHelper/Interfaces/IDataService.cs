@@ -54,5 +54,19 @@ namespace WorkoutHelper.Interfaces
         /// <param name="exerciseId">The ID of the exercise</param>
         /// <param name="userId">The ID of the User.</param>
         void EnableExercise(int exerciseId, int userId);
+
+        /// <summary>
+        /// Gets the current weekday plans for a given user.
+        /// </summary>
+        /// <param name="userId">The ID of the user to query</param>
+        /// <returns>a set of <see cref="PlannedWeekday"/></returns>
+        IEnumerable<PlannedWeekday> GetPlans(int userId);
+
+        /// <summary>
+        /// Saves a set of plans for a given user.
+        /// </summary>
+        /// <param name="weekdays">A set of <see cref="PlannedWeekday"/>.</param>
+        /// <param name="userId">The Id of the User.</param>
+        void SavePlans(IEnumerable<PlannedWeekday> weekdays, int userId);
     }
 }

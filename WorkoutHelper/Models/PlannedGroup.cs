@@ -1,12 +1,26 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using SQLite;
 
 namespace WorkoutHelper.Models
 {
+    [Table("PlannedGroups")]
     public class PlannedGroup
     {
+        [PrimaryKey]
+        [AutoIncrement]
+        [Column("Id")]
+        public int Id { get; set; }
+        
+        [Column("UserId")]
+        public int UserId { get; set; }
+
+        [Column("DayOfWeek")]
+        public string DayOfWeek { get; set; }
+
+        [Column("Order")]
         public int Order { get; set; }
 
-        public ObservableCollection<PlannedExercise> Exercises { get; set; }
-
+        [Ignore]
+        public List<PlannedExercise> Exercises { get; set; } = new List<PlannedExercise>();
     }
 }

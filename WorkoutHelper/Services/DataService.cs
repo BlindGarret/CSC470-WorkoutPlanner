@@ -8,7 +8,7 @@ namespace WorkoutHelper.Services
 {
     public class DataService : IDataService
     {
-        private readonly IConfigurationDataService _config; 
+        private readonly IConfigurationDataService _config;
         public DataService(IConfigurationDataService config)
         {
             _config = config;
@@ -83,7 +83,7 @@ namespace WorkoutHelper.Services
         {
             using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
             {
-                connection.Insert(new DisabledExercise() {ExerciseId = exerciseId, UserId = userId});
+                connection.Insert(new DisabledExercise() { ExerciseId = exerciseId, UserId = userId });
             }
         }
 
@@ -94,6 +94,94 @@ namespace WorkoutHelper.Services
             {
                 connection.Table<DisabledExercise>().Where(x => x.UserId == userId && x.ExerciseId == exerciseId)
                     .Delete();
+            }
+        }
+
+        public IEnumerable<PlannedWeekday> GetPlans(int userId)
+        {
+            using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
+            {
+                var weekdays = new[]
+                {
+                    new PlannedWeekday() { Name = "Sunday"},
+                    new PlannedWeekday() { Name = "Monday"},
+                    new PlannedWeekday() { Name = "Tuesday"},
+                    new PlannedWeekday() { Name = "Wednesday"},
+                    new PlannedWeekday() { Name = "Thursday"},
+                    new PlannedWeekday() { Name = "Friday"},
+                    new PlannedWeekday() { Name = "Saturday"},
+                };
+                var groups = connection.Table<PlannedGroup>().Where(x => x.UserId == userId).ToList();
+                var exercises = connection.Table<PlannedExercise>().Where(x => x.UserId == userId).ToList();
+                var disabledDays = connection.Table<DisabledWeekday>().Where(x => x.UserId == userId).ToList();
+
+                foreach (var plannedGroup in groups)
+                {
+                    plannedGroup.Exercises = new List<PlannedExercise>(exercises.Where(x => x.GroupId == plannedGroup.Id));
+                }
+
+                foreach (var plannedWeekday in weekdays)
+                {
+                    plannedWeekday.Groups =
+                        new List<PlannedGroup>(groups.Where(x => x.DayOfWeek == plannedWeekday.Name)
+                            .OrderBy(x => x.Order));
+                    plannedWeekday.Enabled = disabledDays.All(x => x.Day != plannedWeekday.Name);
+                }
+
+                return weekdays;
+            }
+        }
+
+        public void SavePlans(IEnumerable<PlannedWeekday> weekdays, int userId)
+        {
+            using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
+            {
+                //clear previous disabled flags as we're not tracking for updates:
+                connection.Table<DisabledExercise>().Where(x => x.UserId == userId).Delete();
+
+                foreach (var plannedWeekday in weekdays)
+                {
+
+                    if (!plannedWeekday.Enabled)
+                    {
+                        connection.Insert(new DisabledWeekday
+                        {
+                            Day = plannedWeekday.Name,
+                            UserId = userId
+                        });
+                    }
+
+                    foreach (var plannedWeekdayGroup in plannedWeekday.Groups)
+                    {
+                        plannedWeekdayGroup.DayOfWeek = plannedWeekday.Name;
+                        plannedWeekdayGroup.UserId = userId;
+                        if (plannedWeekdayGroup.Id < 1)
+                        {
+                            //0 is our tell for new objects
+                            connection.Insert(plannedWeekdayGroup);
+                        }
+                        else
+                        {
+                            connection.Update(plannedWeekdayGroup);
+                        }
+
+
+                        foreach (var plannedExercise in plannedWeekdayGroup.Exercises)
+                        {
+                            plannedExercise.GroupId = plannedWeekdayGroup.Id;
+                            plannedExercise.UserId = userId;
+                            if (plannedExercise.Id < 1)
+                            {
+                                //0 is our tell for new objects
+                                connection.Insert(plannedExercise);
+                                continue;
+                            }
+
+                            connection.Update(plannedExercise);
+                        }
+
+                    }
+                }
             }
         }
     }

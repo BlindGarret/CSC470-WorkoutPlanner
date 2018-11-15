@@ -4,11 +4,223 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:designViewModels="clr-namespace:WorkoutHelper.DesignViewModels"
+             xmlns:viewModels="clr-namespace:WorkoutHelper.ViewModels"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance designViewModels:PlanningDesignViewModel, IsDesignTimeCreatable=True}"
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Label Content="{Binding PageName}"></Label>
-            
+    <UserControl.Resources>
+
+        <DataTemplate x:Key="ExerciseBox" DataType="viewModels:ObservablePlannedExercise">
+            <GroupBox>
+                <GroupBox.Header>
+                    <Label FontSize="15" FontFamily="Constantia">Exercise</Label>
+                </GroupBox.Header>
+                <GroupBox.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" FontSize="15" FontFamily="Constantia">Muscle Group</Label>
+                        <Label Grid.Row="0" Grid.Column="1" FontSize="15" FontFamily="Constantia">Available Equipment</Label>
+                        <Label Grid.Row="2" Grid.Column="0" FontSize="15" FontFamily="Constantia">Difficulty</Label>
+
+
+                        <!-- Todo test combobox functionality -->
+                        <ComboBox Grid.Row="1" Grid.Column="0" SelectedValue="{Binding MuscleGroup}" SelectedValuePath="Content">
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Quads</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Biceps</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Abs</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Abductors</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Traps</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Triceps</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Hamstrings</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Calves</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Lats</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Lower Back</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Glutes</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Cardio</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Shoulders</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Chest</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Forearms</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Obliques</ComboBoxItem>
+                        </ComboBox>
+
+
+
+                        <Grid Grid.Column="1" Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" FontSize="15" FontFamily="Constantia">Free Weights</Label>
+                            <Label Grid.Column="2" FontSize="15" FontFamily="Constantia">Machine</Label>
+                            <CheckBox Margin="0,7,0,0" Grid.Column="1" IsChecked="{Binding AllowFreeWeights}"/>
+                            <CheckBox Margin="0,7,0,0" Grid.Column="3" IsChecked="{Binding AllowMachines}"/>
+                        </Grid>
+
+
+                        <Slider Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Maximum="100" Value="{Binding Difficulty}"></Slider>
+                    </Grid>
+                </GroupBox.Content>
+            </GroupBox>
+        </DataTemplate>
+
+        <DataTemplate x:Key="GroupBox" DataType="viewModels:ObservablePlannedGroup">
+            <!-- FOURTH LEVEL: Groupbox containing group -->
+                <GroupBox>
+                    <GroupBox.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" FontSize="15" FontFamily="Constantia">Group</Label>
+                            <Label Grid.Row="0" Grid.Column="1" FontSize="15" FontFamily="Constantia" Content="{Binding Order}"></Label>
+                        </Grid>
+                    </GroupBox.Header>
+                    <GroupBox.Content>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <!-- Groupboxes containing exercises -->
+                                <RowDefinition></RowDefinition>
+                                <!-- Button to add another exercise to the group -->
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <!-- FIFTH LEVEL: Groupboxes containing exercises -->
+                            <ItemsControl Grid.Row="0" x:Name="ExercisesList" ItemsSource="{Binding Exercises}" ItemTemplate="{StaticResource ExerciseBox}"/>
+
+                            <Button Grid.Row="1">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Click">
+                                        <i:InvokeCommandAction Command="{Binding ElementName=PlanningTabControl, Path=DataContext.AddExerciseCommand}" CommandParameter="{Binding}"></i:InvokeCommandAction>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                                <Button.Template>
+                                    <ControlTemplate>
+                                        <Grid Width="50" Height="50">
+                                            <Ellipse Fill="LightGray" Margin="5"/>
+
+                                            <Ellipse Margin="15">
+                                                <Ellipse.Fill>
+                                                    <ImageBrush ImageSource="/WorkoutHelper;component/Resources/imgs/plussymbol.png"/>
+                                                </Ellipse.Fill>
+                                            </Ellipse>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                        </Grid>
+                    </GroupBox.Content>
+                </GroupBox>
+        </DataTemplate>
+
+        <DataTemplate x:Key="TabContent" DataType="viewModels:ObservablePlannedWeekday">
+            <ScrollViewer VerticalScrollBarVisibility="Visible">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <!-- Checkbox indicating that the day is enabled -->
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <!-- Groupboxes containing groups -->
+                        <RowDefinition></RowDefinition>
+                        <!-- Button to add another group -->
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+
+
+
+
+                    <!--  THIRD LEVEL: Checkbox indicating that the day is enabled -->
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" FontSize="15" FontFamily="Constantia">Day Enabled </Label>
+                        <CheckBox Grid.Column="1" Margin="0,7,0,0" IsChecked="{Binding Enabled}"></CheckBox>
+                    </Grid>
+
+
+
+
+
+                    <!-- THIRD LEVEL: Groupboxes of groups -->
+                    <ItemsControl Grid.Row="1" x:Name="GroupsList" ItemsSource="{Binding Groups}" ItemTemplate="{StaticResource GroupBox}"/>
+
+                    <Button Grid.Row="2">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <i:InvokeCommandAction Command="{Binding ElementName=PlanningTabControl, Path=DataContext.AddGroupCommand}" CommandParameter="{Binding}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <Button.Template>
+                            <ControlTemplate>
+                                <Grid Width="50" Height="50">
+                                    <Ellipse Fill="LightGray" Margin="5"/>
+
+                                    <Ellipse Margin="15">
+                                        <Ellipse.Fill>
+                                            <ImageBrush ImageSource="/WorkoutHelper;component/Resources/imgs/plussymbol.png"/>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                </Grid>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </Grid>
+            </ScrollViewer>
+        </DataTemplate>
+
+    </UserControl.Resources>
+        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120px"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!-- TOP LEVEL: Banner -->
+        <Rectangle Grid.Row="0" Fill="DimGray"/>
+        <Label Grid.Row="0" FontFamily="Dead Kansas" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24pt" Foreground="White" Content="{Binding PageName}"/>
+
+        <!-- TOP LEVEL: Tabs + content -->
+        <TabControl x:Name="PlanningTabControl" Grid.Row="1" Margin="10,5,10,5" ItemsSource="{Binding Plans}" SelectedItem="{Binding SelectedDay}" ContentTemplate="{StaticResource TabContent}">
+
+            <!-- SECOND LEVEL: Tabs -->
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Name}" FontSize="15" FontFamily="Constantia"></Label>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+        </TabControl>
+
+
+
+
+
+
+
+
+
+
+
+        <!-- TOP LEVEL: Save control -->
+        <Button Command="{Binding SaveCommand}" Grid.Row="2" Width="120px" HorizontalAlignment="Right" Margin="0,0,10,5">
+            <Label FontSize="15" FontFamily="Constantia">Save</Label>
+        </Button>
+
+
+
+
     </Grid>
 </UserControl>
