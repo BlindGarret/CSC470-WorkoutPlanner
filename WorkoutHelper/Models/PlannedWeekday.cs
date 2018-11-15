@@ -10,7 +10,7 @@ namespace WorkoutHelper.Models
     {
         public string Name { get; set; }
 
-        public List<PlannedGroup> Groups { get; set; }
+        public List<PlannedGroup> Groups { get; set; } = new List<PlannedGroup>();
 
         public bool Enabled { get; set; }
     }
