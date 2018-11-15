@@ -28,6 +28,21 @@ namespace WorkoutHelper.ViewModels
 
         private ObservableCollection<ObservablePlannedWeekday> _plans;
 
+        public ObservablePlannedWeekday SelectedDay
+        {
+            get => _selectedDay;
+            set
+            {
+                if (_selectedDay != value)
+                {
+                    _selectedDay = value;
+                    RaisePropertyChanged(nameof(SelectedDay));
+                }
+            }
+        }
+
+        private ObservablePlannedWeekday _selectedDay;
+
         #endregion
 
         #region AddExerciseCommand
@@ -59,6 +74,7 @@ namespace WorkoutHelper.ViewModels
         private void SaveCommandOnExecute()
         {
             _dataService.SavePlans(Plans.Select(x => x.ToModel()), _sessionService.UserId);
+            TabLoaded();
         }
 
         #endregion
@@ -79,6 +95,13 @@ namespace WorkoutHelper.ViewModels
         public void TabLoaded()
         {
             Plans = new ObservableCollection<ObservablePlannedWeekday>(_dataService.GetPlans(_sessionService.UserId).Select(x => new ObservablePlannedWeekday(x)));
+            if (SelectedDay == null)
+            {
+                SelectedDay = Plans.First();
+                return;
+            }
+
+            SelectedDay = Plans.FirstOrDefault(x => x.Name == SelectedDay.Name);
         }
     }
 }

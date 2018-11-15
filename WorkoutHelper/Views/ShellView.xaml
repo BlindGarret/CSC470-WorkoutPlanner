@@ -6,6 +6,6 @@
         xmlns:designViewModels="clr-namespace:WorkoutHelper.DesignViewModels"
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance designViewModels:ShellDesignViewModel, IsDesignTimeCreatable=True}"
-        Title="Workout Helper" Icon="/WorkoutHelper;component/Resources/imgs/defaultavatar.png" Height="450" Width="800" ResizeMode="NoResize">
+        Title="Workout Helper" Icon="/WorkoutHelper;component/Resources/imgs/defaultavatar.png" Height="600" Width="800" ResizeMode="NoResize">
     <ContentPresenter Content="{Binding SelectedView}"></ContentPresenter>
 </Window>

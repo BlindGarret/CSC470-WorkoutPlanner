@@ -34,7 +34,7 @@
 
 
                         <!-- Todo test combobox functionality -->
-                        <ComboBox Grid.Row="1" Grid.Column="0" SelectedItem="{Binding MuscleGroup}">
+                        <ComboBox Grid.Row="1" Grid.Column="0" SelectedValue="{Binding MuscleGroup}" SelectedValuePath="Content">
                             <ComboBoxItem FontSize="15" FontFamily="Constantia">Quads</ComboBoxItem>
                             <ComboBoxItem FontSize="15" FontFamily="Constantia">Biceps</ComboBoxItem>
                             <ComboBoxItem FontSize="15" FontFamily="Constantia">Abs</ComboBoxItem>
@@ -194,7 +194,7 @@
         <Label Grid.Row="0" FontFamily="Dead Kansas" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24pt" Foreground="White" Content="{Binding PageName}"/>
 
         <!-- TOP LEVEL: Tabs + content -->
-        <TabControl x:Name="PlanningTabControl" Grid.Row="1" Margin="10,5,10,5" ItemsSource="{Binding Plans}" SelectedIndex="0" ContentTemplate="{StaticResource TabContent}">
+        <TabControl x:Name="PlanningTabControl" Grid.Row="1" Margin="10,5,10,5" ItemsSource="{Binding Plans}" SelectedItem="{Binding SelectedDay}" ContentTemplate="{StaticResource TabContent}">
 
             <!-- SECOND LEVEL: Tabs -->
             <TabControl.ItemTemplate>

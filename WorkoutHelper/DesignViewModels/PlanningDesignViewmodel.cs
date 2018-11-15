@@ -17,6 +17,8 @@ namespace WorkoutHelper.DesignViewModels
 
         public ObservableCollection<ObservablePlannedWeekday> Plans { get; set; }
 
+        public ObservablePlannedWeekday SelectedDay { get; set; }
+
         #endregion
 
         #region Commands
@@ -32,6 +34,7 @@ namespace WorkoutHelper.DesignViewModels
         public PlanningDesignViewModel()
         {
             Plans = MockPlan();
+            SelectedDay = Plans[0];
         }
 
         private static ObservableCollection<ObservablePlannedWeekday> MockPlan()
