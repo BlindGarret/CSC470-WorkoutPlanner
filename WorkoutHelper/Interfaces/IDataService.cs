@@ -41,7 +41,7 @@ namespace WorkoutHelper.Interfaces
         /// </summary>
         /// <param name="userId">ID of the current user</param>
         /// <param name="weighIn">ObservableWeighIn to be stored</param>
-        void SaveWeighIn(int userId, ObservableWeighIn weighIn);
+        void SaveWeighIn(int userId, WeighIn weighIn);
 
         /// <summary>
         /// Update's a user object's weight

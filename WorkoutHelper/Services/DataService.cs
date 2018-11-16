@@ -54,10 +54,14 @@ namespace WorkoutHelper.Services
         }
 
         ///<inheritdoc/>
-        public void SaveWeighIn(int userId, ObservableWeighIn weighIn)
+        public void SaveWeighIn(int userId, WeighIn weighIn)
         {
-            //FILL ME
-            return;
+            using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
+            {
+                var lastId = connection.Table<WeighIns>().OrderBy(x => x.Id).LastOrDefault();
+                weighIn.Id = lastId?.Id + 1 ?? 1;
+                connection.Insert(weighIn);
+            }
         }
 
         /// <inheritdoc/>

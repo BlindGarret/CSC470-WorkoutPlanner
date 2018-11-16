@@ -52,7 +52,7 @@ namespace WorkoutHelper.ViewModels
         private void SaveCommandOnExecute()
         {
             _dataService.SaveWeight(_sessionService.UserId, Weight);
-            _dataService.SaveWeighIn(_sessionService.UserId, new ObservableWeighIn(new WeighIn() { Date = _dataService.GetDate(), Value = Weight }));
+            _dataService.SaveWeighIn(_sessionService.UserId, new WeighIn() { UserId = _sessionService.UserId, Date = _dataService.GetDate(), Value = Weight }); 
         }
 
         #endregion
