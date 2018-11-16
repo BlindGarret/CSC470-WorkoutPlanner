@@ -17,6 +17,9 @@ namespace WorkoutHelper.Models
 
         [Column("UserId")]
         public int UserId { get; set; }
+        
+        [Column("Completed")]
+        public bool Completed { get; set; }
 
         [Ignore]
         public List<WorkoutGroup> Groups { get; set; }

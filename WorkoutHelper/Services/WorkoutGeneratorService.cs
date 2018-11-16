@@ -22,7 +22,7 @@ namespace WorkoutHelper.Services
                     continue;
                 }
 
-                var day = new WorkoutDay { Date = date, Groups = new List<WorkoutGroup>() };
+                var day = new WorkoutDay { Date = date, Groups = new List<WorkoutGroup>(), Completed = false};
                 foreach (var plannedGroup in planIndex[weekdayLabel].Groups)
                 {
                     var exercises = new List<Workout>();
