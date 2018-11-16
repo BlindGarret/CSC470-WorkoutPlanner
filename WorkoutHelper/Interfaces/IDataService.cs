@@ -22,6 +22,19 @@ namespace WorkoutHelper.Interfaces
         void SaveUser(User user);
 
         /// <summary>
+        /// Get today's date.
+        /// </summary>
+        /// <returns>String</returns>
+        string GetDate();
+
+        /// <summary>
+        /// Get current user's current weight.
+        /// </summary>
+        /// <param name="userId">ID of the current user requesting their weight</param>
+        /// <returns>Double</returns>
+        double GetWeight(int userId);
+
+        /// <summary>
         /// Adds a User to the Data Set
         /// </summary>
         /// <param name="user">User to Add</param>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SQLite;
 using WorkoutHelper.Interfaces;
@@ -31,6 +32,23 @@ namespace WorkoutHelper.Services
             {
                 var user = connection.Table<User>().FirstOrDefault(x => x.Id == userId);
                 return user;
+            }
+        }
+
+
+        /// <inheritdoc/>
+        public string GetDate()
+        {
+            return DateTime.Today.ToLongDateString();
+        }
+
+        /// <inheritdoc/>
+        public double GetWeight(int userId)
+        {
+            using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
+            {
+                var user = connection.Table<User>().FirstOrDefault(x => x.Id == userId);
+                return user.Weight;
             }
         }
 

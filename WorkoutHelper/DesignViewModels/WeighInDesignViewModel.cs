@@ -11,12 +11,9 @@ namespace WorkoutHelper.DesignViewModels
 
         public string PageName { get; set; }
 
-        public double Weight { get; set; } = 200.0;
+        public string CurrentDate { get; set; }
 
-        public string CurrentDate
-        {
-            get => DateTime.Today.ToLongDateString();
-        }
+        public double Weight { get; set; }
 
         #endregion
 
@@ -25,6 +22,5 @@ namespace WorkoutHelper.DesignViewModels
         public DelegateCommand SaveCommand { get; set; }
 
         #endregion
-
     }
 }
