@@ -13,6 +13,7 @@ namespace WorkoutHelper.Models
         /// Weigh in ID
         /// </summary>
         [PrimaryKey]
+        [AutoIncrement]
         [Column("Id")]
         public int Id { get; set; }
 
