@@ -54,20 +54,19 @@ namespace WorkoutHelper.Services
         }
 
         ///<inheritdoc/>
-        public void SaveWeighIn(int userId, WeighIn weighIn)
+        public void SaveWeighIn(WeighIn weighIn)
         {
             using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
             {
-                var lastId = connection.Table<WeighIns>().OrderBy(x => x.Id).LastOrDefault();
+                var lastId = connection.Table<WeighIn>().OrderBy(x => x.Id).LastOrDefault();
                 weighIn.Id = lastId?.Id + 1 ?? 1;
                 connection.Insert(weighIn);
             }
         }
 
         /// <inheritdoc/>
-        public void SaveWeight(int userId, double newWeight)
+        public void SaveWeight(User user, double newWeight)
         {
-            User user = GetUser(userId);
             user.Weight = newWeight;
             SaveUser(user);
         }
