@@ -79,6 +79,7 @@ namespace WorkoutHelper.Services
                 var lastId = connection.Table<User>().OrderBy(x => x.Id).LastOrDefault();
                 user.Id = lastId?.Id + 1 ?? 1;
                 connection.Insert(user);
+                SaveWeighIn(new WeighIn(){UserId = user.Id, Value = user.Weight, Date = GetDate()});
                 return user.Id;
             }
         }
