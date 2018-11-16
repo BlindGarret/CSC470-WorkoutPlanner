@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using WorkoutHelper.Models;
+using WorkoutHelper.ViewModels;
 
 namespace WorkoutHelper.Interfaces
 {
@@ -24,8 +26,8 @@ namespace WorkoutHelper.Interfaces
         /// <summary>
         /// Get today's date.
         /// </summary>
-        /// <returns>String</returns>
-        string GetDate();
+        /// <returns>DateTime</returns>
+        DateTime GetDate();
 
         /// <summary>
         /// Get current user's current weight.
@@ -33,6 +35,21 @@ namespace WorkoutHelper.Interfaces
         /// <param name="userId">ID of the current user requesting their weight</param>
         /// <returns>Double</returns>
         double GetWeight(int userId);
+
+        /// <summary>
+        /// Save the user's weigh in information
+        /// </summary>
+        /// <param name="userId">ID of the current user</param>
+        /// <param name="weighIn">ObservableWeighIn to be stored</param>
+        void SaveWeighIn(int userId, ObservableWeighIn weighIn);
+
+        /// <summary>
+        /// Update's a user object's weight
+        /// </summary>
+        /// <param name="userId">ID of the current user</param>
+        /// <param name="newWeight">New weight to be stored</param>
+        void SaveWeight(int userId, double newWeight);
+
 
         /// <summary>
         /// Adds a User to the Data Set

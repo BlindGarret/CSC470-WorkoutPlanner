@@ -45,6 +45,18 @@ namespace WorkoutHelper.ViewModels
 
         #endregion
 
+        #region SaveCommand
+
+        public DelegateCommand SaveCommand { get; set; }
+
+        private void SaveCommandOnExecute()
+        {
+            _dataService.SaveWeight(_sessionService.UserId, Weight);
+            _dataService.SaveWeighIn(_sessionService.UserId, new ObservableWeighIn(new WeighIn() { Date = _dataService.GetDate(), Value = Weight }));
+        }
+
+        #endregion
+
         private readonly IDataService _dataService;
         private readonly ISessionService _sessionService;
 
@@ -53,13 +65,13 @@ namespace WorkoutHelper.ViewModels
             _dataService = dataService;
             _sessionService = sessionService;
 
-            
+            SaveCommand = new DelegateCommand(SaveCommandOnExecute);
         }
 
         public void TabLoaded()
         {
             _weight =_dataService.GetWeight(_sessionService.UserId);
-            _currentDate = _dataService.GetDate();
+            _currentDate = _dataService.GetDate().ToLongDateString();
         }
     }
 }

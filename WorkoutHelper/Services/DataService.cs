@@ -4,6 +4,7 @@ using System.Linq;
 using SQLite;
 using WorkoutHelper.Interfaces;
 using WorkoutHelper.Models;
+using WorkoutHelper.ViewModels;
 
 namespace WorkoutHelper.Services
 {
@@ -37,9 +38,9 @@ namespace WorkoutHelper.Services
 
 
         /// <inheritdoc/>
-        public string GetDate()
+        public DateTime GetDate()
         {
-            return DateTime.Today.ToLongDateString();
+            return DateTime.Today;
         }
 
         /// <inheritdoc/>
@@ -50,6 +51,21 @@ namespace WorkoutHelper.Services
                 var user = connection.Table<User>().FirstOrDefault(x => x.Id == userId);
                 return user.Weight;
             }
+        }
+
+        ///<inheritdoc/>
+        public void SaveWeighIn(int userId, ObservableWeighIn weighIn)
+        {
+            //FILL ME
+            return;
+        }
+
+        /// <inheritdoc/>
+        public void SaveWeight(int userId, double newWeight)
+        {
+            User user = GetUser(userId);
+            user.Weight = newWeight;
+            SaveUser(user);
         }
 
         /// <inheritdoc/>
