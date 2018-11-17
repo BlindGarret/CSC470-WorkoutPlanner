@@ -84,6 +84,7 @@
     <Compile Include="Unit\ViewModels\PlanningViewModelTests.cs" />
     <Compile Include="Unit\ViewModels\SettingsViewModelTests.cs" />
     <Compile Include="Unit\ViewModels\ShellViewModelTests.cs" />
+    <Compile Include="Unit\ViewModels\WeighInViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
