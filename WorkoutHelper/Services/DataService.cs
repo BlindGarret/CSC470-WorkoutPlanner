@@ -191,7 +191,7 @@ namespace WorkoutHelper.Services
             {
                 var groups = connection.Table<WorkoutGroup>().Where(x => x.UserId == userId).ToList();
                 var workouts = connection.Table<Workout>().Where(x => x.UserId == userId).ToList();
-                var days = connection.Table<WorkoutDay>().Where(x => x.UserId == userId);
+                var days = connection.Table<WorkoutDay>().Where(x => x.UserId == userId).ToList();
                 var exercises = GetExercises(userId).ToDictionary(x => x.Id);
 
                 foreach (var workout in workouts)
@@ -240,6 +240,33 @@ namespace WorkoutHelper.Services
                         }
                     }
                 }
+            }
+        }
+
+        public void CompleteWorkout(WorkoutDay day, int userId)
+        {
+            using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
+            {
+                day.Completed = true;
+                day.UserId = userId;
+                connection.Update(day);
+            }
+        }
+
+        public IEnumerable<CompletionData> GetCompletionData(int userId, string hash)
+        {
+            using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
+            {
+                return connection.Table<CompletionData>().Where(x => x.UserId == userId && x.Hash == hash).ToList();
+            }
+        }
+
+        public void SaveCompletionData(CompletionData data, int userId)
+        {
+            using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
+            {
+                data.UserId = userId;
+                connection.Insert(data);
             }
         }
     }

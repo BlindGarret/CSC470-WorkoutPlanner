@@ -3,11 +3,131 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:converters="clr-namespace:WorkoutHelper.Converters"
              xmlns:designViewModels="clr-namespace:WorkoutHelper.DesignViewModels"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance designViewModels:WorkoutDesignViewModel, IsDesignTimeCreatable=True}"
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="561" d:DesignWidth="588">
+    <UserControl.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="InvertedBooleanToVisibilityConverter"
+                                                 True="Collapsed"
+                                                 False="Visible"/>
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"
+                                                 False="Collapsed"
+                                                 True="Visible"/>
+    </UserControl.Resources>
     <Grid>
-        <Label Content="{Binding PageName}"></Label>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120px"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Rectangle Grid.Row="0" Fill="DimGray"/>
+        <Label Grid.Row="0" FontFamily="Dead Kansas" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24pt" Foreground="White" Content="{Binding PageName}"/>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60px"/>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Label FontSize="26" 
+                   Content="{Binding WorkoutDay.Date.DayOfWeek}" 
+                   FontWeight="Bold" 
+                   Margin="20,0" 
+                   VerticalAlignment="Center"/>
+
+            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Label Content="Previous Time: " VerticalAlignment="Center"/>
+                <Label Content="{Binding LastCompletion.Time}" VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <ScrollViewer Grid.Row="1"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="2">
+                <ItemsControl ItemsSource="{Binding WorkoutDay.Groups}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <GroupBox BorderBrush="Black" BorderThickness="1" Header="Set" Margin="60,0">
+                                <ItemsControl ItemsSource="{Binding Workouts}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                <Label Content="{Binding RepetitionCount}" FontSize="16" FontWeight="Bold"/>
+                                                <Label Content="{Binding Exercise.Name}" FontSize="16"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </GroupBox>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+
+            <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Visibility="{Binding WorkoutDay.Completed, Converter={StaticResource InvertedBooleanToVisibilityConverter}}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Margin="20,0">
+                    <Label Content="Completion Time (HH:MM:SS)" />
+                    <TextBox Text="{Binding CurrentCompletion.Time}"></TextBox>
+                </StackPanel>
+
+                <Button Grid.Row="0" 
+                        Grid.Column="1"
+                        HorizontalAlignment="center"
+                        VerticalAlignment="Center"
+                        Padding="10"
+                        Command="{Binding CompleteExerciseCommand}">Complete Exercise</Button>
+                <StackPanel Grid.Row="1" 
+                            Grid.Column="0" 
+                            Grid.ColumnSpan="2"
+                            Margin="20,0">
+                    <Label Content="Notes" />
+                    <TextBox AcceptsReturn="True" 
+                             Height="75px"
+                             Text="{Binding CurrentCompletion.Notes}"/>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="2" 
+                  Grid.Column="0"
+                  Grid.ColumnSpan="2"
+                  Visibility="{Binding WorkoutDay.Completed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Label Content="Complete!"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="26"
+                       FontWeight="Bold"/>
+                <Label Content="{Binding CurrentCompletion.Time}"
+                       Grid.Row="1"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontSize="16"></Label>
+                <Label Content="New Record!"
+                       Grid.Row="2"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="26"
+                       FontWeight="Bold"
+                       Visibility="{Binding IsRecord, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+
+            </Grid>
+        </Grid>
     </Grid>
 </UserControl>

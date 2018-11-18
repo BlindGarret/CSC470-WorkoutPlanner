@@ -82,5 +82,27 @@ namespace WorkoutHelper.Interfaces
         /// <param name="days">Days planned</param>
         /// <param name="userId">Id of user</param>
         void SaveWorkouts(IEnumerable<WorkoutDay> days, int userId);
+
+        /// <summary>
+        /// Completes a workout
+        /// </summary>
+        /// <param name="day">The workout day to complete</param>
+        /// <param name="userId">The user to complete it for</param>
+        void CompleteWorkout(WorkoutDay day, int userId);
+
+        /// <summary>
+        /// Gets a set of completion data for a workout hash
+        /// </summary>
+        /// <param name="userId">id of user</param>
+        /// <param name="hash">hash of the workout</param>
+        /// <returns>a set of <see cref="CompletionData"/></returns>
+        IEnumerable<CompletionData> GetCompletionData(int userId, string hash);
+
+        /// <summary>
+        /// Saves an instance of completion data for a user.
+        /// </summary>
+        /// <param name="data">The completion data</param>
+        /// <param name="userId">Id of the user to save the data for.</param>
+        void SaveCompletionData(CompletionData data, int userId);
     }
 }
