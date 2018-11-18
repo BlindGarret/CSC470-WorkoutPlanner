@@ -113,6 +113,7 @@
     <Compile Include="Events\LoginRequestEvent.cs" />
     <Compile Include="Events\LogoutEvent.cs" />
     <Compile Include="Events\SettingsChangedEvent.cs" />
+    <Compile Include="Events\WeighInAddedEvent.cs" />
     <Compile Include="Interfaces\IConfigurationDataService.cs" />
     <Compile Include="Interfaces\IDataService.cs" />
     <Compile Include="Interfaces\IPageViewComponent.cs" />

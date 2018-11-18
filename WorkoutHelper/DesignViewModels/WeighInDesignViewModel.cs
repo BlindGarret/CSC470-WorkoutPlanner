@@ -1,5 +1,7 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
+using System;
+using System.Windows;
 
 namespace WorkoutHelper.DesignViewModels
 {
@@ -9,7 +11,9 @@ namespace WorkoutHelper.DesignViewModels
 
         public string PageName { get; set; }
 
-        public double Weight { get; set; } = 200.0; //Somehow prepopulate with previous weight?
+        public string CurrentDate { get; set; }
+
+        public double Weight { get; set; }
 
         #endregion
 
@@ -18,6 +22,5 @@ namespace WorkoutHelper.DesignViewModels
         public DelegateCommand SaveCommand { get; set; }
 
         #endregion
-
     }
 }
