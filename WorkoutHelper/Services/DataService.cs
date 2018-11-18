@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SQLite;
 using WorkoutHelper.Interfaces;
 using WorkoutHelper.Models;
+using WorkoutHelper.ViewModels;
 
 namespace WorkoutHelper.Services
 {
@@ -34,6 +36,41 @@ namespace WorkoutHelper.Services
             }
         }
 
+
+        /// <inheritdoc/>
+        public DateTime GetDate()
+        {
+            return DateTime.Today;
+        }
+
+        /// <inheritdoc/>
+        public double GetWeight(int userId)
+        {
+            using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
+            {
+                var user = connection.Table<User>().FirstOrDefault(x => x.Id == userId);
+                return user.Weight;
+            }
+        }
+
+        ///<inheritdoc/>
+        public void SaveWeighIn(WeighIn weighIn)
+        {
+            using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
+            {
+                var lastId = connection.Table<WeighIn>().OrderBy(x => x.Id).LastOrDefault();
+                weighIn.Id = lastId?.Id + 1 ?? 1;
+                connection.Insert(weighIn);
+            }
+        }
+
+        /// <inheritdoc/>
+        public void SaveWeight(User user, double newWeight)
+        {
+            user.Weight = newWeight;
+            SaveUser(user);
+        }
+
         /// <inheritdoc/>
         public int AddUser(User user)
         {
@@ -42,6 +79,7 @@ namespace WorkoutHelper.Services
                 var lastId = connection.Table<User>().OrderBy(x => x.Id).LastOrDefault();
                 user.Id = lastId?.Id + 1 ?? 1;
                 connection.Insert(user);
+                SaveWeighIn(new WeighIn(){UserId = user.Id, Value = user.Weight, Date = GetDate()});
                 return user.Id;
             }
         }
