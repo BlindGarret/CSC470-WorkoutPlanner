@@ -621,8 +621,6 @@ Grip type: Underhand, Overhand, Neutral.
 Grip width: Narrow, Normal, Wide. 
 
 Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Chest,1,0
-Incline Bench Press,,,10,Chest,1,0
-Decline Bench Press,,,10,Chest,1,0
 Dumbbell Fly,"Preparation: Lie down on a flat bench with a dumbbell in each hand, resting on top of your thighs with your palms facing each other. Use your thighs to lift up the dumbbells with your pals facing each other and extend your arms out to your sides, with a slight bend in your elbows and stretch in your chest.
 
 Execution: Exhale and bring the dumbbells up and together in a wide arc. Return to starting positions and repeat. 
@@ -642,7 +640,7 @@ Execution: Exhale as you press the handles together, inhale to return to start p
 
 Variations: 
 
-Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Chest,0,1
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Chest,1,0
 Cable Crossover,"Preparation: Adjust the pulleys to hip height and attach a single grip handle to each. Grasp each handle with your palms facing down. Take a step forward. Your arms should be slightly bent at the elbows. 
 
 Execution: Slowly bring the handles together. Slowly lower the weight back to start position and repeat. 
@@ -650,7 +648,7 @@ Execution: Slowly bring the handles together. Slowly lower the weight back to st
 Variations: 
 Grip type: Underhand, Overhand, Neutral.
 
-Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Chest,0,1
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Chest,1,0
 Push Ups,"Preparation: Lie on the floor face down with your hands just wider than shoulder length apart, while holding your body off the ground with your arms extended. 
 
 Execution: Inhale and lower yourself downward until your chest nearly touches the floor. Exhale, return to starting postion and repeat. 
@@ -661,7 +659,7 @@ Angle: Incline, Decline.
 
 Grip width: Narrow, Normal, Wide. 
 
-Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Chest,0,0
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Chest,0,1
 Cable Pullover,"Preparation: Stand facing the pulley machine, feet shoulder width apart. Grab the rope with both hands, with a slight bend in your elbows and step away from the machine so there is no resistance. Bend your knees slightly, keep your back straight. 
 
 Execution: Pull the rope down towards your knees, keeping your back straight and arm slightly bent. Return to start position and repeat. 
@@ -676,7 +674,7 @@ Execution: Exhale as you reverse the positioning of the handles in a continous f
 Variations: 
 Grip type: Underhand, Overhand, Neutral.
 
-Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Chest,0,1
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Chest,0,0
 Dumbbell Wrist Curl,"Preparation: Stand up straight with a dumbbell in an underhand grip with your palms facing forward. Keep the dumbbell secure, but hold them with your fingers more than squeezing them with your palms. 
 
 Execution: Curl your wrists upwards while you exhale. Inhale, lower you wrists back to your starting position, and curl your wrist upward the other direction. Repeat while keeping your forearms still. 
@@ -686,7 +684,7 @@ Grip type: Underhand, Overhand, Neutral.
 
 Grip width: Narrow, Normal, Wide. 
 
-Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Forearms,1,0
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Chest,0,1
 Cable Wrist Curl ,"Preparation: Attach a straight bar to the low pulley. Grab the bar in an underhand grip with your palms facing up and your arms exended down, while standing with a straight back. 
 
 Execution: Curl your wrists upwards while you exhale. Inhale, lower you wrists back to your starting position. Repeat while keeping your forearms still.
@@ -696,20 +694,20 @@ Grip type: Underhand, Overhand, Neutral.
 
 Grip width: Narrow, Normal, Wide. 
 
-Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Forearms,0,1
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Chest,0,1
 Side Bend ,"Preparation: Position yourself sideways on a hypertension bench, with your arms crossed over your chest. Make sure that your hips, feet and legs are secure against the appropriate padding and foot rests. 
 
 Execution: Lower your torso to the side as far as it can go, while keeping your legs straight. Rise up so that your ches is above your torso. Return to start start position and repeat. When you have finished your set, switch sides. 
 Variations: 
 
-Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.`",,10,Obliques,1,0
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.`",,10,Forearms,1,0
 Torso Twist Machine,"Preparation: Sit down at the torso twist machine, select your weight and place your arms on the padded rest for support. Ensure that your feet are secure. 
 
 Execution: Twist your body to the left and right until you complete your desired repititions.  
 
 Variations: 
 
-Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Obliques,0,1
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Forearms,0,1
 Weighted Side Bend,"Preparation: Position yourself sideways on a hyperextension bench, with your right arm holding a plate weight. Make sure that your hips, feet and legs are secure against the appropriate padding and foot rests.  
 
 Execution:  Lower your torso to the side as far as it can go while keeping your legs straight. Rise up so that your chest is above your torso. Return to start postion and repeat. When you have finished your set, switch sides. 
@@ -723,21 +721,21 @@ Execution: Life your hip off the ground as high as you can.
 
 Variations: 
 
-Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Obliques,0,0
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Obliques,0,1
 Oblique Leg Raise ,"Preparation: Position yourself in the captatin's chair with your back and forearms against the padding and your hands grasping the handles. Hang your legs straight down.  
 
 Execution: Exhale as you pull your knees up to the right side high as possible. Return to start position and repeat. When you have finished your set, switch sides. 
 
 Variations: 
 
-Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Obliques,0,0
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Obliques,1,0
 Russian Twist,"Preparation: Lay back with your legs in the air and your hands behind your head.  
 
 Execution: Keeping your legs in the air, pull your body up as you would in a normal situp, but at the top of the movement, twist your torso right and left before straightening out, returning and repeating.  
 
 Variations: 
 
-Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Obliques,1,0
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Obliques,0,0
 Side Plank,"Preparation: Lay on your side with one forearm flat on the ground. Prop your body off the floor, lifting your hips until your body is in a straight line from your ankles to your shoulders. Your feet should be stacked one on top of the other and your free hand straight pu in the air.
 
 Execution: Hold position. 
@@ -751,4 +749,6 @@ Execution: Curl up and twist your left elbow and should up and over your body as
 
 Variations: 
 
-Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Obliques,0,0
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Obliques,1,0
+,,,10,Obliques,0,0
+,,,10,Obliques,0,0
