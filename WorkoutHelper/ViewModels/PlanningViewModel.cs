@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Linq;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -74,6 +75,14 @@ namespace WorkoutHelper.ViewModels
         private void SaveCommandOnExecute()
         {
             _dataService.SavePlans(Plans.Select(x => x.ToModel()), _sessionService.UserId);
+            var today = DateTime.Now;
+            var dates = Enumerable.Range(0, 14)
+                .Select(offset => today.AddDays(offset))
+                .ToList();
+            var exercises = _dataService.GetExercises(_sessionService.UserId).Where(x => x.Enabled).ToList();
+            var workouts = _workoutGenerator.GenerateWorkouts(dates, exercises,
+                Plans.Select(x => x.ToModel()).ToList());
+            _dataService.SaveWorkouts(workouts, _sessionService.UserId);
             TabLoaded();
         }
 
@@ -81,11 +90,13 @@ namespace WorkoutHelper.ViewModels
 
         private readonly IDataService _dataService;
         private readonly ISessionService _sessionService;
+        private readonly IWorkoutGenerator _workoutGenerator;
 
-        public PlanningViewModel(IDataService dataService, ISessionService sessionService)
+        public PlanningViewModel(IDataService dataService, ISessionService sessionService, IWorkoutGenerator workoutGenerator)
         {
             _dataService = dataService;
             _sessionService = sessionService;
+            _workoutGenerator = workoutGenerator;
 
             AddExerciseCommand = new DelegateCommand<ObservablePlannedGroup>(AddExerciseCommandOnExecute);
             AddGroupCommand = new DelegateCommand<ObservablePlannedWeekday>(AddGroupCommandOnExecute);

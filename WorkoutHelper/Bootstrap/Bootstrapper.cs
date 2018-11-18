@@ -53,6 +53,7 @@ namespace WorkoutHelper.Bootstrap
             Container.RegisterType<ISessionService, SessionService>(new ContainerControlledLifetimeManager());
             Container.RegisterType<IConfigurationDataService, ConfigurationDataService>(new ContainerControlledLifetimeManager());
             Container.RegisterType<IDataService, DataService>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<IWorkoutGenerator, WorkoutGeneratorService>(new ContainerControlledLifetimeManager());
         }
     }
 }

@@ -17,19 +17,22 @@ namespace WorkoutHelper.Tests.Unit.ViewModels
         private PlanningViewModel _viewModel;
         private Mock<IDataService> _dataService;
         private Mock<ISessionService> _sessionService;
+        private Mock<IWorkoutGenerator> _workoutGenerator;
 
         [SetUp]
         public void Setup()
         {
             _dataService = new Mock<IDataService>();
             _sessionService = new Mock<ISessionService>();
-            _viewModel = new PlanningViewModel(_dataService.Object, _sessionService.Object);
+            _workoutGenerator = new Mock<IWorkoutGenerator>();
+            _viewModel = new PlanningViewModel(_dataService.Object, _sessionService.Object, _workoutGenerator.Object);
         }
 
         [TearDown]
         public void TearDown()
         {
             _viewModel = null;
+            _workoutGenerator = null;
             _dataService = null;
             _sessionService = null;
         }

@@ -1,11 +1,23 @@
 ﻿using System.Collections.Generic;
+using SQLite;
 
 namespace WorkoutHelper.Models
 {
+    [Table("WorkoutGroups")]
     public class WorkoutGroup
     {
-        public string RepititionType { get; set; }
+        [PrimaryKey]
+        [AutoIncrement]
+        [Column("Id")]
+        public int Id { get; set; }
 
+        [Column("DayId")]
+        public int DayId { get; set; }
+
+        [Column("UserId")]
+        public int UserId { get; set; }
+
+        [Ignore]
         public IReadOnlyList<Workout> Workouts { get; set; }
     }
 }
