@@ -1,96 +1,754 @@
 Name,Description,ImagePath,BaseRepititions,MuscleGroup,NeedsFreeWeights,NeedsMachine
-Leg Raise Machine,,,10,Quads,0,1
-Leg Press Machine,,,10,Quads,0,1
-Squat,,,10,Quads,0,0
-Lunges,,,10,Quads,0,0
-Step Macine ,,,10,Quads,0,1
-Deadlift,,,10,Quads,1,0
-High Knees,,,10,Quads,0,0
-Biceps Curl,,,10,Biceps,1,0
-Cable Biceps Curl,,,10,Biceps,0,1
-Machine Curl Up,,,10,Biceps,0,1
-Crunches,,,10,Abs,0,0
-Weighted Sit Up ,,,10,Abs,1,0
-Plank,,,10,Abs,0,0
-Lying Touch Toe,,,10,Abs,0,0
-Lying Scissors Kick,,,10,Abs,0,0
-Mountain Climbers,,,10,Abs,0,0
-Lying Leg Raise,,,10,Abs,0,0
-Ab Machine,,,10,Abs,0,1
-Hanging Leg Raise,,,10,Abs,1,0
-Rollout,,,10,Abs,0,1
-Pull Ins ,,,10,Abs,0,0
-Cable Abduction,,,10,Abductors,0,1
-Abduction Machine,,,10,Abductors,0,1
-Standing Abduction ,,,10,Abductors,0,0
-Shrugs,,,10,Traps,1,0
-High Pull,,,10,Traps,1,0
-Snatch,,,10,Traps,1,0
-Deadlit To Shrug,,,10,Traps,1,0
-Pushdown,,,10,Triceps,0,1
-Extensions,,,10,Triceps,0,0
-Kickbacks,,,10,Triceps,0,0
-"Bench, Narrow ",,,10,Triceps,1,0
-Dips,,,10,Triceps,0,0
-Dip Machine,,,10,Triceps,0,1
-Pushup Narrow,,,10,Triceps,0,0
-Reverse Cable Fly,,,10,Triceps,0,1
-Hamstrings Machine,,,10,Hamstrings,0,1
-Pullbacks,,,10,Hamstrings,0,1
-Cable Leg Curl,,,10,Hamstrings,0,1
-Squats,,,10,Hamstrings,0,0
-Clean And Jerk,,,10,Hamstrings,1,0
-Kettelbell Handed Swing,,,10,Hamstrings,1,0
-Leg Raise,,,10,Calves,0,0
-Machine Calf Press,,,10,Calves,0,1
-Seated Calf Raise,,,10,Calves,1,0
-Burpee,,,10,Calves,0,0
-Running(Uphill),,,10,Calves,0,0
-Pull Ups,,,10,Lats,0,0
-Cable Pull Downs,,,10,Lats,0,1
-Machine Row,,,10,Lats,0,1
-Dumbbell Row,,,10,Lats,1,0
-Dumbbell Pullover,,,10,Lats,1,0
-Reverse Fly,,,10,Lats,1,0
-Hyperextension,,,10,Lower Back,0,1
-Superman,,,10,Lower Back,0,0
-Cable Pull Down,,,10,Lower Back,0,1
-Row Machine,,,10,Lower Back,0,1
-Russian Swing,,,10,Lower Back,1,0
-Deadlit,,,10,Glutes,1,0
-Flutter Kicks,,,10,Glutes,0,0
-Kick Backs,,,10,Glutes,0,0
-Hip Extension,,,10,Glutes,0,0
-Barbell Thrust,,,10,Glutes,1,0
-Running,,,10,Cardio,0,0
-Step Machine,,,10,Cardio,0,1
-Bicycle Machine,,,10,Cardio,0,1
-Elliptical Machine,,,10,Cardio,0,1
-Shoulder Press,,,10,Shoulders,1,0
-Lateral Raise,,,10,Shoulders,1,0
-Front Raise,,,10,Shoulders,1,0
-Shoulder High Pull,,,10,Shoulders,0,1
-Scarecrow,,,10,Shoulders,1,0
-Cable Rotation,,,10,Shoulders,0,1
-Barbell Snatch,,,10,Shoulders,1,0
-Clean & Jerk,,,10,Shoulders,1,0
-Cable Pull High & Low,,,10,Shoulders,0,1
-Bench Press,,,10,Chest,1,0
-Incline Bench Press,,,10,Chest,1,0
-Decline Bench Press,,,10,Chest,1,0
-Dumbbell Fly,,,10,Chest,1,0
-Fly Machine,,,10,Chest,0,1
-Cable Crossover,,,10,Chest,0,1
-Push Ups,,,10,Chest,0,0
-Cable Pullover,,,10,Chest,0,1
-Cable Lats Chest Twist,,,10,Chest,0,1
-Dumbbell Wrist Curl,,,10,Forearms,1,0
-Cable Wrist Curl ,,,10,Forearms,0,1
-Side Bend ,,,10,Obliques,1,0
-Torso Twist Machine,,,10,Obliques,0,1
-Weighted Side Bend,,,10,Obliques,1,0
-Side Bridge,,,10,Obliques,0,0
-Oblique Leg Raise ,,,10,Obliques,0,0
-Russian Twist,,,10,Obliques,1,0
-Side Plank,,,10,Obliques,0,0
-Cross Body Crunch,,,10,Obliques,0,0
+Leg Raise Machine,"Preparation: Sit on the machine with your back against the padded back support. Place your legs under the padded lever. Grasp the handles on the sides for support.
+
+Execution: Push the padded lever up by extending your knees until your legs are straight. Return and Repeat. 
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Quads,0,1
+Leg Press Machine,"Preparation: Sit on the machine with your back on the padded support. Place feet on platform and extend your hips and knees. Release dock lever and graps the support handles on the sides.  
+
+Execution: Lower sled by flexing hips and knees. Return by extending. 
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Quads,0,1
+Squat,"Preparation: Load your desired weight on a barbell that is on a weight rack, about chest high. Position the bar on your shoulders, step away from the rack and stand with your hands supporting the bar and feet shoulder width apart. 
+
+Execution: Squat down by bending your hips back and letting your knees bend forward, keeping your back straight and knees pointed in the same direction as our feet. Descend until thighs are just past parallel to floor. Extend your knees and hips until your legs are straight. Return and Repeat. 
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Quads,0,0
+Lunges,"Preparation: Stand with your feet shoulder width apart holding a weight in either hand.  
+
+Execution: With the weights secure in your hands, take a step forward into the lunge position with your right foot. Make sure that your right knee is on top of your right foot and not in front of it. Push up with your right foot and return to starting postion, switch sides and repeat as you walk forward. 
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Quads,0,0
+Step Macine ,"Preparation: Step onto pedal platforms and grasp hand rails. Select ""quick start"" or enter program.   
+
+Execution: Place your bodyweight on one pedal and allow other pedal to raise. Before the lower step hits the bottom or upper step hits top, alternate with opposite movement. Repeat.  
+
+Variations: 
+
+None. ",,10,Quads,0,1
+Deadlift,"Preparation: Stand with in front of a loaded barbell and bend your knees and body forward. Grab the bar with an overhand grip with your hands just over shoulder width apart. 
+
+Execution: Exhale as you push up and lift the bar with your legs and at the same time bring you torso to an upright position. Once you are standing, push your chest out and bring your shoulder blades back so you are standing upright at attention. Return while keeping your legs straight and make sure the barbell touches the floor before starting your next rep. 
+
+Variations: 
+
+Grip type: Underhand, Overhand.
+
+Grip width: Narrow, Normal, Wide. 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Quads,1,0
+High Knees,"Preparation: Attach a cable band to your right leg and hook it to the low pulley. Stand facing away from the machine. 
+
+Execution: Bring your right leg up, as if you were taking a running stride. Return and repeat. 
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Quads,0,0
+Biceps Curl,"Preparation: Stand up straight with your legs shoulder width apart, while holding the bar in a narrow grip. Keep your elbows close to your sides. 
+
+Execution: Keep your upper arms still, exhale, and curl the bar upwards, while contracting your biceps. Lower the bar to starting position and repeat. 
+Variations: 
+
+Grip type: Underhand, Overhand.
+
+Grip width: Narrow, Normal, Wide. 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Biceps,1,0
+Cable Biceps Curl,"Preparation: Stand with your feet shoulder width apart and grab the bar with borh hands, palms facing you, while keeping your arms straight.
+
+Execution:  Bend your arms at the elbows, lifting your hands up towards you chest. Lower and repeat.                                                                                                                                                                                                                                                
+Variations: 
+
+Grip type: Underhand, Overhand,.
+
+Grip width: Narrow, Normal, Wide. 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Biceps,0,1
+Machine Curl Up,"Preparation: Lie on a bench with an overand grip on the EZ-bar. Position the bar over your forehead, with your arms extended. 
+
+Execution: Keep your upper arms still, exhale, and curl the handles upwards while contracting your biceps and repeat. Only lower the weights all the way down once you are finished with the exercise. 
+
+Variations:
+
+Grip type: Underhand, Overhand.
+
+Grip width: Narrow, Normal, Wide. 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Biceps,0,1
+Crunches,"Preparation: Lie on your back with your knees bend and feet flat on the flot, hip-width apart. Place your hands behind your head without pulling on your neck. 
+
+Execution: Curl up and forward so that your head, neck, and shoulder blades lit off the flor and then lower slowly back down and repeat. 
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Abs,0,0
+Weighted Sit Up ,"Preparation: Lay back on a flat bench while holding a plate weight against your chest.
+
+Execution: With your head pointing straight and forward, raise your body up until you are upright, lifting your shoulders away from the bench. Roll back down to the starting position and repeat. 
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Abs,1,0
+Plank,"Preparation: Get into a pushup position on the floor. place your forearms on the ground with your elbows alined below your shoulders, and your arms parallel to your body, at about shoulder-width distance apart. 
+
+Execution: Make sure your body is lifted and parallel to the floor for the duration of your plank. 
+
+Variations: 
+
+None. ",,10,Abs,0,0
+Lying Touch Toe,"Preparation: Raise your legs straight up in the air until your feet are parallel with the floor. Reach your arms toward your feet with your head still on the floor. 
+
+Execution: Roll forward as you exhale, lifting your torso off the floor as you try to touch your toes with your fingers. Return to starting position and repeat. 
+
+Variations: 
+
+None.",,10,Abs,0,0
+Lying Scissors Kick,"Preparation: Lay on the floor with your hands under your butt and your legs stretched out straight. With a slight bend at the knees, lift your legs up so your heels are slightly off the ground. 
+
+Execution: Lift your left leg up, while your right leg is lowered until the heel is about 2-3 inches from the ground. Switch movements by raising your right leg up and lowering your left leg. 
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Abs,0,0
+Mountain Climbers,"Preparation: Get into a pushup position so your hands are directly under your chest at shoulder width apart, with straight arms.   
+
+Execution: Lift your right foot off the floor and slowly raise your knee as close to your chest as you can. Return to the starting position and repeat with your left leg. 
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Abs,0,0
+Lying Leg Raise,"Preparation: Lie on your back, on the floor with legs stretched straight. 
+
+Execution: Raise your legs as high as you can, keeping them straight throughout. Return them to the floor in a controlled manner, and repeat. 
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Abs,0,0
+Ab Machine,"Preparation: Sit down at the ab machine and grab the top handles. 
+
+Execution: Breathe out while crunching your upper torso in a slow and concentrated movement. 
+
+Variations:  
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Abs,0,1
+Hanging Leg Raise,"Preparation: Start by hanging from a chin-up bar, using either a wide grip or a medium grip.
+
+Execution: Exhale as you raise your legs until they are parallel to the ground. Make sure that you're not cheating with the momentum!
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Abs,1,0
+Rollout,"Preparation: Place round 5 or 10lb weights on both sides of a barbell and kneel on the floor facing it. 
+
+Execution: Slowly lean forward with your hands gripping the barbell, shoulder width apart. Push the barbell forward in a straight motion that stretches your body forward. Once your body is stretched out, slowly pull yourself back to starting position. 
+
+Variations: 
+
+Grip type: Underhand, Overhand.
+
+Grip width: Narrow, Normal, Wide. 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Abs,0,1
+Cable Abduction,"Preparation: Stand in front of the low pulley facing one side. Attach cable cuff to your far ankle. Step out away from stack and grasp the bar. Stand on near foot and allow far leg to cross in front. 
+
+Execution: Move your leg sideways away from the low pulley using your hip. Return and repeat. Turn around and continue with opposite leg. 
+
+Variations: 
+Muscle group: Adductors
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Abductors,0,1
+Abduction Machine,"Preparation: Sit down on the abductor machine and select a comfortable weight. Position your legs and grip the handles on each side. From the waist up, your body should be stationary. 
+
+Execution: Slowly press against the machine with your legs to move them away from each other while exhaling. Inhale while releasing and repeat.  
+
+Variations: 
+Muscle group: Adductors
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Abductors,0,1
+Standing Abduction ,"Preparation: Stand on the platform, grasp handles and place outer thigh against pad. 
+
+Execution: Move your leg as far as possible to the side (away from body). Return and repeat. Continue with opposite side.
+
+Variations: 
+Muscle group: Adductors
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Abductors,0,0
+Shrugs,"Preparation: Stand with your feet shoulder width apart holding a barbell with a overhand grip. 
+
+Execution: Exhale as you raise your shoulders as far up as they can go. Return and repeat. 
+
+Variations: 
+
+Grip type: Underhand, Overhand.
+
+Grip width: Narrow, Normal, Wide. 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Traps,1,0
+High Pull,"Preparation: Stand holding the barbell with a normal overhand grip. 
+
+Execution: Exhale as you pull the bar up to neck height. Lead with your elbows and let your wrists flex as the bar rises. Lower and repeat.
+
+Variations: 
+
+Grip width: Narrow, Normal, Wide. 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Traps,1,0
+Snatch,"Preparation: Start by grabbing a barbell with a wider than shoulder width, overhand grip. Keep your hips and knees slightly bent and your back flat. 
+
+Execution: Exhale as you push your feet into the floor and pull the barbell up to rest just above your knees. Extend your knees and thrust your hips, as you explosively drive the barbell towards the ceiling. While shurgging your shoulders to create momentum to propel the barbell. Next, your arms over your head as you dro your hips to place your body underneath the bar. Push your feet into the floor and extend your hips to stand. Return and repeat. 
+
+Variations: 
+
+Grip width: Narrow, Normal, Wide. ",,10,Traps,1,0
+Deadlit To Shrug,"Preparation: Start by grabbing a barbell with a wider than shoulder width, overhand grip. Keep your hips and knees slightly bent and your back flat. 
+
+Execution: Exhale as you push up and lit the bar with your legs, while at the same time bringing your torso to an upright position. Once you are standing, push your chest out and bring your shoulder blades back so you are standing upright at attention. Next, shrug your shoulders back before returning and repeating. 
+
+Variations: 
+
+Grip width: Narrow, Normal, Wide. ",,10,Traps,1,0
+Pushdown,"Preparation: Attach the rope to the high pulley. Hold the rope in an overhand grip, facing the machine. 
+
+Execution:Exhale as you push down with your triceps, keeping your arms close to your sides. Return to start position and repeat. 
+
+Variations: 
+
+Grip type: Underhand, Overhand, Neutral.
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Triceps,0,1
+Extensions,"Preparation: Lie on a bench with an overand grip on the EZ-bar. Position the bar over your forehead, with your arms extended. 
+
+Execution: Lower the bar by bending your elbows. When the bar nears your head, move elbows slightly back, just enough to allow the bar to clear around your head. Return and repeat. 
+
+Variations: 
+
+Angle: Incline, Decline.
+
+Grip type: Underhand, Overhand, Neutral.
+
+Grip width: Narrow, Normal, Wide. 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Triceps,0,0
+Kickbacks,"Preparation: Put your right leg on the top of a flat bench, while placing your hand at the end of the bench for support. Grab the dumbbell with one hand in a neutral grip (palms facing stomach). Keep your lower back straight. Start with your forearm facing the floor and your upper arm parallel to the floor. 
+
+Execution: Exhale as you extend your arm back in an arc while keeping your upper arm still. Inhale as you lower and repeat. Switch sides when you finish.
+
+Variations: 
+
+Grip type: Underhand, Overhand, Neutral.
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Triceps,0,0
+"Bench, Narrow ","Preparation: Lie back on a flat bench. Hold the bar with a narrow width grip and hold the bar straight over you.
+
+Execution: Breathe in and slowly bring the bar down until it touches you chest. Exhale as you push the bar back to your starting position.
+
+Variations: 
+
+Angle: Incline, Decline.
+
+Grip type: Underhand, Overhand.
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Triceps,1,0
+Dips,"Preparation: Place a bench behind your back. Hold on to the bench on its edge with the hands fully extended, separated at shoulder width. Extend your legs forward resting on the floor. 
+
+Execution: Inhale as you lower your body by bending at your elbows. Press back up to starting position with your triceps and repeat. 
+
+Variations: 
+
+Grip width: Narrow, Normal, Wide. 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Triceps,0,0
+Dip Machine,"Preparation: Stand on the bottom step and grasp the handles with a neutral grip. Adjust the weight accordingly (if needed, more weight equals more assistance). Start with your elbows bent and your chin tucked in. 
+
+Execution: Kneel down and inhale as you lower your body and exhale as you push your body up until your arms are fully extended and repeat. 
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Triceps,0,1
+Pushup Narrow,"Preparation: Lie on the floor face down with your hands touching each other on the floor while holding your body off the ground with your arms extended. 
+
+Execution: Inhale and lower yourself downward until your chest nearly touches the floor. Exhale, return to starting position and repeat. 
+
+Variations: 
+
+Angle: Incline, Decline.
+
+Grip width: Narrow, Normal, Wide, diamond. 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Triceps,0,0
+Reverse Cable Fly,"Preparation: Position a bench between two cable stacks and attach the handles to the high pulleys. Grab the left handle with your right hand and vice versa with your arms crossed across your chest. 
+
+Execution: Exhale as you pull your arms down to the opposite sides until your arms are straight and slightly behind your body. Return and repeat. 
+
+Variations: 
+
+Grip type: Underhand, Overhand, Neutral.
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Triceps,0,1
+Hamstrings Machine,"Preparation: Select your weight and sit down on the machine with your ankles on top of the bar. Brace yourself by gripping the stabilizer bar with your hands. 
+
+Execution: Exhale and curl your legs in while pressing your ankles agaist the bar. Inhale as you extend your legs slightly lower than your starting position. You should feel tension in your muscles during the whole movement. 
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Hamstrings,0,1
+Pullbacks,"Preparation: Start by adjusting the machine to your height and selecting your weight. Lie face down with the padded bar above your ankles and just below your calves. Stabilize yourself by gripping the handles of the machine. 
+
+Execution: Exhale and curl your legs in while pressing your ankles against the bar. Inhale as you extend your legs slightly back to starting position. You should feel tension in your muscles during the whole movement. Make sure your legs are touching the padded bar during the entire exercise.
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Hamstrings,0,1
+Cable Leg Curl,"Preparation: Attach the foot harness to one ankle and grab the support bar. Put all weight in your free leg and slightly bend your leg attached to the harness. 
+
+Execution: Pull the cable back by bending your knee behind you. Return to starting position by straightening your knee and repeat, then switch legs. 
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Hamstrings,0,1
+Squats,"Preparation: Load your desired weight on a barbell that is on a weight rack, about chest high. Position the bar on your shoulders, step away from the rack and stand with your hands supporting the bar and feet shoulder width apart. 
+
+Execution: Squat down by bending your hips back and letting your knees bend forward, keeping your back straight and knees pointed in the same direction as our feet. Descend until thighs are just past parallel to floor. Extend your knees and hips until your legs are straight. Return and Repeat. 
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Hamstrings,0,0
+Clean And Jerk,"Preparation: Stand over a barbell with the front of your feet positioned under the bar, slightly wider apart than hid width apart. Squat down and grip the bar with an overhand grip slightly wider than shoulder width apart. Position your shoulders over the bar with your back arched tightly. Keep your arms straight with your elbows lined up over the bar. 
+
+Execution: Lift the bar up and off the floor by extending your hips and knees. As bar reaches your knee height, aggressively lift your shoulders while keeping barbell close to your thighs. When the barbell passes mid-thigh, allow it to touch your thighs. Thrust upward extending your body. Shrug shoulders and pull barbell upward with arms, allowing your elbows to flex out to sides while keeping the bar close to body. Aggressibely pull your body under the bar, while rotating your elbows around bar. Catch the bar on your shoulders while moving into squat postion. When you reach the botom of your squat, immediately thrust up. Next, dip your body by bending your knees and ankles slightly. Explosibely drive upward with legs, driving barbell up off shoulders. Drop your body downward and split one foot forward and other backward as fast as possible, while thrusting your arms over head. The split position places front shin vertical to floor with front foot flat on floor. Keep the rear knee slightly bent with your reer foot positioned on toes. Return and repeat. 
+
+Variations: 
+
+Grip width: Narrow, Normal, Wide. ",,10,Hamstrings,1,0
+Kettelbell Handed Swing,"Preparation: Hold the kettlebell with two hands as you slightly bend at the hips keeping your back straight. The kettlebell should be just in front of your hips, between your legs. 
+
+Execution: Thrust your hips forward and keep your knees straight so that the kettlebell is pushed forward and upward freely, until about shoulder height, while keeping your head forward and squeezing your glutes. Allow the kettlebell to swing back down. As the kettlebell approaches the lower swing, bend your hips and knees. your forearm will make contact with your inner thigh, allowing the kettlebell to swing back under our hips. Repeat as many repetitions as you need to in a fluid motion.
+
+Variations: 
+
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Hamstrings,1,0
+Leg Raise,"Preparation: Hold onto a bar or rack with your hand. Place the front part of both feet on an exercise step with your heel handing off.
+
+Execution: Keeping your leg that is supporting you straight, flex your calf and raise yourself as high as you can, and then lower to start position and repeat. 
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Calves,0,0
+Machine Calf Press,"Preparation: Sit down at an uprigh leg press machine with the front of your feet on the foot res. Hold onto the support handles. 
+
+Execution: Exhale as you push forward with the front of our feet using your calves. Return and repeat. 
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Calves,0,1
+Seated Calf Raise,"Preparation: Sit down on a flat bench with an exercise step about a foo tin front of you. Place the front of your foot on the step and rest a dumbbell on top of it. 
+
+Execution: Breate out and raise your heel up as high as possible as you exhale. Slowly return to start position while stretching as far down as you can. Repeat and switch legs once you finish your set. 
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Calves,1,0
+Burpee,"Preparation: Stand upright with your arms to the sides. 
+
+Execution: Bend over and squat down with your hands outstretched in a pushup position. Kick your legs out and pull them back in before pushing yourself back to the starting position. Repeat. 
+
+Variations: 
+
+None. ",,10,Calves,0,0
+Running(Uphill),"Execution: Start with a walk and gradually speed up until you are moving at a fast, steady pace.
+
+Variations: 
+
+None. ",,10,Calves,0,0
+Pull Ups,"Preparation: Hold on to the pull up bar using the neutral grip handles and grip them with your palms facing each other. Hang there with your body extended. 
+
+Execution: Exhale as you pull yourself up until your neck reaches the height of your hands. Inhale as you lower your body until your arms and shoulders are extended and repeat. 
+
+Variations: 
+
+Grip type: Underhand, Overhand, Neutral.
+
+Grip width: Narrow, Normal, Wide. 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Lats,0,0
+Cable Pull Downs,"Preparation: Sit down at the machine, adjust the knee pad to your height and secure your knees under the padding. Grab the bar with your palms facing away from you, wider than shoulder width. 
+
+Execution: Exhale as you bring the bar down until it touches your upper chest. Inhale as you bring the bar back up. Repeat.
+
+Variations: 
+
+Grip type: Underhand, Overhand, Neutral.
+
+Grip width: Narrow, Normal, Wide. 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Lats,0,1
+Machine Row,"Preparation: Adjust the seat and chest pad to the correct height and select your weight. Grab the more narrow handles while keeping your back straight. 
+
+Execution: Exhale as you pull the handles towards you inhale as you return to start position and repeat. 
+
+Variations: 
+
+Grip type: Underhand, Overhand, Neutral.
+
+Grip width: Narrow, Normal, Wide. 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Lats,0,1
+Dumbbell Row,"Preparation: Lean into an inclined bench while holding two dumbbells in a neutral grip with your palms facing each other. Keep your toes on the floor to stabilize yourself. Keep your lower back straight and extend your arms down. 
+
+Execution: Exhale as you pull the weights up to chest height. Inhale as you lower and repeat. 
+
+Variations: 
+
+Angle: Decline.
+
+Grip type: Underhand, Overhand, Neutral.
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Lats,1,0
+Dumbbell Pullover,"Preparation: Lie down on a flat bench with a dumbbell securely grasped between both of your hands, palms facing each other. With your feet firmly planted on the floor or bench supports, raise the dumbbell up over your chet with your arms extended. 
+
+Execution: Keep your arms straight and lower the weight behind your head in an arc movement, as you breathe in. Extend until you feel a stretch in your chest, and exhale as you return the weight to start position and repeat. 
+
+Variations: 
+
+Angle: Incline, Decline. 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Lats,1,0
+Reverse Fly,"Preparation: Stand with your feet shoulder width apart. Grab the left handle with your right hand and the right handle with your left hand, crossing your arms in front of you. 
+
+Execution: Pull the handles out to your sides, keeping your arms parallel to the floor. Return to start position and repeat. 
+
+Variations: 
+
+Grip type: Underhand, Overhand, Neutral.
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Lats,1,0
+Hyperextension,"Preparation: Lie face down on a hyperextension bench, tucking your ankles securely under the footpads. Once you've adjusted the machine for your height, cross your arms in front of your chest keeping your body upright. 
+
+Execution: Inhale as you lower yourself as far as you can, only bending at the waist with a straight back. Exhale as you pull yourself back up and repeat. 
+
+Variations:  
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Lower Back,0,1
+Superman,"Preparation: Lie face down with your legs straight and your arms straight forward and raised. 
+
+Execution: Lift your legs and upper torso off the ground. Hold, then lower and repeat. 
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Lower Back,0,0
+Cable Pull Down,"Preparation: Sit down at the machine, adjust the knee pad to your height and secure your knees under the padding. Grab the bar with your palms facing away from you, wider than shoulder width. 
+
+Execution: Exhale as you bring the bar down until it touches your upper chest. Inhale as you bring the bar back up. Repeat.
+
+Variations: 
+
+Grip type: Underhand, Overhand, Neutral.
+
+Grip width: Narrow, Normal, Wide. 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Lower Back,0,1
+Row Machine,"Preparation: Making sure that your feet are secure, bring your knees up and slide to the top of the machine. Grab the handle in an overhand grip. Make sure that your shirt is tucked in and nothing will get caught in the slide under your seat. 
+
+Execution: Exhale as you push back with your feet to slide to the back of the machine. Pull the handle throughout the movement, bringing it to just below your chest at the finish. Lead with your legs ad make sure your legs are extended before you finish pulling the handle to your chest. 
+
+Variations: 
+
+Grip type: Underhand, Overhand, Neutral.
+
+Grip width: Narrow, Normal, Wide. 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Lower Back,0,1
+Russian Swing,"Preparation: Hold the kettlebell with two hands as you slightly bend at the hips keeping your back straight. The kettlebell should be just in front of your hips, between your legs. 
+
+Execution: Thrust your hips forward and keep your knees straight so that the kettlebell is pushed forward and upward freely, until about shoulder height, while keeping your head forward and squeezing your glutes. Allow the kettlebell to swing back down. As the kettlebell approaches the lower swing, bend your hips and knees. your forearm will make contact with your inner thigh, allowing the kettlebell to swing back under our hips. Repeat as many repetitions as you need to in a fluid motion.
+
+Variations: 
+
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Lower Back,1,0
+Deadlit,"Preparation: Stand with in front of a loaded barbell and bend your knees and body forward. Grab the bar with an overhand grip with your hands just over shoulder width apart. 
+
+Execution: Exhale as you push up and lift the bar with your legs and at the same time bring you torso to an upright position. Once you are standing, push your chest out and bring your shoulder blades back so you are standing upright at attention. Return while keeping your legs straight and make sure the barbell touches the floor before starting your next rep. 
+
+Variations: 
+
+Grip type: Underhand, Overhand.
+
+Grip width: Narrow, Normal, Wide. 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Glutes,1,0
+Flutter Kicks,"Preparation: Lie face down on a flat bench with our legs straight and feet high off the floor. Hold on to the front edge of the bench. 
+
+Execution: Lift one leg, and then switch legs, alternating between them each time.
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Glutes,0,0
+Kick Backs,"Preparation: Kneel down on all fours. 
+
+Execution: Keeping your leg bent, lift your leg up so your hamstrings are in line with your back, and your foot is in the air. Slowly release back to starting position and repeat, then switch legs. 
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Glutes,0,0
+Hip Extension,"Preparation: Lie on your back with one knee bent, and the other leg straight out hovering about an inch above the ground.
+
+Execution: Lift your butt and hips off the ground, while lifting your straight leg up. Lower your leg and repeat, then switch legs. 
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Glutes,0,0
+Barbell Thrust,"Preparation: Start by sitting on the ground with a bench directly behind you. Have a loaded barbell over your legs. Roll the bar so that it is directly above your legs. Roll the bar so that it is directly above your hips, and lean back against the bench, so that your shoulder blades are near the top of it and your arms are outstretched gripping the sides of the bench. 
+
+Execution: With your feet firmly planted on the ground, exhale and thrust your hips up vertically and extend as far as possible. Inhale as you lower and repeat. 
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Glutes,1,0
+Running,"Preparation: Step onto the treadmill or track. 
+
+Execution: Start with a walk and gradually speed up until you are moving at a fast, steady pace.
+
+Variations: None ",,10,Cardio,0,0
+Step Machine,"Preparation: Step onto pedal platforms and grasp hand rails. Select ""quick start"" or enter program. 
+
+Execution: Place your bodyweight on one pedal and allow other pedal to rise. Before the lower step hits the bottom or upper step hits top, alternate with opposite movement. Repeat. 
+
+Variations: None",,10,Cardio,0,1
+Bicycle Machine,"Preparation: Sit down on the exercise bike, hold the grips and select ""quick start"" or enter a program. 
+
+Execution: Pedal forward as you would on a bike while gripping the handles. 
+
+Variations: None",,10,Cardio,0,1
+Elliptical Machine,"Preparation: Step on pedal platforms and grasp the handle bars on each arm lever. Select ""quick start"" or enter program. 
+ 
+Execution: pedal forward while alternating the arm levers back and forth. 
+
+Variations: None",,10,Cardio,0,1
+Shoulder Press,"Preparation: Sit down on a bench holding dumbbells in both hands in a neutral grip at about neck height.
+
+Execution: Exhale and press the dumbbells up. As you press up, rotate the grisps in your hands so that when they reach the top, your hands are in an overhand grip with your palms facing forward. Return, twisting back to neutral, and repeat. 
+
+Variations: 
+
+Angle: Incline, Decline.
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Shoulders,1,0
+Lateral Raise,"Preparation: Sit down on an incline bench holding a dumbbell in both hands in a neutral grip, arms are extended by your sides. 
+
+Execution: Exhale as you raise your arms until your elbows are shoulder height, return and repeat. 
+
+Variations: 
+
+Angle: Incline
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Shoulders,1,0
+Front Raise,"Preparation: sit down with you shoulder width apart holding two dumbbells in an overhand grip. 
+
+Execution: Exhale as you lift the dumbbells forward in an arc until they are just above the height of your shoulders. Return and Repeat.
+
+Variations: 
+
+Angle: Incline.  
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Shoulders,1,0
+Shoulder High Pull,"Preparation: Stand holding the bar with a normal overhand grip. 
+
+Execution: Exhale as you pull the bar up to neck height. Lead with your elbows an let your wrists flx as the bar rises. Lower and repeat. 
+
+Variations: 
+
+Grip width: Narrow, Normal, Wide. 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Shoulders,0,1
+Scarecrow,"Preparation: Stand facing a cable machine and attach the handle to the low pulley. Gran the pulley with your right hand and hold your arm out to the side, with your hand down. 
+
+Execution: Exhale as you raise the handle by twisting your arm in an arc upwards. Inhale as you lower and then repeat.
+
+Variations: 
+
+Angle: Incline, Decline.
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Shoulders,1,0
+Cable Rotation,"Preparation: Stand with your left side facing the machine. With your right hand, grab the handle, keeping your elbow close to your body and your hand in front of your stomach.
+
+Execution: Bring your arm back as far as you can, keeping your elbow close to your body. Return to start position and repeat. 
+
+Variations: 
+
+Angle: Incline, Decline.
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Shoulders,0,1
+Barbell Snatch,"Preparation: Start by grabbing a barbell with a wider than shoulder width, overhand grip. Keep your hips and knees slightly bent and your back flat. 
+
+Execution: Exhale as you push your feet into the floor and pull the barbell up to rest just above your knees. Extend your knees and thrust your hips, as you explosively drive the barbell towards the ceiling. While shurgging your shoulders to create momentum to propel the barbell. Next, your arms over your head as you dro your hips to place your body underneath the bar. Push your feet into the floor and extend your hips to stand. Return and repeat. 
+
+Variations: 
+
+Grip width: Narrow, Normal, Wide. ",,10,Shoulders,1,0
+Clean & Jerk,"Preparation: Stand over a barbell with the front of your feet positioned under the bar, slightly wider apart than hid width apart. Squat down and grip the bar with an overhand grip slightly wider than shoulder width apart. Position your shoulders over the bar with your back arched tightly. Keep your arms straight with your elbows lined up over the bar. 
+
+Execution: Lift the bar up and off the floor by extending your hips and knees. As bar reaches your knee height, aggressively lift your shoulders while keeping barbell close to your thighs. When the barbell passes mid-thigh, allow it to touch your thighs. Thrust upward extending your body. Shrug shoulders and pull barbell upward with arms, allowing your elbows to flex out to sides while keeping the bar close to body. Aggressibely pull your body under the bar, while rotating your elbows around bar. Catch the bar on your shoulders while moving into squat postion. When you reach the botom of your squat, immediately thrust up. Next, dip your body by bending your knees and ankles slightly. Explosibely drive upward with legs, driving barbell up off shoulders. Drop your body downward and split one foot forward and other backward as fast as possible, while thrusting your arms over head. The split position places front shin vertical to floor with front foot flat on floor. Keep the rear knee slightly bent with your reer foot positioned on toes. Return and repeat. 
+
+Variations: 
+
+Grip width: Narrow, Normal, Wide. ",,10,Shoulders,1,0
+Cable Pull High & Low,"Preparation: Stand between two cable stacks. Attach a handle to the low pulley to your right and a handle to the high pulley behind you. Face the low pulley and grab it with your left hand and the high pulley with your right. Extend your arms so that your left arm is in front of you over your head and your right is behind and below you. 
+
+Execution: Exhale as you swing your arms in opposite directions while you are keeping your arms straight. Twist with your shoulders. Return and Repeat
+
+Variations:
+
+Grip type: Underhand, Overhand, Neutral.
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Shoulders,0,1
+Bench Press,"Preparation: Lie back on a flat bench. Hold the bar with a normal width grip and hold the bar straight over you.
+
+Execution: Breathe in and slowly bring the bar down until it touches you chest. Exhale as you push the bar back to your starting position.
+
+Variations: 
+
+Angle: Incline, Decline.
+
+Grip type: Underhand, Overhand, Neutral.
+
+Grip width: Narrow, Normal, Wide. 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Chest,1,0
+Dumbbell Fly,"Preparation: Lie down on a flat bench with a dumbbell in each hand, resting on top of your thighs with your palms facing each other. Use your thighs to lift up the dumbbells with your pals facing each other and extend your arms out to your sides, with a slight bend in your elbows and stretch in your chest.
+
+Execution: Exhale and bring the dumbbells up and together in a wide arc. Return to starting positions and repeat. 
+
+Variations: 
+
+Angle: Incline, Decline.
+
+Grip type: Underhand, Overhand, Neutral.
+
+Grip width: Narrow, Normal, Wide. 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Chest,1,0
+Fly Machine,"Preparation: Sit down at the machine with your back against the pad. Grab the handles. 
+
+Execution: Exhale as you press the handles together, inhale to return to start postion and repeat. 
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Chest,1,0
+Cable Crossover,"Preparation: Adjust the pulleys to hip height and attach a single grip handle to each. Grasp each handle with your palms facing down. Take a step forward. Your arms should be slightly bent at the elbows. 
+
+Execution: Slowly bring the handles together. Slowly lower the weight back to start position and repeat. 
+
+Variations: 
+Grip type: Underhand, Overhand, Neutral.
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Chest,1,0
+Push Ups,"Preparation: Lie on the floor face down with your hands just wider than shoulder length apart, while holding your body off the ground with your arms extended. 
+
+Execution: Inhale and lower yourself downward until your chest nearly touches the floor. Exhale, return to starting postion and repeat. 
+
+Variations:
+
+Angle: Incline, Decline.
+
+Grip width: Narrow, Normal, Wide. 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Chest,0,1
+Cable Pullover,"Preparation: Stand facing the pulley machine, feet shoulder width apart. Grab the rope with both hands, with a slight bend in your elbows and step away from the machine so there is no resistance. Bend your knees slightly, keep your back straight. 
+
+Execution: Pull the rope down towards your knees, keeping your back straight and arm slightly bent. Return to start position and repeat. 
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Chest,0,1
+Cable Lats Chest Twist,"Preparation: Stand between two pulley machines and attach the handles to the middle pulleys. Grab both the handles and turn your body so that you are facing the machine that your left hand is connected to. Extend your left arm while allowing your right arm to be pulled back to your chest. 
+
+Execution: Exhale as you reverse the positioning of the handles in a continous fluid motion. Continue until you finish your set. 
+
+Variations: 
+Grip type: Underhand, Overhand, Neutral.
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Chest,0,0
+Dumbbell Wrist Curl,"Preparation: Stand up straight with a dumbbell in an underhand grip with your palms facing forward. Keep the dumbbell secure, but hold them with your fingers more than squeezing them with your palms. 
+
+Execution: Curl your wrists upwards while you exhale. Inhale, lower you wrists back to your starting position, and curl your wrist upward the other direction. Repeat while keeping your forearms still. 
+
+Variations: 
+Grip type: Underhand, Overhand, Neutral.
+
+Grip width: Narrow, Normal, Wide. 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Chest,0,1
+Cable Wrist Curl ,"Preparation: Attach a straight bar to the low pulley. Grab the bar in an underhand grip with your palms facing up and your arms exended down, while standing with a straight back. 
+
+Execution: Curl your wrists upwards while you exhale. Inhale, lower you wrists back to your starting position. Repeat while keeping your forearms still.
+
+Variations: 
+Grip type: Underhand, Overhand, Neutral.
+
+Grip width: Narrow, Normal, Wide. 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Chest,0,1
+Side Bend ,"Preparation: Position yourself sideways on a hypertension bench, with your arms crossed over your chest. Make sure that your hips, feet and legs are secure against the appropriate padding and foot rests. 
+
+Execution: Lower your torso to the side as far as it can go, while keeping your legs straight. Rise up so that your ches is above your torso. Return to start start position and repeat. When you have finished your set, switch sides. 
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.`",,10,Forearms,1,0
+Torso Twist Machine,"Preparation: Sit down at the torso twist machine, select your weight and place your arms on the padded rest for support. Ensure that your feet are secure. 
+
+Execution: Twist your body to the left and right until you complete your desired repititions.  
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Forearms,0,1
+Weighted Side Bend,"Preparation: Position yourself sideways on a hyperextension bench, with your right arm holding a plate weight. Make sure that your hips, feet and legs are secure against the appropriate padding and foot rests.  
+
+Execution:  Lower your torso to the side as far as it can go while keeping your legs straight. Rise up so that your chest is above your torso. Return to start postion and repeat. When you have finished your set, switch sides. 
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Obliques,1,0
+Side Bridge,"Preparation: Lay on your side with one forearm flat on the ground and your hips touching the ground. Your feet should be stacked one on top of the other and your free hand on your hip. 
+
+Execution: Life your hip off the ground as high as you can.  
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Obliques,0,1
+Oblique Leg Raise ,"Preparation: Position yourself in the captatin's chair with your back and forearms against the padding and your hands grasping the handles. Hang your legs straight down.  
+
+Execution: Exhale as you pull your knees up to the right side high as possible. Return to start position and repeat. When you have finished your set, switch sides. 
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Obliques,1,0
+Russian Twist,"Preparation: Lay back with your legs in the air and your hands behind your head.  
+
+Execution: Keeping your legs in the air, pull your body up as you would in a normal situp, but at the top of the movement, twist your torso right and left before straightening out, returning and repeating.  
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Obliques,0,0
+Side Plank,"Preparation: Lay on your side with one forearm flat on the ground. Prop your body off the floor, lifting your hips until your body is in a straight line from your ankles to your shoulders. Your feet should be stacked one on top of the other and your free hand straight pu in the air.
+
+Execution: Hold position. 
+
+Variations: 
+
+None. ",,10,Obliques,0,0
+Cross Body Crunch,"Preparation: Lie flat on your back with your knees bent and your feet flat on the floor, with your hands behind your head. 
+
+Execution: Curl up and twist your left elbow and should up and over your body as if you're trying to touch your right knee. Return and repeat with your right elbow and left knee, alternating each repitition. 
+
+Variations: 
+
+Repetition speed: [Lifting weight:Lowering weight] 1:1, 2:2, 2:4.",,10,Obliques,1,0
+,,,10,Obliques,0,0
+,,,10,Obliques,0,0
