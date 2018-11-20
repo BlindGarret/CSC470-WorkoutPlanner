@@ -29,8 +29,9 @@ namespace WorkoutHelper.Services
                     foreach (var exercise in plannedGroup.Exercises)
                     {
                         var possibleExercises = availableExercises.Where(x =>
-                            x.NeedsFreeWeights == exercise.AllowFreeWeights &&
-                            x.NeedsMachine == exercise.AllowMachines && x.MuscleGroup == exercise.MuscleGroup).ToList();
+                            (!x.NeedsFreeWeights || x.NeedsFreeWeights && exercise.AllowFreeWeights) &&
+                            (!x.NeedsMachine || x.NeedsMachine && exercise.AllowMachines) && 
+                            x.MuscleGroup == exercise.MuscleGroup).ToList();
                         if (!possibleExercises.Any())
                         {
                             continue;

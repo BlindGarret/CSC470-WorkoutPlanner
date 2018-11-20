@@ -75,11 +75,11 @@ namespace WorkoutHelper.Tests.Unit.ViewModels
             var eventMock = new Mock<WeighInAddedEvent>();
             eventMock.Setup(x => x.Publish());
             _eventAggregatorMock.Setup(x => x.GetEvent<WeighInAddedEvent>()).Returns(eventMock.Object);
-            _dataServiceMock.Setup(x => x.SaveWeighIn(It.IsAny<WeighIn>()));
+            _dataServiceMock.Setup(x => x.SaveWeighIn(It.IsAny<WeighIn>(), It.IsAny<int>()));
 
             _viewModel.SaveCommand.Execute();
 
-            _dataServiceMock.Verify(x => x.SaveWeighIn(It.IsAny<WeighIn>()), Times.Once);
+            _dataServiceMock.Verify(x => x.SaveWeighIn(It.IsAny<WeighIn>(), It.IsAny<int>()), Times.Once);
         }
     }
 }

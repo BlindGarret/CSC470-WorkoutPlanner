@@ -106,6 +106,7 @@ namespace WorkoutHelper.ViewModels
             var user = _dataService.GetUser(_sessionService.UserId);
             Avatar = user.Avatar;
             DisplayName = $"{user.FirstName} {user.LastName}";
+            SelectedView.TabLoaded();
         }
 
         private void LoadViews(IUnityContainer container)
