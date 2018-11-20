@@ -4,10 +4,73 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:designViewModels="clr-namespace:WorkoutHelper.DesignViewModels"
+             xmlns:wpf="clr-namespace:InteractiveDataDisplay.WPF;assembly=InteractiveDataDisplay.WPF"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance designViewModels:DashboardDesignViewModel, IsDesignTimeCreatable=True}"
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="564" d:DesignWidth="590"
+             DataContextChanged="UpdateLineGraph">
     <Grid>
-        <Label Content="{Binding PageName}"></Label>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120px" />
+            <RowDefinition />
+            <RowDefinition Height="140px"/>
+            <RowDefinition Height="25px"/>
+        </Grid.RowDefinitions>
+        <Rectangle Grid.Row="0" Fill="DimGray"/>
+        <Label Grid.Row="0" FontFamily="Dead Kansas" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24pt" Foreground="White" Content="{Binding PageName}"/>
+
+        <wpf:Chart Grid.Row="1" 
+                   BottomTitle="Delta Days" 
+                   LeftTitle="Weight (lbs)" 
+                   IsAutoFitEnabled="True" 
+                   IsVerticalNavigationEnabled="False" 
+                   IsHorizontalNavigationEnabled="False"
+                   Title="Weight Over Time"
+                   Margin="20"
+                   LegendVisibility="Collapsed">
+            <wpf:LineGraph x:Name="WeightGraph" Stroke="Blue" StrokeThickness="3" IsAutoFitEnabled="true" />
+        </wpf:Chart>
+
+        <ItemsControl ItemsSource="{Binding WorkoutDays}" Grid.Row="2">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"></StackPanel>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <GroupBox Width="190px"
+                              Height="140px"
+                                  Header="{Binding Date.DayOfWeek}"
+                              Margin="3,0">
+                        <ItemsControl ItemsSource="{Binding Groups}" ClipToBounds="True">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderBrush="Black" BorderThickness="1px">
+                                        <ItemsControl ItemsSource="{Binding Workouts}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Label Content="{Binding RepetitionCount}" />
+                                                        <Label Content="{Binding Exercise.Name}" />
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </GroupBox>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        
+        <Button 
+            Grid.Row="3" 
+            Height="20px" 
+            Width="200px"
+            Content="Re-plan Workouts"
+            Command="{Binding ReplanWorkoutsCommand}"/>
     </Grid>
 </UserControl>

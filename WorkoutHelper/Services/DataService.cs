@@ -49,18 +49,25 @@ namespace WorkoutHelper.Services
             using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
             {
                 var user = connection.Table<User>().FirstOrDefault(x => x.Id == userId);
-                return user.Weight;
+                return user?.Weight ?? 0;
             }
         }
 
         ///<inheritdoc/>
-        public void SaveWeighIn(WeighIn weighIn)
+        public void SaveWeighIn(WeighIn weighIn, int userId)
         {
             using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
             {
-                var lastId = connection.Table<WeighIn>().OrderBy(x => x.Id).LastOrDefault();
-                weighIn.Id = lastId?.Id + 1 ?? 1;
+                weighIn.UserId = userId;
                 connection.Insert(weighIn);
+            }
+        }
+
+        public IEnumerable<WeighIn> GetWeighIns(int userId)
+        {
+            using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
+            {
+                return connection.Table<WeighIn>().Where(x => x.UserId == userId).ToList();
             }
         }
 
@@ -76,10 +83,8 @@ namespace WorkoutHelper.Services
         {
             using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
             {
-                var lastId = connection.Table<User>().OrderBy(x => x.Id).LastOrDefault();
-                user.Id = lastId?.Id + 1 ?? 1;
                 connection.Insert(user);
-                SaveWeighIn(new WeighIn(){UserId = user.Id, Value = user.Weight, Date = GetDate()});
+                SaveWeighIn(new WeighIn(){UserId = user.Id, Value = user.Weight, Date = GetDate()}, user.Id);
                 return user.Id;
             }
         }
