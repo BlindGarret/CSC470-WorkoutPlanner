@@ -19,8 +19,7 @@
         <Label Content="Select User"
                HorizontalAlignment="Center"
                Margin="0,10"
-               FontSize="20"
-               FontFamily="Dead Kansas"/>
+               FontSize="20"/>
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="80,5">
             <ItemsControl x:Name="UserSet"
                       ItemsSource="{Binding Users}">

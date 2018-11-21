@@ -17,8 +17,8 @@
             <RowDefinition Height="120px"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Rectangle Grid.Row="0" Fill="DimGray"/>
-        <Label Grid.Row="0" FontFamily="Dead Kansas" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24pt" Foreground="White" Content="{Binding PageName}"/>
+        <Rectangle Grid.Row="0" Fill="{StaticResource PrimaryBrush}"/>
+        <Label Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24pt"  Content="{Binding PageName}"/>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition />

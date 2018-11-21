@@ -5,7 +5,11 @@
          <ResourceDictionary>
              <ResourceDictionary.MergedDictionaries>
                  <ResourceDictionary Source="Resources/Bindings.xaml" />
-             </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
+                <ResourceDictionary Source="Resources/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+             <Style TargetType="{x:Type Window}">
+                 <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+             </Style>
+         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -12,27 +12,27 @@
             <RowDefinition Height="120px"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Rectangle Grid.Row="0" Fill="DimGray"></Rectangle>
-        <Label Grid.Row="0" FontFamily="Dead Kansas" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24pt" Foreground="White" Content="{Binding PageName}"/>
+        <Rectangle Grid.Row="0" Fill="{StaticResource PrimaryBrush}"></Rectangle>
+        <Label Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24pt"  Content="{Binding PageName}"/>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
-            <Label Grid.Row="0" FontSize="20" FontFamily="Constantia" Margin="0,20,0,0" HorizontalAlignment="Center" Content="{Binding CurrentDate}"></Label>
+            <Label Grid.Row="0" FontSize="20"  Margin="0,20,0,0" HorizontalAlignment="Center" Content="{Binding CurrentDate}"></Label>
             <Grid Grid.Row="1" Margin="100,50,100,125">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0" FontSize="15" FontFamily="Constantia">Weight (lbs)</Label>
-                <TextBox  Grid.Row="1" FontSize="15" BorderBrush="Black" BorderThickness="1" FontFamily="Constantia" Text="{Binding Weight}"></TextBox>
+                <Label Grid.Row="0" FontSize="15" >Weight (lbs)</Label>
+                <TextBox  Grid.Row="1" FontSize="15" BorderBrush="Black" BorderThickness="1"  Text="{Binding Weight}"></TextBox>
                 <Slider Grid.Row="2" Margin="0,5,0,0" Maximum="1500" Value="{Binding Weight}"></Slider>
             </Grid>
             <Button Command="{Binding SaveCommand}" Grid.Row="2" Width="120px" HorizontalAlignment="Right" Margin="0,0,10,10">
-                <Label FontSize="15" FontFamily="Constantia">Save</Label>
+                <Label FontSize="15" >Save</Label>
             </Button>
         </Grid>
     </Grid>
