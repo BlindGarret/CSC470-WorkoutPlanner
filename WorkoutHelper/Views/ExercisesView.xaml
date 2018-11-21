@@ -70,7 +70,12 @@
                                             </ScrollViewer>
                                         </GroupBox>
                                         <GroupBox Margin="0,0,0,5" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" FontSize="16" Header="Proper Form">
-                                            <Image Margin="3,3,3,3" Stretch="UniformToFill" gif:ImageBehavior.AnimatedSource="{Binding ImagePath}" Height="200" Width="200"></Image>
+                                            <Image Margin="3,3,3,3" 
+                                                   Stretch="UniformToFill" 
+                                                   gif:ImageBehavior.AnimatedSource="{Binding ImagePath, IsAsync=True}" 
+                                                   Height="200" 
+                                                   Width="200"
+                                                   ></Image>
                                         </GroupBox>
                                     </Grid>
                                 </Expander>

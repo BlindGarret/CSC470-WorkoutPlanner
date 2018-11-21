@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -12,7 +13,7 @@ namespace WorkoutHelper.ViewModels
         #region Properties
         public string PageName { get; set; } = "Exercises";
 
-        public ObservableCollection<Exercise> Exercises
+        public List<Exercise> Exercises
         {
             get => _exercises;
             set
@@ -25,7 +26,7 @@ namespace WorkoutHelper.ViewModels
             }
         }
 
-        private ObservableCollection<Exercise> _exercises;
+        private List<Exercise> _exercises;
         #endregion
         
         #region EnableExerciseCommand
@@ -64,7 +65,7 @@ namespace WorkoutHelper.ViewModels
         
         public void TabLoaded()
         {
-            Exercises = new ObservableCollection<Exercise>(_dataService.GetExercises(_sessionService.UserId).OrderBy(x => x.Name));
+            Exercises = new List<Exercise>(_dataService.GetExercises(_sessionService.UserId).OrderBy(x => x.Name));
         }
     }
 }
