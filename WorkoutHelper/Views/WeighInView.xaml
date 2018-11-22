@@ -31,8 +31,25 @@
                 <TextBox  Grid.Row="1" FontSize="15" BorderBrush="Black" BorderThickness="1"  Text="{Binding Weight}"></TextBox>
                 <Slider Grid.Row="2" Margin="0,5,0,0" Maximum="1500" Value="{Binding Weight}"></Slider>
             </Grid>
-            <Button Command="{Binding SaveCommand}" Grid.Row="2" Width="120px" HorizontalAlignment="Right" Margin="0,0,10,10">
-                <Label FontSize="15" >Save</Label>
+            <Button Command="{Binding SaveCommand}"
+                    Grid.Row="2"
+                    Width="120px"
+                    Height="32px"
+                    HorizontalAlignment="Right"
+                    Margin="0,0,10,10"
+                    Style="{StaticResource SecondaryColoredButton}">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                Background="{TemplateBinding Background}"
+                                BorderThickness="1">
+                            <Label Content="Save"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   FontSize="16"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
             </Button>
         </Grid>
     </Grid>
