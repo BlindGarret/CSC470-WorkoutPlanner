@@ -27,6 +27,24 @@ namespace WorkoutHelper.Services
         }
 
         /// <inheritdoc/>
+        public void DeleteUser(User user)
+        {
+            using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))
+            {
+                connection.Table<CompletionData>().Delete(x => x.UserId == user.Id);
+                connection.Table<DisabledExercise>().Delete(x => x.UserId == user.Id);
+                connection.Table<DisabledWeekday>().Delete(x => x.UserId == user.Id);
+                connection.Table<PlannedExercise>().Delete(x => x.UserId == user.Id);
+                connection.Table<PlannedGroup>().Delete(x => x.UserId == user.Id);
+                connection.Table<WeighIn>().Delete(x => x.UserId == user.Id);
+                connection.Table<WorkoutDay>().Delete(x => x.UserId == user.Id);
+                connection.Table<WorkoutGroup>().Delete(x => x.UserId == user.Id);
+                connection.Table<Workout>().Delete(x => x.UserId == user.Id);
+                connection.Table<User>().Delete(x => x.Id == user.Id);
+            }
+        }
+
+        /// <inheritdoc/>
         public User GetUser(int userId)
         {
             using (var connection = new SQLiteConnection(_config.DatabaseConnectionString))

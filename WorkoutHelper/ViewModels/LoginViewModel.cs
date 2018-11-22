@@ -52,6 +52,18 @@ namespace WorkoutHelper.ViewModels
 
         #endregion
 
+        #region DeleteUserCommand
+
+        public DelegateCommand<ObservableUser> DeleteUserCommand { get; set; }
+
+        private void DeleteUserCommandOnExecute(ObservableUser user)
+        {
+            _dataService.DeleteUser(user.ToModel());
+            Rendered();
+        }
+
+        #endregion
+
         private readonly IEventAggregator _eventAggregator;
         private readonly IDataService _dataService;
 
@@ -62,6 +74,7 @@ namespace WorkoutHelper.ViewModels
 
             LoginCommand = new DelegateCommand<ObservableUser>(LoginCommandOnExecute);
             AddUserCommand = new DelegateCommand(AddUserCommandOnExecute);
+            DeleteUserCommand = new DelegateCommand<ObservableUser>(DeleteUserCommandOnExecute);
         }
 
         public void Rendered()

@@ -2,16 +2,45 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!--Colors-->
     <Color x:Key="Primary">#ECECEC</Color>
+    <Color x:Key="Primary120Percent">#bcbcbc</Color>
+    <Color x:Key="Primary140Percent">#8d8d8d</Color>
     <Color x:Key="Secondary">#DBA622</Color>
-    <Color x:Key="Secondary20Percent">#FAEECE</Color>
+    <Color x:Key="Secondary20Percent">#f8edd2</Color>
+    <Color x:Key="Secondary40Percent">#f1dba6</Color>
     <Color x:Key="Light">#F6F6F6</Color>
     <Color x:Key="Accent">#670404</Color>
     
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}" />
+    <SolidColorBrush x:Key="Primary120PercentBrush" Color="{StaticResource Primary120Percent}" />
+    <SolidColorBrush x:Key="Primary140PercentBrush" Color="{StaticResource Primary140Percent}" />
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}" />
     <SolidColorBrush x:Key="Secondary20PercentBrush" Color="{StaticResource Secondary20Percent}" />
+    <SolidColorBrush x:Key="Secondary40PercentBrush" Color="{StaticResource Secondary40Percent}" />
     <SolidColorBrush x:Key="LightBrush" Color="{StaticResource Light}" />
     <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource Accent}" />
 
     <FontFamily x:Key="PrimaryFont">Tahoma</FontFamily>
+
+    <Style x:Key="SecondaryColoredButton" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="{StaticResource Secondary20PercentBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource SecondaryBrush}" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource Secondary40PercentBrush}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="PrimaryColoredButton" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="{StaticResource PrimaryBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource Primary140PercentBrush}" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource Primary120PercentBrush}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+
+    
 </ResourceDictionary>

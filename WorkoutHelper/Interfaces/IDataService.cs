@@ -24,6 +24,12 @@ namespace WorkoutHelper.Interfaces
         void SaveUser(User user);
 
         /// <summary>
+        /// Deletes a user.
+        /// </summary>
+        /// <param name="user">User to delete from the data set</param>
+        void DeleteUser(User user);
+
+        /// <summary>
         /// Get today's date.
         /// </summary>
         /// <returns>DateTime</returns>
