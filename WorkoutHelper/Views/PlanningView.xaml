@@ -14,7 +14,28 @@
         <DataTemplate x:Key="ExerciseBox" DataType="viewModels:ObservablePlannedExercise">
             <GroupBox>
                 <GroupBox.Header>
-                    <Label FontSize="15" FontFamily="Constantia">Exercise</Label>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label FontSize="15" >Exercise</Label>
+                        <Button Grid.Column="1" 
+                                Command="{Binding ElementName=PlanningTabControl, Path=DataContext.DeleteExerciseCommand}" 
+                                CommandParameter="{Binding }"
+                                Background="Transparent">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Grid Background="{TemplateBinding Background}">
+                                        <ContentPresenter />
+                                    </Grid>
+                                </ControlTemplate>
+                            </Button.Template>
+                            <Image Source="/WorkoutHelper;component/Resources/imgs/trash.png" 
+                                   Height="12px"
+                                   Width="12px"/>
+                        </Button>
+                    </Grid>
                 </GroupBox.Header>
                 <GroupBox.Content>
                     <Grid>
@@ -28,29 +49,29 @@
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Row="0" Grid.Column="0" FontSize="15" FontFamily="Constantia">Muscle Group</Label>
-                        <Label Grid.Row="0" Grid.Column="1" FontSize="15" FontFamily="Constantia">Available Equipment</Label>
-                        <Label Grid.Row="2" Grid.Column="0" FontSize="15" FontFamily="Constantia">Difficulty</Label>
+                        <Label Grid.Row="0" Grid.Column="0" FontSize="15" >Muscle Group</Label>
+                        <Label Grid.Row="0" Grid.Column="1" FontSize="15" >Available Equipment</Label>
+                        <Label Grid.Row="2" Grid.Column="0" FontSize="15" >Difficulty</Label>
 
 
                         <!-- Todo test combobox functionality -->
                         <ComboBox Grid.Row="1" Grid.Column="0" SelectedValue="{Binding MuscleGroup}" SelectedValuePath="Content">
-                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Quads</ComboBoxItem>
-                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Biceps</ComboBoxItem>
-                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Abs</ComboBoxItem>
-                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Abductors</ComboBoxItem>
-                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Traps</ComboBoxItem>
-                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Triceps</ComboBoxItem>
-                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Hamstrings</ComboBoxItem>
-                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Calves</ComboBoxItem>
-                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Lats</ComboBoxItem>
-                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Lower Back</ComboBoxItem>
-                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Glutes</ComboBoxItem>
-                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Cardio</ComboBoxItem>
-                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Shoulders</ComboBoxItem>
-                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Chest</ComboBoxItem>
-                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Forearms</ComboBoxItem>
-                            <ComboBoxItem FontSize="15" FontFamily="Constantia">Obliques</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" >Quads</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" >Biceps</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" >Abs</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" >Abductors</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" >Traps</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" >Triceps</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" >Hamstrings</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" >Calves</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" >Lats</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" >Lower Back</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" >Glutes</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" >Cardio</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" >Shoulders</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" >Chest</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" >Forearms</ComboBoxItem>
+                            <ComboBoxItem FontSize="15" >Obliques</ComboBoxItem>
                         </ComboBox>
 
 
@@ -62,8 +83,8 @@
                                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <Label Grid.Column="0" FontSize="15" FontFamily="Constantia">Free Weights</Label>
-                            <Label Grid.Column="2" FontSize="15" FontFamily="Constantia">Machine</Label>
+                            <Label Grid.Column="0" FontSize="15" >Free Weights</Label>
+                            <Label Grid.Column="2" FontSize="15" >Machine</Label>
                             <CheckBox Margin="0,7,0,0" Grid.Column="1" IsChecked="{Binding AllowFreeWeights}"/>
                             <CheckBox Margin="0,7,0,0" Grid.Column="3" IsChecked="{Binding AllowMachines}"/>
                         </Grid>
@@ -83,10 +104,26 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                                 <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <Label Grid.Row="0" Grid.Column="0" FontSize="15" FontFamily="Constantia">Group</Label>
-                            <Label Grid.Row="0" Grid.Column="1" FontSize="15" FontFamily="Constantia" Content="{Binding Order}"></Label>
-                        </Grid>
+                            <Label Grid.Row="0" Grid.Column="0" FontSize="15" >Group</Label>
+                        <Label Grid.Row="0" Grid.Column="1" FontSize="15"  Content="{Binding Order}"></Label>
+                            <Button Grid.Column="2" 
+                                    Command="{Binding ElementName=PlanningTabControl, Path=DataContext.DeleteGroupCommand}" 
+                                    CommandParameter="{Binding }"
+                                    Background="Transparent">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Grid Background="{TemplateBinding Background}">
+                                            <ContentPresenter />
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Button.Template>
+                                <Image Source="/WorkoutHelper;component/Resources/imgs/trash.png" 
+                                       Height="12px"
+                                       Width="12px"/>
+                            </Button>
+                    </Grid>
                     </GroupBox.Header>
                     <GroupBox.Content>
                         <Grid>
@@ -99,25 +136,24 @@
                             <!-- FIFTH LEVEL: Groupboxes containing exercises -->
                             <ItemsControl Grid.Row="0" x:Name="ExercisesList" ItemsSource="{Binding Exercises}" ItemTemplate="{StaticResource ExerciseBox}"/>
 
-                            <Button Grid.Row="1">
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="Click">
-                                        <i:InvokeCommandAction Command="{Binding ElementName=PlanningTabControl, Path=DataContext.AddExerciseCommand}" CommandParameter="{Binding}"></i:InvokeCommandAction>
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                                <Button.Template>
-                                    <ControlTemplate>
-                                        <Grid Width="50" Height="50">
-                                            <Ellipse Fill="LightGray" Margin="5"/>
+                        <Button Grid.Row="1" 
+                                    Style="{StaticResource PrimaryColoredButton}"
+                                    Command="{Binding ElementName=PlanningTabControl, Path=DataContext.AddExerciseCommand}"
+                                    CommandParameter="{Binding}">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Grid Width="50" Height="50">
+                                        <Ellipse Fill="{TemplateBinding BorderBrush}" Margin="5"/>
+                                        <Ellipse Fill="{TemplateBinding Background}" Margin="5"/>
 
-                                            <Ellipse Margin="15">
-                                                <Ellipse.Fill>
-                                                    <ImageBrush ImageSource="/WorkoutHelper;component/Resources/imgs/plussymbol.png"/>
-                                                </Ellipse.Fill>
-                                            </Ellipse>
-                                        </Grid>
-                                    </ControlTemplate>
-                                </Button.Template>
+                                        <Ellipse Margin="15">
+                                            <Ellipse.Fill>
+                                                <ImageBrush ImageSource="/WorkoutHelper;component/Resources/imgs/plussymbol.png"/>
+                                            </Ellipse.Fill>
+                                        </Ellipse>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Button.Template>
                             </Button>
                         </Grid>
                     </GroupBox.Content>
@@ -146,7 +182,7 @@
                             <ColumnDefinition Width="Auto"></ColumnDefinition>
                             <ColumnDefinition Width="Auto"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" FontSize="15" FontFamily="Constantia">Day Enabled </Label>
+                        <Label Grid.Column="0" FontSize="15" >Day Enabled </Label>
                         <CheckBox Grid.Column="1" Margin="0,7,0,0" IsChecked="{Binding Enabled}"></CheckBox>
                     </Grid>
 
@@ -157,16 +193,15 @@
                     <!-- THIRD LEVEL: Groupboxes of groups -->
                     <ItemsControl Grid.Row="1" x:Name="GroupsList" ItemsSource="{Binding Groups}" ItemTemplate="{StaticResource GroupBox}"/>
 
-                    <Button Grid.Row="2">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="Click">
-                                <i:InvokeCommandAction Command="{Binding ElementName=PlanningTabControl, Path=DataContext.AddGroupCommand}" CommandParameter="{Binding}"></i:InvokeCommandAction>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
+                    <Button Grid.Row="2" 
+                            Style="{StaticResource PrimaryColoredButton}"
+                            Command="{Binding ElementName=PlanningTabControl, Path=DataContext.AddGroupCommand}" 
+                            CommandParameter="{Binding}">
                         <Button.Template>
                             <ControlTemplate>
                                 <Grid Width="50" Height="50">
-                                    <Ellipse Fill="LightGray" Margin="5"/>
+                                    <Ellipse Fill="{TemplateBinding BorderBrush}" Margin="5"/>
+                                    <Ellipse Fill="{TemplateBinding Background}" Margin="5"/>
 
                                     <Ellipse Margin="15">
                                         <Ellipse.Fill>
@@ -190,8 +225,8 @@
         </Grid.RowDefinitions>
 
         <!-- TOP LEVEL: Banner -->
-        <Rectangle Grid.Row="0" Fill="DimGray"/>
-        <Label Grid.Row="0" FontFamily="Dead Kansas" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24pt" Foreground="White" Content="{Binding PageName}"/>
+        <Rectangle Grid.Row="0" Fill="{StaticResource PrimaryBrush}"/>
+        <Label Grid.Row="0" FontFamily="Dead Kansas" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24pt"  Content="{Binding PageName}"/>
 
         <!-- TOP LEVEL: Tabs + content -->
         <TabControl x:Name="PlanningTabControl" Grid.Row="1" Margin="10,5,10,5" ItemsSource="{Binding Plans}" SelectedItem="{Binding SelectedDay}" ContentTemplate="{StaticResource TabContent}">
@@ -199,7 +234,7 @@
             <!-- SECOND LEVEL: Tabs -->
             <TabControl.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding Name}" FontSize="15" FontFamily="Constantia"></Label>
+                    <Label Content="{Binding Name}" FontSize="15" ></Label>
                 </DataTemplate>
             </TabControl.ItemTemplate>
         </TabControl>
@@ -215,8 +250,25 @@
 
 
         <!-- TOP LEVEL: Save control -->
-        <Button Command="{Binding SaveCommand}" Grid.Row="2" Width="120px" HorizontalAlignment="Right" Margin="0,0,10,5">
-            <Label FontSize="15" FontFamily="Constantia">Save</Label>
+        <Button Command="{Binding SaveCommand}" 
+                Grid.Row="2" 
+                Width="120px" 
+                Height="32px"
+                HorizontalAlignment="Right" 
+                Margin="0,0,10,10"
+                Style="{StaticResource SecondaryColoredButton}">
+            <Button.Template>
+                <ControlTemplate>
+                    <Border BorderBrush="{TemplateBinding BorderBrush}"
+                            Background="{TemplateBinding Background}"
+                            BorderThickness="1">
+                        <Label Content="Save"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="16"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
         </Button>
 
 

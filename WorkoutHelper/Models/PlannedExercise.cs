@@ -20,7 +20,7 @@ namespace WorkoutHelper.Models
         public string MuscleGroup { get; set; }
 
         [Column("Difficulty")]
-        public int Difficulty { get; set; }
+        public int Difficulty { get; set; } = 1;
 
         [Column("AllowFreeWeights")]
         public bool AllowFreeWeights { get; set; }

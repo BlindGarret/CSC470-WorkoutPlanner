@@ -1,4 +1,6 @@
-﻿namespace WorkoutHelper.Views
+﻿using System.Windows;
+
+namespace WorkoutHelper.Views
 {
     /// <summary>
     /// Interaction logic for ShellView.xaml
@@ -11,6 +13,7 @@
         public ShellView()
         {
             InitializeComponent();
+            Style = (Style)FindResource(typeof(Window));
         }
     }
 }

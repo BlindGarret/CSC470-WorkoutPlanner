@@ -10,11 +10,19 @@ namespace WorkoutHelper.DesignViewModels
 
         public ITabViewComponent SelectedView { get; set; } = new MockViewComponent("Dashboard");
 
-        public IReadOnlyList<ITabViewComponent> Views { get; set; } = new List<ITabViewComponent>() { new MockViewComponent("Dashboard"), new MockViewComponent("Another"), new MockViewComponent("And Another"), };
+        public IReadOnlyList<ITabViewComponent> Views { get; set; } = new List<ITabViewComponent>()
+        {
+            new MockViewComponent("Dashboard"),
+            new MockViewComponent("Workout"),
+            new MockViewComponent("Exercises"),
+            new MockViewComponent("Planning"),
+            new MockViewComponent("Weigh In"),
+            new MockViewComponent("Settings")
+        };
 
         public string Avatar { get; set; }
 
-        public string DisplayName { get; set; }
+        public string DisplayName { get; set; } = "Herp A Derp";
 
         #endregion
 
@@ -22,6 +30,8 @@ namespace WorkoutHelper.DesignViewModels
 
         public DelegateCommand<ITabViewComponent> SelectViewCommand { get; set; }
 
+        public DelegateCommand<ITabViewComponent> LogoutCommand { get; set; }
+        
         #endregion
 
         private class MockViewComponent : ITabViewComponent

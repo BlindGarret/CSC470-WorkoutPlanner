@@ -18,5 +18,7 @@ namespace WorkoutHelper.DesignViewModels
         public DelegateCommand<ObservableUser> LoginCommand { get; set; }
 
         public DelegateCommand AddUserCommand { get; set; }
+
+        public DelegateCommand<ObservableUser> DeleteUserCommand { get; set; }
     }
 }

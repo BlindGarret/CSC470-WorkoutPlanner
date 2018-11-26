@@ -27,6 +27,10 @@ namespace WorkoutHelper.DesignViewModels
 
         public DelegateCommand<ObservablePlannedWeekday> AddGroupCommand { get; set; }
 
+        public DelegateCommand<ObservablePlannedGroup> DeleteGroupCommand { get; set; }
+
+        public DelegateCommand<ObservablePlannedExercise> DeleteExerciseCommand { get; set; }
+
         public DelegateCommand SaveCommand { get; set; }
 
         #endregion

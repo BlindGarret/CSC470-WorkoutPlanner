@@ -16,24 +16,30 @@
             <RowDefinition />
             <RowDefinition  Height="Auto"/>
         </Grid.RowDefinitions>
-        <Label Content="Select User"
-               HorizontalAlignment="Center"
-               Margin="0,10"
-               FontSize="20"
-               FontFamily="Dead Kansas"/>
+        <Grid Background="{StaticResource PrimaryBrush}">
+            <Label Content="Select User"
+                   HorizontalAlignment="Center"
+                   Margin="0,10"
+                   FontWeight="Bold"
+                   FontSize="24"/>
+        </Grid>
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="80,5">
             <ItemsControl x:Name="UserSet"
                       ItemsSource="{Binding Users}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Button Command="{Binding ElementName=UserSet, Path=DataContext.LoginCommand}" CommandParameter="{Binding }">
+                        <Button Command="{Binding ElementName=UserSet, Path=DataContext.LoginCommand}" 
+                                CommandParameter="{Binding }" 
+                                Height="50"
+                                Style="{StaticResource SecondaryColoredButton}">
                             <Button.Template>
                                 <ControlTemplate>
-                                    <Border Height="50" BorderBrush="Black" BorderThickness="1" Margin="1" Background="Transparent">
+                                    <Border  BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" Margin="1" Background="{TemplateBinding Background}">
                                         <Grid>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition />
+                                                <ColumnDefinition Width="Auto"/>
                                             </Grid.ColumnDefinitions>
                                             <Image Margin="5,0"
                                                 Grid.Column="0"
@@ -42,11 +48,29 @@
                                                 Stretch="UniformToFill" 
                                                 Source="{Binding Avatar, FallbackValue={StaticResource DefaultUserImage}}">
                                             </Image>
-                                            <TextBlock Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">
+                                            <TextBlock Grid.Column="0" 
+                                                       Grid.ColumnSpan="3" 
+                                                       HorizontalAlignment="Center" 
+                                                       VerticalAlignment="Center" 
+                                                       FontSize="18"
+                                                       FontWeight="Bold">
                                                 <Run Text="{Binding FirstName}"></Run>
-                                                <Run Text=" "></Run>
                                                 <Run Text="{Binding LastName}"></Run>
                                             </TextBlock>
+
+                                            <Button Grid.Column="2" 
+                                                    Command="{Binding ElementName=UserSet, Path=DataContext.DeleteUserCommand}" 
+                                                    CommandParameter="{Binding }"
+                                                    Background="Transparent">
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Grid Background="{TemplateBinding Background}">
+                                                            <ContentPresenter />
+                                                        </Grid>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                                <Image Source="/WorkoutHelper;component/Resources/imgs/trash.png" Margin="5"/>
+                                            </Button>
                                         </Grid>
                                     </Border>
                                 </ControlTemplate>
@@ -57,11 +81,14 @@
             </ItemsControl>
         </ScrollViewer>
 
-        <Button Grid.Row="2" Command="{Binding AddUserCommand}">
+        <Button Grid.Row="2" 
+                Command="{Binding AddUserCommand}"
+                Style="{StaticResource PrimaryColoredButton}">
             <Button.Template>
                 <ControlTemplate>
                     <Grid Width="50" Height="50">
-                        <Ellipse Fill="LightGray" Margin="5"/>
+                        <Ellipse Fill="{TemplateBinding BorderBrush}" Margin="5"/>
+                        <Ellipse Fill="{TemplateBinding Background}" Margin="5"/>
 
                         <Ellipse Margin="15">
                             <Ellipse.Fill>

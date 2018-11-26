@@ -68,6 +68,32 @@ namespace WorkoutHelper.ViewModels
 
         #endregion
 
+        #region DeleteGroupCommand
+
+        public DelegateCommand<ObservablePlannedGroup> DeleteGroupCommand { get; set; }
+
+        private void DeleteGroupCommandOnExecute(ObservablePlannedGroup group)
+        {
+            SelectedDay.Groups.Remove(group);
+        }
+
+        #endregion
+
+        #region DeleteExerciseCommand
+
+        public DelegateCommand<ObservablePlannedExercise> DeleteExerciseCommand { get; set; }
+
+        private void DeleteExerciseCommandOnExecute(ObservablePlannedExercise exercise)
+        {
+            //No way to know which group, so just delete by reference on them all.
+            foreach (var observablePlannedGroup in SelectedDay.Groups)
+            {
+                observablePlannedGroup.Exercises.Remove(exercise);
+            }
+        }
+
+        #endregion
+
         #region SaveCommand
 
         public DelegateCommand SaveCommand { get; set; }
@@ -101,6 +127,8 @@ namespace WorkoutHelper.ViewModels
             AddExerciseCommand = new DelegateCommand<ObservablePlannedGroup>(AddExerciseCommandOnExecute);
             AddGroupCommand = new DelegateCommand<ObservablePlannedWeekday>(AddGroupCommandOnExecute);
             SaveCommand = new DelegateCommand(SaveCommandOnExecute);
+            DeleteGroupCommand = new DelegateCommand<ObservablePlannedGroup>(DeleteGroupCommandOnExecute);
+            DeleteExerciseCommand = new DelegateCommand<ObservablePlannedExercise>(DeleteExerciseCommandOnExecute);
         }
 
         public void TabLoaded()
