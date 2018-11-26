@@ -59,6 +59,10 @@ namespace WorkoutHelper.ViewModels
             {
                 if (_height != value)
                 {
+                    if (value < 0)
+                    {
+                        value = 0;
+                    }
                     _height = value;
                     RaisePropertyChanged(nameof(Height));
                 }

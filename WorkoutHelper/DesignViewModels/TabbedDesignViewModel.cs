@@ -30,6 +30,8 @@ namespace WorkoutHelper.DesignViewModels
 
         public DelegateCommand<ITabViewComponent> SelectViewCommand { get; set; }
 
+        public DelegateCommand<ITabViewComponent> LogoutCommand { get; set; }
+        
         #endregion
 
         private class MockViewComponent : ITabViewComponent

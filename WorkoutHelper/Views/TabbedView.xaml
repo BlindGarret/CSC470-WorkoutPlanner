@@ -29,13 +29,33 @@
                         <RowDefinition Height="90px"/>
                         <RowDefinition />
                     </Grid.RowDefinitions>
-                    <Image 
-                        Height="80" 
-                        Width="80"
-                        Margin="0,5"
-                        Stretch="UniformToFill" 
-                        Source="{Binding Avatar, FallbackValue={StaticResource DefaultUserImage}}">
-                    </Image>
+                    <Grid>
+                        <Button Command="{Binding Path=LogoutCommand}" 
+                                CommandParameter="{Binding }"
+                                Background="Transparent"
+                                Height="20"
+                                Width="20"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                Margin="5">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Grid Background="{TemplateBinding Background}">
+                                        <ContentPresenter />
+                                    </Grid>
+                                </ControlTemplate>
+                            </Button.Template>
+                            <Image Source="/WorkoutHelper;component/Resources/imgs/logout.png"/>
+                        </Button>
+                        <Image 
+                            Height="80" 
+                            Width="80"
+                            Margin="0,5"
+                            Stretch="UniformToFill" 
+                            Source="{Binding Avatar, FallbackValue={StaticResource DefaultUserImage}}">
+                        </Image>
+
+                    </Grid>
                     <Label  Grid.Row="1"
                             HorizontalAlignment="Center" 
                             Content="{Binding DisplayName}"

@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Linq;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -33,8 +34,13 @@ namespace WorkoutHelper.ViewModels
             get => _weight;
             set
             {
-                if (_weight != value)
+                if (Math.Abs(_weight - value) > 0.00001)
                 {
+                    if (value < 0)
+                    {
+                        RaisePropertyChanged(nameof(Weight));
+                        return;
+                    }
                     _weight = value;
                     RaisePropertyChanged(nameof(Weight));
                 }

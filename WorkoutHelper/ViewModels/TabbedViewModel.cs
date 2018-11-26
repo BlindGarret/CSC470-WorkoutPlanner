@@ -86,15 +86,29 @@ namespace WorkoutHelper.ViewModels
 
         #endregion
 
+        #region LogoutCommand
+
+        public DelegateCommand LogoutCommand { get; set; }
+
+        private void LogoutCommandOnExecute()
+        {
+            _eventAggregator.GetEvent<LogoutEvent>().Publish();
+        }
+
+        #endregion
+
         private readonly IDataService _dataService;
         private readonly ISessionService _sessionService;
+        private readonly IEventAggregator _eventAggregator;
 
         public TabbedViewModel(IUnityContainer container, IDataService dataService, ISessionService sessionService, IEventAggregator eventAggregator)
         {
             _dataService = dataService;
             _sessionService = sessionService;
+            _eventAggregator = eventAggregator;
 
             SelectViewCommand = new DelegateCommand<ITabViewComponent>(SelectViewCommandOnExecute);
+            LogoutCommand = new DelegateCommand(LogoutCommandOnExecute);
 
             eventAggregator.GetEvent<SettingsChangedEvent>().Subscribe(Rendered);
 
